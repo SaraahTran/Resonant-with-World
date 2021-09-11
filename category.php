@@ -11,11 +11,10 @@
 </head>
 
 <body>
-
 <?php include('./menu.php');?>
 
-<h1>Category</h1>
 
+<h1>Category</h1>
 
 </body>
 

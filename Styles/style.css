@@ -1,3 +1,11 @@
+/*Global*/
+*{
+    font-family: Montserrat, sans-serif!important;
+}
+
+html, body {
+    height: 100%;
+}
 
 /*Menu*/
 
@@ -13,7 +21,9 @@
     font-family: Montserrat, sans-serif;
     letter-spacing: 1px;
     font-weight: 100;
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0.15rem 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    z-index: 3!important;
+
 }
 
 .content-container {
@@ -80,19 +90,63 @@ i{
     width: 100%;
 }
 
+/*Top Bar*/
+
+nav{
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    height: 70px;
+    padding-top: 10px;
+    z-index: 1!important;
+}
+
+.icon{
+    color: #e0e0e0;
+}
+
+.icon:hover{
+    color: #2D475C;
+    transition: all 0.5s;
+}
+
+.vl {
+    border-left: 1px solid lightgrey;
+    height: 40px;
+}
+
+
+.topbar-text{
+    color: grey;
+    font-size: 15px;
+}
+
+.topbar-text:hover{
+    color: #2D475C;
+    transition: all 0.5s;
+}
+
+.dropdown-item:active{
+    background: #2D475C!important;
+}
+
 /*Pages*/
 
 .content-container {
-    padding: 40px 270px;
-    background: #F2F7FB;
-    height: 100%;
+    padding: 0px 0px 0px 250px;
+    margin: 0px;
     color: #535353;
     font-family: Montserrat, sans-serif;
+    background: #F2F7FB;
+    height: 100%;
+
+}
+
+.container-fluid{
+    padding-top: 40px;
 }
 
 h1{
     font-weight: 700;
-    font-size: 30px;
+    font-size: 25px!important;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
