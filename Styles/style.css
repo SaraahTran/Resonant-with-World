@@ -1,0 +1,98 @@
+
+/*Menu*/
+
+.sidebar-container {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #2D475C 0%, #416683 100%);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+    box-shadow: 0 0 10px grey;
+}
+
+.content-container {
+    padding-top: 20px;
+}
+
+.sidebar-logo {
+    padding: 40px 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+i{
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.sidebar-navigation {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative;
+}
+
+.sidebar-navigation li {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+}
+
+.sidebar-navigation li a {
+    padding: 25px;
+    font-size: 16px;
+    display: block;
+    color: #fff;
+}
+
+.sidebar-navigation li .fa {
+    margin-right: 10px;
+}
+
+.sidebar-navigation li a:active,
+.sidebar-navigation li a:hover,
+.sidebar-navigation li a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.sidebar-navigation li::before {
+    background: linear-gradient(90deg, #7986B4 0%, #416683 100%);
+    position: absolute;
+    content: '';
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 3px;
+    z-index: -1;
+}
+
+.sidebar-navigation li:hover::before {
+    width: 100%;
+}
+
+/*Pages*/
+
+.content-container {
+    padding: 40px 270px;
+    background: #F2F7FB;
+    height: 100%;
+    color: #535353;
+    font-family: Montserrat, sans-serif;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}

@@ -9,7 +9,7 @@
 
 <?php include('./menu.php');?>
 
-<h1>Resonant With World</h1>
+<h1>Photoshoot</h1>
 
 
 </body>
