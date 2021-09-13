@@ -19,24 +19,27 @@
 <?php include('./menu.php');?>
 
 <h1>Clients</h1>
-<button onclick="window.location='addclient.php?id=">Add New Client</button>
+<div class="table-container">
+<button class="add-button" onclick="window.location='addclient.php?id=">Add New Client</button>
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
 $stmt = $dbh->prepare("SELECT * FROM `Client`");
 $stmt->execute();
 ?>
-<table class="table">
-    <thead>
+
+<div class="container table-responsive">
+<table class="table table-bordered responsive">
+    <thead class="align-self-baseline" >
     <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Surname</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Client Subscribed</th>
-        <th>Client Other Information</th>
-        <th>Actions</th>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Subscribed?</th>
+        <th scope="col">Other Information</th>
+        <th scope="col">Actions</th>
     </tr>
     </thead>
     <?php while ($row = $stmt->fetchObject()):?>
@@ -51,14 +54,14 @@ $stmt->execute();
         <td><?php echo $row->Client_Subscribed; ?> </td>
         <td><?php echo $row->Client_Other_Information; ?> </td>
         <td>
-            <button onclick="window.location='updateclient.php?id=<?= $row->client_id ?>'">View</button>
-            <button onclick="window.location='updateclient.php?id=<?= $row->client_id ?>'">Update</button>
-            <button onclick="window.location='deleteclient.php?id=<?= $row->client_id ?>'">Delete</button>
+            <button class="action-button" onclick="window.location='updateclient.php?id=<?= $row->client_id ?>'">View</button>
+            <button class="action-button"  onclick="window.location='updateclient.php?id=<?= $row->client_id ?>'">Update</button>
+            <button class="action-button"  onclick="window.location='deleteclient.php?id=<?= $row->client_id ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
     </tr>
 </tbody>
-</table>
+</table></div></div>
 </body>
 
 </html>

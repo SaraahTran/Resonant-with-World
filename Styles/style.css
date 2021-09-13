@@ -210,7 +210,6 @@ ul {
 .month {
   padding: 10px 20px;
   width: 100%;
-  background: white;
   color: #535353!important;
   font-weight: 600;
   text-align: center;
@@ -251,7 +250,6 @@ ul {
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color: white;
   border-bottom: 1px solid lightgrey;
 }
 
@@ -266,7 +264,6 @@ ul {
 /* Days (1-31) */
 .days {
   padding: 10px 0;
-  background:white;
   margin: 0;
 }
 
@@ -285,4 +282,103 @@ ul {
   padding: 5px;
   background: #1abc9c;
   color: white !important
+}
+
+/*Tables*/
+
+.table-container{
+  margin-top: 20px;
+}
+table{
+  border: none!important;
+}
+th, td {
+  padding: 0.5em 1em;
+}
+
+thead tr:first-child th:first-child {
+  border-radius: 0.6em 0 0 0;
+}
+
+thead tr:first-child th:last-child {
+  border-radius: 0 0.6em 0 0;
+}
+
+tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 0.6em;
+}
+
+tbody tr:last-child td:last-child {
+  border-radius: 0 0 0.6em 0;
+}
+
+th{
+  width: 20px!important;
+}
+
+thead{
+  font-size: 15px!important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #385972;
+  padding-top: 0px!important;
+  background: #E3E5EE;
+
+}
+
+td{
+  background: white!important;
+  border: none!important;
+  color: grey;
+  font-size: 14px!important;
+}
+
+/*Add Button*/
+
+
+.add-button {
+  background-image: linear-gradient(to right, #2d475c 0%, #7986b4 100%, #416683  100%)
+}
+
+.add-button {
+  margin: 10px;
+  padding: 15px 45px;
+  width: 300px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 2px;
+  font-size: 13px;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 5px;
+  display: block;
+  border: none!important;
+}
+
+.add-button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/*Action Buttons*/
+
+.action-button{
+  border: none;
+  background: #7986b4;
+  color: white;
+  width: 100px;
+  font-size: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+transition: all 0.5s;
+}
+
+.action-button:hover{
+  background: #f2f7fb;
+  color: #535353;
 }
