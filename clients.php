@@ -25,7 +25,6 @@
 
 </html>
 
-
 <!--
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
