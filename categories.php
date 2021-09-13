@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Product Edit</title>
+    <title>Resonant With World Category</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
     <!--Bootstrap-->
@@ -11,11 +11,10 @@
 </head>
 
 <body>
-
 <?php include('./menu.php');?>
 
-<h1>Product Edit</h1>
 
+<h1>Categories</h1>
 
 </body>
 

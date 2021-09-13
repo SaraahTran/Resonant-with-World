@@ -14,7 +14,7 @@
 
 <?php include('./menu.php');?>
 
-<h1>Client</h1>
+<h1>Clients</h1>
 
 
 </body>

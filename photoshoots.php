@@ -9,7 +9,7 @@
 
 <?php include('./menu.php');?>
 
-<h1>Photoshoot</h1>
+<h1>Photoshoots</h1>
 
 
 </body>

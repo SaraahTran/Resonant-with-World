@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Product</title>
+    <title>Resonant With World Client </title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
     <!--Bootstrap-->
@@ -14,10 +14,9 @@
 
 <?php include('./menu.php');?>
 
-<h1>Product</h1>
+<h1>Images</h1>
 
 
 </body>
 
 </html>
-

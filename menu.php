@@ -16,6 +16,11 @@
     <div class="sidebar-logo">
  Resonant With World
     </div>
+
+    <div class="hl"></div>
+
+
+
     <ul class="sidebar-navigation">
 
         <li>
@@ -24,26 +29,46 @@
             </a>
         </li>
 
-
         <li>
-            <a href="/product.php">
-                <i class="bi bi-bag-fill" aria-hidden="true"></i> Products
-            </a>
-        </li>
-        <li>
-            <a href="/client.php">
+            <a href="/clients.php">
                 <i class="bi bi-people-fill" aria-hidden="true"></i> Clients
             </a>
         </li>
+        
         <li>
-            <a href="/photoshoot.php">
+            <a href="/products.php">
+                <i class="bi bi-bag-fill" aria-hidden="true"></i> Products
+            </a>
+        </li>
+
+        <li>
+            <a href="/multiple-products.php">
+                <i class="bi bi-basket3-fill" aria-hidden="true"></i> Multiple Products
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/photoshoots.php">
                 <i class="bi bi-camera-fill" aria-hidden="true"></i> Photoshoots
             </a>
         </li>
 
         <li>
-            <a href="/category.php">
+            <a href="/categories.php">
                 <i class="bi bi-tags-fill" aria-hidden="true"></i> Categories
+            </a>
+        </li>
+
+        <li>
+            <a href="/images.php">
+                <i class="bi bi-image-fill" aria-hidden="true"></i> Images
+            </a>
+        </li>
+
+        <li>
+            <a href="/documentation.php">
+                <i class="bi bi-file-earmark-fill" aria-hidden="true"></i> Documentation
             </a>
         </li>
     </ul>
@@ -67,7 +92,7 @@
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#"class="dropdown-item">Log Out</a>
+                    <a href="#" class="dropdown-item">Log Out</a>
                 </div>
             </div>
 

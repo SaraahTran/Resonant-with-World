@@ -1,152 +1,150 @@
 /*Global*/
-*{
-    font-family: Montserrat, sans-serif!important;
+* {
+  font-family: Montserrat, sans-serif !important;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 /*Menu*/
 
 .sidebar-container {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: linear-gradient(180deg, #2D475C 0%, #416683 100%);
-    color: #fff;
-    font-family: Montserrat, sans-serif;
-    letter-spacing: 1px;
-    font-weight: 100;
-    box-shadow: 0.15rem 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-    z-index: 3!important;
-
-}
-
-.content-container {
-    padding-top: 20px;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #2d475c 0%, #416683 100%);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 100;
+  box-shadow: 0.15rem 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  z-index: 3 !important;
 }
 
 .sidebar-logo {
-    padding: 40px 20px;
-    font-size: 26px;
-    font-weight: bold;
+  padding: 30px 15px 25px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  border-bottom: 1px dotted rgba(173, 216, 230, 0.329);
 }
 
-i{
-    font-size: 25px;
-    margin-right: 10px;
+i {
+  font-size: 22px;
+  margin-right: 10px;
 }
 
 .sidebar-navigation {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  position: relative;
 }
 
 .sidebar-navigation li {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    line-height: 20px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 20px;
 }
 
 .sidebar-navigation li a {
-    padding: 25px;
-    font-size: 16px;
-    display: block;
-    color: #fff;
+  padding: 25px;
+  font-size: 15px;
+  display: block;
+  color: #fff;
 }
 
 .sidebar-navigation li .fa {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .sidebar-navigation li a:active,
 .sidebar-navigation li a:hover,
 .sidebar-navigation li a:focus {
-    text-decoration: none;
-    outline: none;
+  text-decoration: none;
+  outline: none;
 }
 
 .sidebar-navigation li::before {
-    background: linear-gradient(90deg, #7986B4 0%, #416683 100%);
-    position: absolute;
-    content: '';
-    height: 100%;
-    left: 0;
-    top: 0;
-    -webkit-transition: width 0.2s ease-in;
-    transition: width 0.2s ease-in;
-    width: 3px;
-    z-index: -1;
+  background: linear-gradient(90deg, #7986b4 0%, #416683 100%);
+  position: absolute;
+  content: "";
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 1px;
+  margin-left: -1px;
+  z-index: -1;
 }
 
 .sidebar-navigation li:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 /*Top Bar*/
 
-nav{
-    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-    height: 70px;
-    padding-top: 10px;
-    z-index: 1!important;
+nav {
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  height: 80px;
+  padding-top: 15px;
+  z-index: 1 !important;
 }
 
-.icon{
-    color: #e0e0e0;
+.icon {
+  color: #e0e0e0;
 }
 
-.icon:hover{
-    color: #2D475C;
-    transition: all 0.5s;
+.icon:hover {
+  color: #2d475c;
+  transition: all 0.5s;
 }
 
 .vl {
-    border-left: 1px solid lightgrey;
-    height: 40px;
+  border-left: 1px solid lightgrey;
+  height: 40px;
 }
 
-
-.topbar-text{
-    color: grey;
-    font-size: 15px;
+.topbar-text {
+  color: grey;
+  font-size: 15px;
 }
 
-.topbar-text:hover{
-    color: #2D475C;
-    transition: all 0.5s;
+.topbar-text:hover {
+  color: #2d475c;
+  transition: all 0.5s;
 }
 
-.dropdown-item:active{
-    background: #2D475C!important;
+.dropdown-item:active {
+  background: #2d475c !important;
 }
 
 /*Pages*/
 
 .content-container {
-    padding: 0px 0px 0px 250px;
-    margin: 0px;
-    color: #535353;
-    font-family: Montserrat, sans-serif;
-    background: #F2F7FB;
-    height: 100%;
-
+  padding: 0px 0px 0px 250px;
+  margin: 0px;
+  color: #535353;
+  font-family: Montserrat, sans-serif;
+  background: #f2f7fb;
+  height: 100%;
 }
 
-.container-fluid{
-    padding-top: 40px;
+.container-fluid {
+  padding-top: 20px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
 }
 
-h1{
-    font-weight: 700;
-    font-size: 25px!important;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+h1 {
+  font-weight: 700;
+  font-size: 25px !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
