@@ -19,15 +19,15 @@
 <?php include('./menu.php');?>
 
 <h1>Clients</h1>
-<button onclick="window.location='addclient.php?id=<?= $row->client_id ?>'">Add New Client</button>
+<button onclick="window.location='addclient.php?id=">Add New Client</button>
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
 $stmt = $dbh->prepare("SELECT * FROM `Client`");
 $stmt->execute();
 ?>
-<table border="1">
-
-    <tr class ="rows">
+<table class="table">
+    <thead>
+    <tr>
         <th>ID</th>
         <th>First Name</th>
         <th>Surname</th>
@@ -37,11 +37,11 @@ $stmt->execute();
         <th>Client Subscribed</th>
         <th>Client Other Information</th>
         <th>Actions</th>
-
     </tr>
+    </thead>
     <?php while ($row = $stmt->fetchObject()):?>
-
-    <tr class = "rows">
+<tbody>
+    <tr>
         <td><?php echo $row->Client_ID; ?> </td>
         <td><?php echo $row->Client_FirstName; ?> </td>
         <td><?php echo $row->Client_Surname; ?> </td>
@@ -56,7 +56,9 @@ $stmt->execute();
             <button onclick="window.location='deleteclient.php?id=<?= $row->client_id ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
-
+    </tr>
+</tbody>
+</table>
 </body>
 
 </html>

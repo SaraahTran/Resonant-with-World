@@ -6,6 +6,7 @@
 html,
 body {
   height: 100%;
+  background: #f2f7fb;
 }
 
 /*Menu*/
@@ -27,10 +28,19 @@ body {
 }
 
 .sidebar-logo {
-  padding: 30px 15px 25px 20px;
-  font-size: 17px;
-  font-weight: bold;
+  padding: 20px 10px 10px 10px;
   border-bottom: 1px dotted rgba(173, 216, 230, 0.329);
+}
+
+.company-name{
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.logo{
+  height: 50px;
 }
 
 i {
@@ -143,20 +153,66 @@ nav {
 }
 
 h1 {
-  font-weight: 700;
-  font-size: 25px !important;
+  font-weight: 400!important;
+  font-size: 17px !important;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
 
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
+/*Home*/
+
+.row{
+  margin-top: 25px!important;
+  width: 100%;
+}
+
+.card{
+  box-shadow: 0px 1px 10px rgba(58, 59, 69, 0.15);
+}
+
+.big-card{
+  height: 350px;
+}
+
+.small-card{
+  border-left: 4px solid #7986b4!important;
+}
+
+.card-title{
+  font-size: 13px;
+  color: #AEAEAE;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.card-header{
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #385972;
+  border: none!important;
+  background: #E3E5EE!important;
+}
+
+.count{
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/*Calendar*/
+
+ul {
+  list-style-type: none;
+}
 
 /* Month header */
 .month {
-  padding: 70px 25px;
+  padding: 10px 20px;
   width: 100%;
-  background: #1abc9c;
+  background: white;
+  color: #535353!important;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -167,34 +223,42 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
+  font-size: 17px;
   letter-spacing: 3px;
 }
 
 /* Previous button inside month header */
 .month .prev {
   float: left;
-  padding-top: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  background: #385972;
 }
 
 /* Next button */
 .month .next {
   float: right;
-  padding-top: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  background: #385972;
 }
 
 /* Weekdays (Mon-Sun) */
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color:#ddd;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
 }
 
 .weekdays li {
   display: inline-block;
   width: 13.6%;
+  font-size: 12px;
   color: #666;
   text-align: center;
 }
@@ -202,7 +266,7 @@ body {font-family: Verdana, sans-serif;}
 /* Days (1-31) */
 .days {
   padding: 10px 0;
-  background: #eee;
+  background:white;
   margin: 0;
 }
 

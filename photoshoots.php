@@ -10,7 +10,7 @@
 <?php include('./menu.php');?>
 
 <h1>Photoshoots</h1>
-<button onclick="window.location='addphotoshoot.php?id=<?= $row->photo_shoot_id ?>'">Add New Photoshoot</button>
+<button onclick="window.location='addphotoshoot.php?id='">Add New Photoshoot</button>
 
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');

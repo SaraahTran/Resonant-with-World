@@ -12,16 +12,16 @@
 
 <body>
 <?php include('./menu.php');?>
-
-
-<h1>Categories</h1>
-<button onclick="window.location='addcategory.php?id=<?= $row->category_id ?>'">Add New Category</button>
-
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
 $stmt = $dbh->prepare("SELECT * FROM `Category`");
 $stmt->execute();
 ?>
+
+<h1>Categories</h1>
+<button onclick="window.location='addcategory.php?">Add New Category</button>
+
+
 <table border="1">
 
     <tr class ="rows">
