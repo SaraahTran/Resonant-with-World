@@ -15,6 +15,32 @@
 
 
 <h1>Categories</h1>
+<button onclick="window.location='addcategory.php?id=<?= $row->category_id ?>'">Add New Category</button>
+
+<?php
+$dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
+$stmt = $dbh->prepare("SELECT * FROM `Category`");
+$stmt->execute();
+?>
+<table border="1">
+
+    <tr class ="rows">
+        <th>ID</th>
+        <th>Category Name</th>
+        <th>Actions</th>
+
+    </tr>
+    <?php while ($row = $stmt->fetchObject()):?>
+
+    <tr class = "rows">
+        <td><?php echo $row->Category_ID; ?> </td>
+        <td><?php echo $row->Category_Name; ?> </td>
+        <td>
+            <button onclick="window.location='viewcategories.php?id=<?= $row->category_id ?>'">View</button>
+            <button onclick="window.location='updatecategories.php?id=<?= $row->category_id ?>'">Update</button>
+            <button onclick="window.location='deletecategories.php?id=<?= $row->category_id ?>'">Delete</button>
+        </td>
+        <?php endwhile; ?>
 
 </body>
 
