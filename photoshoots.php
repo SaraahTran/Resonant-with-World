@@ -8,9 +8,9 @@
 <body>
 
 <?php include('./menu.php');?>
-
+<div class="container">
 <h1>Photoshoots</h1>
-<div class="table-container">
+
 <button  class="add-button" onclick="window.location='addphotoshoot.php?id='">Add New Photoshoot</button>
 
 <?php
@@ -20,7 +20,7 @@ $dbh = new PDO($dsn, $db_username, $db_passwd);
 $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
 $stmt->execute();
 ?>
-<div class="container table-responsive">
+<div class="table-responsive">
     <table class="table table-bordered responsive">
         <thead>
 

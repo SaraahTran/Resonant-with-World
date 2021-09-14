@@ -14,7 +14,7 @@
 <body>
 
 <?php include('./menu.php');?>
-
+<div class="container">
 <h1>Resonant With World</h1>
 
 <div class="row"><div class="col-8">
@@ -97,7 +97,7 @@ echo "Today is " . date("d/m/Y") ?></span></li>
             </div></div>
     </div>
 
-
+</div>
 
 </body>
 

@@ -17,9 +17,9 @@
 </table>
 
 <?php include('./menu.php');?>
-
+<div class="container">
 <h1>Clients</h1>
-<div class="table-container">
+
 <button class="add-button" onclick="window.location='addclient.php?id=">Add New Client</button>
 <?php
 include('./connection.php');
@@ -29,7 +29,7 @@ $stmt = $dbh->prepare("SELECT * FROM `Client`");
 $stmt->execute();
 ?>
 
-<div class="container table-responsive">
+<div class=" table-responsive">
 <table class="table table-bordered responsive">
     <thead>
     <tr>

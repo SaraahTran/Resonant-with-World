@@ -19,7 +19,7 @@
 <?php include('./menu.php');?>
 
 <h1>Update Client Details</h1>
-<div class="table-container">
+<div class="container">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
     if (!empty($_POST)) {
