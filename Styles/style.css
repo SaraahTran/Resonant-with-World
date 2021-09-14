@@ -166,7 +166,8 @@ nav {
 .container-fluid {
   padding-top: 30px!important;
   padding-left: 30px !important;
-  padding-right: 30px !important;
+  padding-right: 0px!important;
+  margin-right: 15px!important;
 }
 
 h1 {
