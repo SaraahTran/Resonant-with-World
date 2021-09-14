@@ -13,7 +13,9 @@
 <body>
 <?php include('./menu.php');?>
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
+include('./connection.php');
+$dsn = "mysql:host=$db_host;dbname=$db_name";
+$dbh = new PDO($dsn, $db_username, $db_passwd);
 $stmt = $dbh->prepare("SELECT * FROM `Category`");
 $stmt->execute();
 ?>

@@ -22,14 +22,16 @@
 <div class="table-container">
 <button class="add-button" onclick="window.location='addclient.php?id=">Add New Client</button>
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
+include('./connection.php');
+$dsn = "mysql:host=$db_host;dbname=$db_name";
+$dbh = new PDO($dsn, $db_username, $db_passwd);
 $stmt = $dbh->prepare("SELECT * FROM `Client`");
 $stmt->execute();
 ?>
 
 <div class="container table-responsive">
 <table class="table table-bordered responsive">
-    <thead class="align-self-baseline" >
+    <thead>
     <tr>
         <th scope="col">ID</th>
         <th scope="col">First Name</th>

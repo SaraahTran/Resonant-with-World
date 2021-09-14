@@ -17,6 +17,7 @@ body {
   height: 100%;
   left: 0;
   overflow-x: hidden;
+  display: block;
   overflow-y: auto;
   background: linear-gradient(180deg, #2d475c 0%, #416683 100%);
   color: #fff;
@@ -25,6 +26,7 @@ body {
   font-weight: 100;
   box-shadow: 0.15rem 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
   z-index: 3 !important;
+  transition: all 0.5s;
 }
 
 .sidebar-logo {
@@ -98,7 +100,22 @@ i {
   width: 100%;
 }
 
+
+@media screen and (max-width: 800px){
+ .sidebar-container{
+   display: none;
+   position: relative;
+ }
+
+ .content-container{
+   padding: 0px!important;
+ }
+
+  }
+
 /*Top Bar*/
+
+
 
 nav {
   box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
@@ -147,7 +164,7 @@ nav {
 }
 
 .container-fluid {
-  padding-top: 20px;
+  padding-top: 30px!important;
   padding-left: 30px !important;
   padding-right: 30px !important;
 }
@@ -162,7 +179,7 @@ h1 {
 /*Home*/
 
 .row{
-  margin-top: 25px!important;
+  margin-top: 20px!important;
   width: 100%;
 }
 
@@ -176,6 +193,7 @@ h1 {
 
 .small-card{
   border-left: 4px solid #7986b4!important;
+  margin-bottom: 15px;
 }
 
 .card-title{
@@ -291,6 +309,18 @@ ul {
   color: white !important
 }
 
+@media screen and (max-width: 800px){
+  .prev, .weekdays, .days, .next{
+    display: none;
+  }
+
+  .card-header{
+    font-size: 10px;
+    letter-spacing: 0px;
+    transition: all 0.5s;
+  }
+}
+
 /*Tables*/
 
 .table-container{
@@ -298,10 +328,11 @@ ul {
 }
 table{
   border: none!important;
-  width: 100%;
+  border-collapse: separate!important; 
 }
 th, td {
-  padding: 0.5em 1em;
+  padding: 3px;
+  vertical-align: middle!important;
 }
 
 thead tr:first-child th:first-child {
@@ -331,6 +362,7 @@ thead{
   color: #385972;
   padding-top: 0px!important;
   background: #E3E5EE;
+  text-align: center;
 
 }
 
@@ -339,6 +371,7 @@ td{
   border: none!important;
   color: grey;
   font-size: 14px!important;
+  padding: 5px;
 }
 
 /*Add Button*/
@@ -387,7 +420,7 @@ td{
   width: 100px;
   font-size: 10px;
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   letter-spacing: 1px;
 transition: all 0.5s;
 }

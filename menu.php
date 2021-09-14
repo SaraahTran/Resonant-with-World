@@ -79,10 +79,11 @@
 <!--Top Bar-->
 
 <div class="content-container">
-    <nav class="bg-white sticky-top">
+    <nav class="bg-white">
 
+        <div class="navbar-brand d-flex justify-content-end">
+    
 
-        <div class="container-fluid navbar-brand d-flex justify-content-end">
             <a href="#" class="nav-link icon">  <i class="bi bi-envelope-fill"></i></a>
             <a href="#" class="nav-link icon">  <i class="bi bi-bell-fill"></i></a>
 
@@ -103,6 +104,9 @@
 
     <!--Start of Page-->
     <div class="container-fluid">
+
+
+ 
 
 <!-- Bootstrap JavaScript-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
