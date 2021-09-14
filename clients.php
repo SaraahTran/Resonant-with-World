@@ -54,9 +54,9 @@ $stmt->execute();
         <td><?php echo $row->Client_Subscribed; ?> </td>
         <td><?php echo $row->Client_Other_Information; ?> </td>
         <td>
-            <button class="action-button" onclick="window.location='updateclient.php?id=<?= $row->client_id ?>'">View</button>
-            <button class="action-button"  onclick="window.location='updateclient.php?id=<?= $row->client_id ?>'">Update</button>
-            <button class="action-button"  onclick="window.location='deleteclient.php?id=<?= $row->client_id ?>'">Delete</button>
+            <button class="action-button" onclick="window.location='viewClients.php?id=<?= $row->Client_ID ?>'">View</button>
+            <button class="action-button"  onclick="window.location='updateClients.php?id=<?= $row->Client_ID ?>'">Update</button>
+            <button class="action-button"  onclick="window.location='deleteClient.php?id=<?= $row->Client_ID ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
     </tr>
