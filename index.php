@@ -27,7 +27,9 @@
             <ul>
                 <li class="prev">&#10094;</li>
                 <li class="next">&#10095;</li>
-                <li>September 2021</li>
+                <li><?php echo date('F Y', mktime(0, 0, 0, date('m'), 1, date('Y')));?> <br/>
+                <span class="today"><?php
+echo "Today is " . date("d/m/Y") ?></span></li>
             </ul>
         </div>
 
