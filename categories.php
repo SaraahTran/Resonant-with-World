@@ -22,7 +22,7 @@ $stmt->execute();
 <div class="container">
 <h1>Categories</h1>
 
-<button class="add-button" onclick="window.location='addcategory.php?">Add New Category</button>
+<button class="add-button" onclick="window.location='insertCategories.php'">Add New Category</button>
 
 
 
