@@ -20,7 +20,7 @@
 <div class="container">
 <h1>Clients</h1>
 
-<button class="add-button" onclick="window.location='addclient.php?id=">Add New Client</button>
+<button onclick="window.location='insertClients.php'">Add new client record</button>
 <?php
 include('./connection.php');
 $dsn = "mysql:host=$db_host;dbname=$db_name";
