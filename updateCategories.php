@@ -36,7 +36,6 @@ if (!empty($_POST)) {
         'id' => $_GET['id']
     ];
     if ($stmt->execute($parameters)) {
-        header("Location: index.php");
     } else {
         echo friendlyError($stmt->errorInfo()[2]);
         echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
@@ -65,9 +64,7 @@ if (!empty($_POST)) {
                     </div>
             </form>
             </form>
-        <?php } else {
-            header("Location: categories.php");
-        }
+        <?php }
     } else {
         die(friendlyError($stmt->errorInfo()[2]));
     }
