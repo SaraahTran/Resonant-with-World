@@ -471,6 +471,25 @@ transition: all 0.5s;
   color: #535353;
 }
 
+/*Back Button*/
+.back-button{
+  border: none;
+  background: #7986b4;
+  color: white;
+  width: 100%;
+  font-size: 17px;
+  padding: 5px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+  border-radius: 0;
+  margin: 20px;
+}
+
+.back-button:hover{
+  background: #f2f7fb;
+  color: #535353;
+}
 
 /*Form*/
 label{
@@ -493,7 +512,7 @@ input{
 
 /*Action Card*/
 .aligned-form{
-  padding: 20px!important;
+  padding: 0 20px 20px 20px!important;
 }
 
 .action-card{

@@ -31,10 +31,10 @@
         $stmt = $dbh->prepare($query);
         if ($stmt->execute([$_GET['id']])) {
             echo "Category #" . $_GET['id'] . " has been deleted. ";
-            echo "<div class=\"center row\"><button onclick=\"window.location='categories.php'\">Back To Category </button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back To Category </button></div>";
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
-            echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.history.back()\">Back to previous page</button></div>";
             die();
         }
     } else {

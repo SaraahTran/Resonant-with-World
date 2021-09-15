@@ -22,15 +22,15 @@
                 <div class="card-body action-body">
                     <p class="card-text">
 
-<div class="center">
+<div class="justify-content-center center">
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
 if (!empty($_POST)) {
     // Check if any of the POST fields are empty (which shouldn't be!)
     foreach ($_POST as $fieldName => $fieldValue) {
         if (empty($fieldValue)) {
-            echo friendlyError("'$fieldName' field is empty. Please fix the issue try again. ");
-            echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
+            echo ("'$fieldName' field is empty. Please fix the issue try again. ");
+            echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
             die();
         }
     }

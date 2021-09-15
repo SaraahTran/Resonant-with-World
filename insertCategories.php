@@ -33,8 +33,8 @@ ob_start();
         // Check if any of the POST fields are empty (which shouldn't be!)
         foreach ($_POST as $fieldName => $fieldValue) {
             if (empty($fieldValue)) {
-                echo friendlyError("'$fieldName' field is empty. Please fix the issue try again. ");
-                echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
+                echo ("'$fieldName' field is empty. Please fix the issue try again. ");
+                echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
                 die();
             }
         }
@@ -64,18 +64,19 @@ ob_start();
 
                         </div>
                     </form>
-                    <div class="center row">
-                        <button onclick="window.location='categories.php'">Back to the category list</button>
+                    <div class="center row">New category has been added.
+                        <button class='justify-content-center back-button' onclick="window.location='categories.php'">Back to the category list</button>
                     </div>
                 <?php } else {
-                    echo "<div class=\"center row\"><button onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
+                    echo "New category has been added.";
+                    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
                 }
             } else {
                 die(friendlyError($stmt->errorInfo()[2]));
             }
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
-            echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.history.back()\">Back to previous page</button></div>";
             die();
         }
     } else {
