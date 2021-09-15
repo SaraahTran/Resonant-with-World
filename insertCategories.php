@@ -7,15 +7,26 @@ ob_start();
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Add new client</title>
-    <meta name="description" content="2021 S2 Lab 7 Exercise">
-    <meta name="author" content="FIT2104 Web Database Interface">
-    <link rel="stylesheet" href="styles.css">
+    <title>Resonant With World Product</title>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Fonts and Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<h1>Add new category</h1>
-<div class="center">
+<?php include('./menu.php');?>
+
+<div class="container">
+
+    <div class="row justify-content-center"><div class="col-8">
+            <div class="card action-card">
+                    <h5 class="card-header">Add New Category</h5>
+                    <div class="card-body action-body">
+                        <p class="card-text">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
     if (!empty($_POST)) {
@@ -54,10 +65,9 @@ ob_start();
                         </div>
                     </form>
                     <div class="center row">
-                        <button onclick="window.location='index.php'">Back to the client list</button>
+                        <button onclick="window.location='categories.php'">Back to the category list</button>
                     </div>
                 <?php } else {
-                    echo "Weird, the client just added has mysteriously disappeared!? ";
                     echo "<div class=\"center row\"><button onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
                 }
             } else {
@@ -85,12 +95,15 @@ ob_start();
                 </div>
 
             </div>
-            <div class="row center">
-                <input type="submit" value="Add"/>
-                <button type="button" onclick="window.location='categories.php';return false;">Cancel</button>
+            <br/>
+            <div class="modal-footer">
+                <input type="submit" class="submit-button" value="Add" onclick="window.location='categories.php'"/>
+                <button type="button" class="cancel-button"  onclick="window.location='categories.php';return false;">Cancel</button>
             </div>
         </form>
-    <?php } ?>
-</div>
+                <?php } ?></div></div>
+            </div></div></div></div></div>
 </body>
+
+
 </html>

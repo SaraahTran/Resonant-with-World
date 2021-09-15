@@ -24,8 +24,6 @@ $stmt->execute();
 
 <button class="add-button" onclick="window.location='insertCategories.php'">Add New Category</button>
 
-
-
 <div class="table-responsive">
     <table class="table table-bordered responsive">
         <thead>
@@ -47,9 +45,18 @@ $stmt->execute();
             <button class="action-button"  onclick="window.location='deleteCategories.php?id=<?= $row->Category_ID ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
-    </tr></tbody></table></div></div>
+    </tr></tbody></table>
+
+
+
+</div></div>
+
+
+
 
 </body>
+
+
 
 </html>
 

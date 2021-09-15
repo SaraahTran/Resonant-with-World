@@ -14,8 +14,13 @@
 </table>
 
 <?php include('./menu.php');?>
+<div class="container">
 
-<h1>Delete Category</h1>
+    <div class="row justify-content-center"><div class="col-8">
+            <div class="card action-card">
+                <h5 class="card-header">Add New Category</h5>
+                <div class="card-body action-body">
+                    <p class="card-text">
 <div class="container">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
@@ -50,8 +55,8 @@
                             <input type="text" id="categoryname" name="categoryname" value="<?= $record->Category_Name ?>"/>
                         </div>
                         <div class="row center">
-                            <input type="submit" name="action" id="delete-button" value="Delete"/>
-                            <button type="button" onclick="window.location='categories.php';return false;">Cancel</button>
+                            <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
+                            <button class="cancel-button" type="button" onclick="window.location='categories.php';return false;">Cancel</button>
                         </div>
                 </form>
                 </form>
@@ -61,6 +66,5 @@
         } else {
             die(friendlyError($stmt->errorInfo()[2]));
         }
-    } ?>
-</div>
+    } ?></div></div></div></div></div></div>
 </html>

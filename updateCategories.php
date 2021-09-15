@@ -14,8 +14,14 @@
 </table>
 
 <?php include('./menu.php');?>
+<div class="container">
 
-<h1>Update Category</h1>
+    <div class="row justify-content-center"><div class="col-8">
+            <div class="card action-card">
+                <h5 class="card-header">Update Category</h5>
+                <div class="card-body action-body">
+                    <p class="card-text">
+
 <div class="center">
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
@@ -59,8 +65,8 @@ if (!empty($_POST)) {
                         <input type="text" id="categoryname" name="categoryname" value="<?= $record->Category_Name ?>"/>
                     </div>
                     <div class="row center">
-                        <input type="submit" value="Update"/>
-                        <button type="button" onclick="window.location='categories.php';return false;">Cancel</button>
+                        <input class="submit-button" type="submit" value="Update"/>
+                        <button class="cancel-button" type="button" onclick="window.location='categories.php';return false;">Cancel</button>
                     </div>
             </form>
             </form>
@@ -69,6 +75,6 @@ if (!empty($_POST)) {
         die(friendlyError($stmt->errorInfo()[2]));
     }
 } ?>
-</div>
+                    </div></div></div></div></div></div>
 </body>
 </html>
