@@ -46,9 +46,9 @@ $stmt->execute();
         <td><?php echo $row->Photo_Shoot_Quote; ?> </td>
         <td><?php echo $row->Photo_Shoot_Other_Information; ?> </td>
         <td>
-            <button class="action-button" onclick="window.location='viewphotoshoot.php?id=<?= $row->photo_shoot_id ?>'">View</button>
-            <button class="action-button" onclick="window.location='updatephotoshoot.php?id=<?= $row->photo_shoot_id ?>'">Update</button>
-            <button class="action-button" onclick="window.location='deletephotoshoot.php?id=<?= $row->photo_shoot_id ?>'">Delete</button>
+            <button class="action-button" onclick="window.location='viewPhotoshoot.php?id=<?= $row->Photo_Shoot_ID ?>'">View</button>
+            <button class="action-button" onclick="window.location='updatePhotoshoot.php?id=<?= $row->Photo_Shoot_ID ?>'">Update</button>
+            <button class="action-button" onclick="window.location='deletePhotoshoot.php?id=<?= $row->Photo_Shoot_ID ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
     </tr></table></div></div>

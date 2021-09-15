@@ -7,7 +7,7 @@ ob_start();
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Resonant With World Product</title>
+    <title>Resonant With World Category</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
     <!--Bootstrap-->

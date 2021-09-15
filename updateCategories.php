@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Update Category</title>
+    <title>Resonant With World Category</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
     <!--Bootstrap-->

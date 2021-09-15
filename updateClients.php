@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Update Client Details</title>
+    <title>Resonant With World Client</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
     <!--Bootstrap-->
