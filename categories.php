@@ -42,9 +42,9 @@ $stmt->execute();
         <td><?php echo $row->Category_ID; ?> </td>
         <td><?php echo $row->Category_Name; ?> </td>
         <td>
-            <button class="action-button"  onclick="window.location='viewcategories.php?id=<?= $row->category_id ?>'">View</button>
-            <button class="action-button"  onclick="window.location='updatecategories.php?id=<?= $row->category_id ?>'">Update</button>
-            <button class="action-button"  onclick="window.location='deletecategories.php?id=<?= $row->category_id ?>'">Delete</button>
+            <button class="action-button"  onclick="window.location='viewCategories.php?id=<?= $row->Category_ID ?>'">View</button>
+            <button class="action-button"  onclick="window.location='updateCategories.php?id=<?= $row->Category_ID ?>'">Update</button>
+            <button class="action-button"  onclick="window.location='deleteCategories.php?id=<?= $row->Category_ID ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
     </tr></tbody></table></div></div>

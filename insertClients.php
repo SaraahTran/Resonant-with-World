@@ -49,11 +49,11 @@
             if ($stmt->execute([$newRecordId])) {
                 if ($stmt->rowCount() > 0) {
                     $record = $stmt->fetchObject(); ?>
-                    <div class="center row">New client has been added.</div>
+                    <div class="center row">New Client Has Been Created.</div>
                     <form method="post">
                         <div class="aligned-form">
                             <div class="row">
-                                <label for="Client_ID">ID</label>
+                                <label for="client_id">ID</label>
                                 <input type="number" id="Client_ID" value="<?= $record->Client_ID ?>" disabled/>
                             </div>
                             <div class="row">
@@ -109,7 +109,7 @@
         <form method="post">
             <div class="aligned-form">
                 <div class="row">
-                    <label for="Client_ID">ID</label>
+                    <label for="client_id">ID</label>
                     <input type="number" id="Client_ID" value="<?= $record->Client_ID ?>" disabled/>
                 </div>
                 <div class="row">
