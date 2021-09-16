@@ -30,7 +30,7 @@ if (!empty($_POST)) {
     foreach ($_POST as $fieldName => $fieldValue) {
         if (empty($fieldValue)) {
             echo ("'$fieldName' field is empty. Please fix the issue try again. ");
-            echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
             die();
         }
     }
@@ -41,6 +41,8 @@ if (!empty($_POST)) {
         'categoryname' => $_POST['categoryname'],
         'id' => $_GET['id']
     ];
+    echo ("'$fieldValue' has been updated.");
+    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
     if ($stmt->execute($parameters)) {
     } else {
         echo friendlyError($stmt->errorInfo()[2]);
@@ -64,15 +66,17 @@ if (!empty($_POST)) {
                         <label for="firstname">Category Name</label>
                         <input type="text" id="categoryname" name="categoryname" value="<?= $record->Category_Name ?>"/>
                     </div>
-                    <div class="row center">
+                    <br/>
+                    <div class="modal-footer">
                         <input class="submit-button" type="submit" value="Update"/>
                         <button class="cancel-button" type="button" onclick="window.location='categories.php';return false;">Cancel</button>
                     </div>
             </form>
-            </form>
+
         <?php }
     } else {
         die(friendlyError($stmt->errorInfo()[2]));
+        echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
     }
 } ?>
                     </div></div></div></div></div></div>

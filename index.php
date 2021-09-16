@@ -14,6 +14,13 @@
 <body>
 
 <?php include('./menu.php');?>
+<?php
+include('./connection.php');
+$dsn = "mysql:host=$db_host;dbname=$db_name";
+$dbh = new PDO($dsn, $db_username, $db_passwd);
+$stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
+$stmt->execute();
+?>
 <div class="container">
 <h1>Resonant With World</h1>
 
@@ -57,7 +64,21 @@ echo "Today is " . date("d/m/Y") ?></span></li>
         <div class="card big-card">
             <h5 class="card-header">Upcoming Photoshoots</h5>
             <div class="card-body">
-                <p class="card-text">
+                <p class="card-photoshoot">
+                 <?php
+                 $photoshoot_stmt = $dbh->prepare("SELECT * FROM PHOTO_SHOOT ORDER BY PHOTO_SHOOT_DATETIME DESC LIMIT 5");
+                 $photoshoot_stmt->execute();
+                 while ($row = $photoshoot_stmt->fetch()):
+                     echo "<div>";
+echo "<li class=\"photoshoot-list\">", $row["Photo_Shoot_Name"],":", "</li><div class=\"flex-row-reverse\"> ";
+echo "<div class=\"photoshoot-date\">",$row["Photo_Shoot_DateTime"];
+                     echo "<br/><br/></div></div></div>";
+
+                 endwhile;
+                 ?>
+
+
+
                 </p>
             </div>
     </div>

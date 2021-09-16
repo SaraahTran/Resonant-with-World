@@ -88,7 +88,8 @@
                 <input type="text" id="company" name="company" value="<?= $record->Client_Other_Information ?>"/>
             </div>
         </div>
-        <div class="row center">
+        <br/>
+        <div class="modal-footer">
             <input type="submit" value="Update"/>
             <button type="button" onclick="window.location='clients.php';return false;">Cancel</button>
         </div>

@@ -18,7 +18,7 @@
 
     <div class="row justify-content-center"><div class="col-8">
             <div class="card action-card">
-                <h5 class="card-header">Add New Category</h5>
+                <h5 class="card-header">Delete Category</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
 <div class="container">
@@ -54,12 +54,13 @@
                             <label for="firstname">Category Name</label>
                             <input type="text" id="categoryname" name="categoryname" value="<?= $record->Category_Name ?>"/>
                         </div>
-                        <div class="row center">
+                        <br/>
+                        <div class="modal-footer">
                             <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
                             <button class="cancel-button" type="button" onclick="window.location='categories.php';return false;">Cancel</button>
                         </div>
                 </form>
-                </form>
+
             <?php } else {
                 header("Location: index.php");
             }

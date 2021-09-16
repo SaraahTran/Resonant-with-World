@@ -88,7 +88,7 @@ ob_start();
             <div class="aligned-form">
                 <div class="row">
                     <label for="category_id">ID</label>
-                    <input type="text" id="client_id" value="<?= $nextId ?>" disabled/>
+                    <input type="text" id="category_id" value="<?= $nextId ?>" disabled/>
                 </div>
                 <div class="row">
                     <label for="category_name">Category Name</label>

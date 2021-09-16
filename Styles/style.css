@@ -184,6 +184,16 @@ h1 {
   box-shadow: 0 1px 10px rgba(58, 59, 69, 0.15);
 }
 
+.card-photoshoot{
+  font-size: 13px!important;
+  display: inline-block;
+  width: 100%;
+}
+
+.upcoming-photoshoot{
+  padding-left: 10px;
+}
+
 .big-card{
   height: 350px;
 }
@@ -210,11 +220,28 @@ h1 {
   background: #E3E5EE!important;
 }
 
+.big-card .card-body{
+  padding-top: 0!important;
+}
+
 .count{
   font-weight: 600;
   font-size: 22px;
 }
 
+.photoshoot-list{
+  font-size: 12px;
+  width: 100%;
+  list-style-type: square;
+  font-weight: 600;
+  color: #385972;
+}
+
+.photoshoot-date{
+  font-size: 12px;
+  width: 100%;
+  color: #535353;
+}
 /*Calendar*/
 
 ul {
@@ -315,6 +342,10 @@ ul {
     font-size: 10px;
     letter-spacing: 0;
     transition: all 0.5s;
+  }
+
+  .photoshoot-date{
+    display: none;
   }
 }
 
@@ -494,18 +525,19 @@ transition: all 0.5s;
 /*Form*/
 label{
   display: block;
+  font-size: 16px;
 
 }
 
-input[id="client_id"]{
-  background: #e0e0e0!important;
+input[id="client_id"], input[id="category_id"]{
+  background: #f1f1f1 !important;
 }
 input{
   background: #E3E5EE;
   border: none;
   border-radius: 5px;
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -517,5 +549,6 @@ input{
 
 .action-card{
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
