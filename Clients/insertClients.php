@@ -88,7 +88,7 @@ ob_start();
                         </div>
                     </form>
                     <div class="center row">New category has been added.
-                        <button class='justify-content-center back-button' onclick="window.location='index.php.php'">Back to the client list</button>
+                        <button class='justify-content-center back-button' onclick="window.location='/Clients'">Back to the client list</button>
                     </div>
                     <?php } else {
                         echo "New client has been added.";
