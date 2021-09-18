@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -12,7 +13,6 @@
 </head>
 
 <body>
-
 <?php include('./Menu/menu.php');?>
 <?php
 include('./connection.php');
