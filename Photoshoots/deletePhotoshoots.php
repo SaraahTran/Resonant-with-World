@@ -75,8 +75,8 @@
                             <input type="text" id="photo_shoot_other_information" value="<?= $record->Photo_Shoot_Other_Information ?>" disabled/>
                         </div>
                     </div>
-                    <div class="row center">
-                        <input type="submit" name="action" id="delete-button" value="Delete"/>
+                    <div class="modal-footer">
+                        <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
                         <button class="cancel-button" type="button" onclick="window.location='/Photoshoots';return false;">Cancel</button>
                     </div>
                 </form>

@@ -56,7 +56,7 @@
                         </div>
                         <br/>
                         <div class="modal-footer">
-                            <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
+                                <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
                             <button class="cancel-button" type="button" onclick="window.location='/Categories';return false;">Cancel</button>
                         </div>
                 </form>

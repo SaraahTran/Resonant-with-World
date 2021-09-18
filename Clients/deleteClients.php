@@ -14,9 +14,14 @@
 </table>
 
 <?php include('../Menu/menu.php');?>
-
-<h1>Delete Client</h1>
 <div class="container">
+
+    <div class="row justify-content-center"><div class="col-8">
+            <div class="card action-card">
+                <h5 class="card-header">Delete Client</h5>
+                <div class="card-body action-body">
+                    <p class="card-text">
+                    <div class="container">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
     include('../connection.php');
@@ -70,9 +75,9 @@
                 <input type="text" id="Client_Other_Information" value="<?= $record->Client_Other_Information ?>" disabled/>
             </div>
         </div>
-        <div class="row center">
-            <input type="submit" name="action" id="delete-button" value="Delete"/>
-            <button type="button" onclick="window.location='/Clients';return false;">Cancel</button>
+        <div class="modal-footer">
+            <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
+            <button class="cancel-button" type="button" onclick="window.location='/Categories';return false;">Cancel</button>
         </div>
     </form>
 <?php } else {
