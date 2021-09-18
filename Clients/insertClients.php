@@ -39,7 +39,7 @@ ob_start();
                             }
                         }
                         // Process the update record request (if a POST form is submitted)
-                        $query = "INSERT INTO `Client`(`Client_FirstName`) VALUES (NULLIF('$_POST[client_firstname]', ''))";
+                        $query = "INSERT INTO `Client`(`Client_FirstName`, `Client_Surname`, `Client_Address`) VALUES (NULLIF('$_POST[client_firstname]', ''), NULLIF('$_POST[client_surname]', ''), NULLIF('$_POST[client_address]', ''))";
                         $stmt = $dbh->prepare($query);
                         if ($stmt->execute())
                         {
