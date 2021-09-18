@@ -143,7 +143,7 @@ ob_start();
                         </form>
                     <?php } ?></div></div>
         </div></div></div></div></div>
-<?php include('../Menu/footer.php'); ?>
+
 </body>
 
 

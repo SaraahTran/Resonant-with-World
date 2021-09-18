@@ -25,7 +25,7 @@ ob_start();
 
     <div class="row justify-content-center">
         <div class="col-8">
-            <div class="card action-card">
+            <div class="card small-action-card">
                 <h5 class="card-header">Add New Category</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
@@ -73,7 +73,7 @@ ob_start();
                     </div>
                     <?php } else {
                         echo "New category has been added.";
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Categories'\">Back to the category list</button></div>";
+                        echo "<div class=\"center row\"><button class='justify-content-center back-button align-bottom'  onclick=\"window.location='/Categories'\">Back to the category list</button></div>";
                     }
                     } else {
                         die(friendlyError($stmt->errorInfo()[2]));
@@ -116,7 +116,7 @@ ob_start();
 </div>
 </div></div>
 
-<?php include('../Menu/footer.php'); ?>
+
 </body>
 
 

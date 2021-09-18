@@ -71,16 +71,14 @@ if (!empty($_POST)) {
                         <input class="submit-button" type="submit" value="Update"/>
                         <button class="cancel-button" type="button" onclick="window.location='/Categories';return false;">Cancel</button>
                     </div>
-            </form></div></div></div></div></div></div>
+            </form>
 
         <?php }
     } else {
         die(friendlyError($stmt->errorInfo()[2]));
         echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
     }
-}
-?>
-
-                        <?php include('../Menu/footer.php'); ?>
+} ?>
+                    </div></div></div></div></div></div>
 </body>
 </html>

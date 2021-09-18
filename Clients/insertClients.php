@@ -167,7 +167,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
     </div>
 </div>
 </div></div>
-<?php include('../Menu/footer.php'); ?>
+
 </body>
 
 

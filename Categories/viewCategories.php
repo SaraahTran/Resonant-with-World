@@ -17,7 +17,7 @@
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
-            <div class="card action-card">
+            <div class="card small-action-card">
                 <h5 class="card-header">View Category</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
@@ -52,7 +52,9 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <button class="cancel-button" type="button" onclick="window.location='/Categories';return false;">Cancel</button>
+                                                <button type="button" class="cancel-button"
+                                                        onclick="window.location='/Categories';return false;">Cancel
+                                                </button>
                                             </div>
                                     </form>
 
@@ -61,5 +63,4 @@
                                 }
                             }
                         } ?></div></div></div></div></div></div>
-<?php include('../Menu/footer.php'); ?>
 </html>
