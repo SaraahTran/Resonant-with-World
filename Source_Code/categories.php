@@ -1,1 +1,14 @@
 <?php
+echo "<h1>CATEGORIES</h1>";
+echo "<br/> ";
+show_source("../Categories/index.php");
+echo "<h1>UPDATE CATEGORIES</h1>";
+echo "<br/> ";
+show_source("../Categories/updateCategories.php");
+echo "<h1>DELETE CATEGORIES</h1>";
+echo "<br/> ";
+show_source("../Clients/deleteCategories.php");
+echo "<h1>INSERTS CATEGORIES</h1>";
+echo "<br/> ";
+show_source("../Clients/insertCategories.php");
+?>
