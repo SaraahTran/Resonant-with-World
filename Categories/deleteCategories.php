@@ -52,7 +52,7 @@
                         </div>
                         <div class="row">
                             <label for="firstname">Category Name</label>
-                            <input type="text" id="categoryname" name="categoryname" value="<?= $record->Category_Name ?>"/>
+                            <input type="text" id="category_id" value="<?= $record->Category_Name ?>" disabled/>
                         </div>
                         <br/>
                         <div class="modal-footer">

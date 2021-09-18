@@ -14,8 +14,13 @@
 </table>
 
 <?php include('../Menu/menu.php');?>
-
-<h1>Delete Photoshoot</h1>
+<div class="container">
+<div class="row justify-content-center"><div class="col-8">
+        <div class="card action-card">
+            <h5 class="card-header">Delete Photshoots</h5>
+            <div class="card-body action-body">
+                <p class="card-text">
+                <div class="container">
 <div class="container">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
@@ -25,11 +30,11 @@
         $query = "DELETE FROM `Photo_Shoot` WHERE `Photo_Shoot_ID`=?";
         $stmt = $dbh->prepare($query);
         if ($stmt->execute([$_GET['id']])) {
-            echo "Photoshoots #" . $_GET['id'] . " has been deleted. ";
-            echo "<div class=\"center row\"><button onclick=\"window.location='index.php'\">Back to the photoshoot list</button></div>";
+            echo "Photoshoot #" . $_GET['id'] . " has been deleted. ";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back To Photoshoot </button></div>";
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
-            echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.history.back()\">Back to previous page</button></div>";
             die();
         }
     } else {
@@ -43,44 +48,45 @@
                     <div class="aligned-form">
                         <div class="row">
                             <label for="photo_shoot_id">ID</label>
-                            <input type="number" id="Photo_Shoot_ID" value="<?= $record->Photo_Shoot_ID ?>" disabled/>
+                            <input type="number" id="photo_shoot_id" value="<?= $record->Photo_Shoot_ID ?>" disabled/>
                         </div>
                         <div class="row">
                             <label for="client_id">Client ID</label>
-                            <input type="text" id="Client_ID" value="<?= $record->Client_ID ?>" disabled/>
+                            <input type="text" id="client_id" value="<?= $record->Client_ID ?>" disabled/>
                         </div>
                         <div class="row">
-                            <label for="name">Photoshoot Name</label>
-                            <input type="text" id="Photo_Shoot_Name" value="<?= $record->Photo_Shoot_Name ?>" disabled/>
+                            <label for="photo_shoot_name">Photoshoot Name</label>
+                            <input type="text" id="photo_shoot_name" value="<?= $record->Photo_Shoot_Name ?>" disabled/>
                         </div>
                         <div class="row">
-                            <label for="description">Photoshoot Description</label>
-                            <input type="text" id="Photo_Shoot_Description" value="<?= $record->Photo_Shoot_Description ?>" disabled/>
+                            <label for="photo_shoot_description">Photoshoot Description</label>
+                            <input type="text" id="photo_shoot_description" value="<?= $record->Photo_Shoot_Description ?>" disabled/>
                         </div>
                         <div class="row">
-                            <label for="date">Photoshoot Date and Time</label>
-                            <input type="text" id="Photo_Shoot_DateTime" value="<?= $record->Photo_Shoot_DateTime ?>" disabled/>
+                            <label for="photo_shoot_date_time">Photoshoot Date and Time</label>
+                            <input type="text" id="photo_shoot_date_time" value="<?= $record->Photo_Shoot_DateTime ?>" disabled/>
                         </div>
                         <div class="row">
                             <label for="photo_shoot_quote">Quote</label>
-                                <input type="text" id="Photo_Shoot_Quote" value="<?= $record->Photo_Shoot_Quote ?>" disabled/>
+                            <input type="text" id="photo_shoot_quote" value="<?= $record->Photo_Shoot_Quote ?>" disabled/>
                         </div>
                         <div class="row">
-                            <label for="other information">Other Information</label>
-                            <input type="text" id="Photo_Shoot_Other_Information" value="<?= $record->Photo_Shoot_Other_Information ?>" disabled/>
+                            <label for="photo_shoot_other_information">Other Information</label>
+                            <input type="text" id="photo_shoot_other_information" value="<?= $record->Photo_Shoot_Other_Information ?>" disabled/>
                         </div>
                     </div>
                     <div class="row center">
                         <input type="submit" name="action" id="delete-button" value="Delete"/>
-                        <button type="button" onclick="window.location='index.php';return false;">Cancel</button>
+                        <button class="cancel-button" type="button" onclick="window.location='/Photoshoots';return false;">Cancel</button>
                     </div>
                 </form>
+
             <?php } else {
-                header("Location: index.php");
+                header("Location: Photoshoots");
             }
         } else {
             die(friendlyError($stmt->errorInfo()[2]));
         }
-    } ?>
-</div>
+    } ?></div></div></div></div></div></div>
 </html>
+
