@@ -32,44 +32,44 @@
         </li>
 
         <li>
-            <a href="/Clients/index.php">
+            <a href="/Clients">
                 <i class="bi bi-people-fill" aria-hidden="true"></i> Clients
             </a>
         </li>
         
         <li>
-            <a href="/Products/products.php">
+            <a href="/Products">
                 <i class="bi bi-bag-fill" aria-hidden="true"></i> Products
             </a>
         </li>
 
         <li>
-            <a href="/Multiple%20Products/multiple-products.php">
+            <a href="/Multiple%20Products/index.php">
                 <i class="bi bi-basket3-fill" aria-hidden="true"></i> Multiple Products
             </a>
         </li>
 
 
         <li>
-            <a href="/Photoshoots/index.php">
+            <a href="/Photoshoots">
                 <i class="bi bi-camera-fill" aria-hidden="true"></i> Photoshoots
             </a>
         </li>
 
         <li>
-            <a href="/Categories/index.php">
+            <a href="/Categories">
                 <i class="bi bi-tags-fill" aria-hidden="true"></i> Categories
             </a>
         </li>
 
         <li>
-            <a href="/Images/images.php">
+            <a href="/Images">
                 <i class="bi bi-image-fill" aria-hidden="true"></i> Images
             </a>
         </li>
 
         <li>
-            <a href="/Documentation/documentation.php">
+            <a href="/Documentation">
                 <i class="bi bi-file-earmark-fill" aria-hidden="true"></i> Documentation
             </a>
         </li>

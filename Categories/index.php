@@ -22,7 +22,7 @@ $stmt->execute();
 <div class="container">
 <h1>Categories</h1>
 
-<button class="add-button" onclick="window.location='insertCategories.php'">Add New Category</button>
+<button class="add-button" onclick="window.location='./Categories/insertCategories.php'">Add New Category</button>
 
 <div class="table-responsive">
     <table class="table table-bordered responsive">
@@ -40,9 +40,9 @@ $stmt->execute();
         <td><?php echo $row->Category_ID; ?> </td>
         <td><?php echo $row->Category_Name; ?> </td>
         <td>
-            <button class="action-button"  onclick="window.location='viewCategories.php?id=<?= $row->Category_ID ?>'">View</button>
-            <button class="action-button"  onclick="window.location='updateCategories.php?id=<?= $row->Category_ID ?>'">Update</button>
-            <button class="action-button"  onclick="window.location='deleteCategories.php?id=<?= $row->Category_ID ?>'">Delete</button>
+            <button class="action-button"  onclick="window.location='./Categories/viewCategories.php?id=<?= $row->Category_ID ?>'">View</button>
+            <button class="action-button"  onclick="window.location='./Categories/updateCategories.php?id=<?= $row->Category_ID ?>'">Update</button>
+            <button class="action-button"  onclick="window.location='./Categories/deleteCategories.php?id=<?= $row->Category_ID ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
     </tr></tbody></table>

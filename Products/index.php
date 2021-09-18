@@ -12,7 +12,7 @@
 
 <body>
 
-<?php include('./menu.php');?>
+<?php include('../Menu/menu.php');?>
 
 <h1>Products</h1>
 

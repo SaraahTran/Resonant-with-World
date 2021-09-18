@@ -92,7 +92,7 @@ ob_start();
                     </div>
                     <?php } else {
                         echo "New client has been added.";
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='index.php'\">Back to the client list</button></div>";
+                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Clients'\">Back to the client list</button></div>";
                     }
                     } else {
                         die(friendlyError($stmt->errorInfo()[2]));

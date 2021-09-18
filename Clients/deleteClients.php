@@ -26,7 +26,7 @@
         $stmt = $dbh->prepare($query);
         if ($stmt->execute([$_GET['id']])) {
             echo "Client #" . $_GET['id'] . " has been deleted. ";
-            echo "<div class=\"center row\"><button onclick=\"window.location='index.php'\">Back to the client list</button></div>";
+            echo "<div class=\"center row\"><button onclick=\"window.location='Clients'\">Back to the client list</button></div>";
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
             echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
@@ -72,11 +72,11 @@
         </div>
         <div class="row center">
             <input type="submit" name="action" id="delete-button" value="Delete"/>
-            <button type="button" onclick="window.location='index.php';return false;">Cancel</button>
+            <button type="button" onclick="window.location='Clients';return false;">Cancel</button>
         </div>
     </form>
 <?php } else {
-    header("Location: index.php");
+    header("Location: Clients");
 }
 } else {
     die(friendlyError($stmt->errorInfo()[2]));

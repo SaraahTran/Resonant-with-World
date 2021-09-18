@@ -20,7 +20,7 @@
 <div class="container">
 <h1>Clients</h1>
 
-<button class="add-button" onclick="window.location='insertClients.php'">Add New Client</button>
+<button class="add-button" onclick="window.location='./Clients/insertClients.php'">Add New Client</button>
 <?php
 include('../connection.php');
 $dsn = "mysql:host=$db_host;dbname=$db_name";
@@ -56,9 +56,9 @@ $stmt->execute();
         <td><?php echo $row->Client_Subscribed; ?> </td>
         <td><?php echo $row->Client_Other_Information; ?> </td>
         <td>
-            <button class="action-button" onclick="window.location='Menu/viewClients.php?id=<?= $row->Client_ID ?>'">View</button>
-            <button class="action-button"  onclick="window.location='updateClients.php?id=<?= $row->Client_ID ?>'">Update</button>
-            <button class="action-button"  onclick="window.location='deleteClient.php?id=<?= $row->Client_ID ?>'">Delete</button>
+            <button class="action-button" onclick="window.location='./Clients/viewClients.php?id=<?= $row->Client_ID ?>'">View</button>
+            <button class="action-button"  onclick="window.location='./Clients/updateClients.php?id=<?= $row->Client_ID ?>'">Update</button>
+            <button class="action-button"  onclick="window.location='./Clients/deleteClients.php?id=<?= $row->Client_ID ?>'">Delete</button>
         </td>
         <?php endwhile; ?>
     </tr>
