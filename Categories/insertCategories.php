@@ -65,11 +65,11 @@ ob_start();
                         </div>
                     </form>
                     <div class="center row">New category has been added.
-                        <button class='justify-content-center back-button' onclick="window.location='categories.php'">Back to the category list</button>
+                        <button class='justify-content-center back-button' onclick="window.location='index.php'">Back to the category list</button>
                     </div>
                 <?php } else {
                     echo "New category has been added.";
-                    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
+                    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='index.php'\">Back to the category list</button></div>";
                 }
             } else {
                 die(friendlyError($stmt->errorInfo()[2]));
@@ -98,8 +98,8 @@ ob_start();
             </div>
             <br/>
             <div class="modal-footer">
-                <input type="submit" class="submit-button" value="Add" onclick="window.location='categories.php'"/>
-                <button type="button" class="cancel-button"  onclick="window.location='categories.php';return false;">Cancel</button>
+                <input type="submit" class="submit-button" value="Add" onclick="window.location='index.php'"/>
+                <button type="button" class="cancel-button"  onclick="window.location='index.php';return false;">Cancel</button>
             </div>
         </form>
                 <?php } ?></div></div>

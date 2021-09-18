@@ -4,11 +4,11 @@ echo "<br/> ";
 show_source("../Photoshoots/index.php");
 echo "<h1>UPDATE PHOTOSHOOTS</h1>";
 echo "<br/> ";
-show_source("../Categories/updatePhotoshoots.php");
+show_source("../Photoshoots/updatePhotoshoots.php");
 echo "<h1>DELETE PHOTOSHOOTS</h1>";
 echo "<br/> ";
-show_source("../Clients/deletePhotoshoots.php");
-echo "<h1>INSERTS PHOTOSHOOTS</h1>";
+show_source("../Photoshoots/deletePhotoshoots.php");
+echo "<h1>INSERT PHOTOSHOOTS</h1>";
 echo "<br/> ";
-show_source("../Clients/insertPhotoshoots.php");
+show_source("../Photoshoots/insertPhotoshoots.php");
 ?>

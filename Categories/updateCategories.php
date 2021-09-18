@@ -30,7 +30,7 @@ if (!empty($_POST)) {
     foreach ($_POST as $fieldName => $fieldValue) {
         if (empty($fieldValue)) {
             echo ("'$fieldName' field is empty. Please fix the issue try again. ");
-            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='index.php'\">Back to the category list</button></div>";
             die();
         }
     }
@@ -42,7 +42,7 @@ if (!empty($_POST)) {
         'id' => $_GET['id']
     ];
     echo ("'$fieldValue' has been updated.");
-    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back to the category list</button></div>";
+    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='index.php'\">Back to the category list</button></div>";
     if ($stmt->execute($parameters)) {
     } else {
         echo friendlyError($stmt->errorInfo()[2]);
@@ -69,7 +69,7 @@ if (!empty($_POST)) {
                     <br/>
                     <div class="modal-footer">
                         <input class="submit-button" type="submit" value="Update"/>
-                        <button class="cancel-button" type="button" onclick="window.location='categories.php';return false;">Cancel</button>
+                        <button class="cancel-button" type="button" onclick="window.location='index.php';return false;">Cancel</button>
                     </div>
             </form>
 

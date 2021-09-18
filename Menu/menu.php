@@ -51,13 +51,13 @@
 
 
         <li>
-            <a href="/Photoshoot/photoshoots.php">
+            <a href="/Photoshoots/index.php">
                 <i class="bi bi-camera-fill" aria-hidden="true"></i> Photoshoots
             </a>
         </li>
 
         <li>
-            <a href="/Categories/categories.php">
+            <a href="/Categories/index.php">
                 <i class="bi bi-tags-fill" aria-hidden="true"></i> Categories
             </a>
         </li>

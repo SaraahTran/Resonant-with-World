@@ -31,7 +31,7 @@
         $stmt = $dbh->prepare($query);
         if ($stmt->execute([$_GET['id']])) {
             echo "Category #" . $_GET['id'] . " has been deleted. ";
-            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='categories.php'\">Back To Category </button></div>";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='index.php'\">Back To Category </button></div>";
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
             echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.history.back()\">Back to previous page</button></div>";
@@ -57,7 +57,7 @@
                         <br/>
                         <div class="modal-footer">
                             <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
-                            <button class="cancel-button" type="button" onclick="window.location='categories.php';return false;">Cancel</button>
+                            <button class="cancel-button" type="button" onclick="window.location='index.php';return false;">Cancel</button>
                         </div>
                 </form>
 
