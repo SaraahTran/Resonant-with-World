@@ -7,14 +7,14 @@
 
 <body>
 
-<?php include('./menu.php');?>
+<?php include('../Menu/menu.php');?>
 <div class="container">
 <h1>Photoshoots</h1>
 
 <button  class="add-button" onclick="window.location='addphotoshoot.php?id='">Add New Photoshoot</button>
 
 <?php
-include('./connection.php');
+include('../connection.php');
 $dsn = "mysql:host=$db_host;dbname=$db_name";
 $dbh = new PDO($dsn, $db_username, $db_passwd);
 $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");

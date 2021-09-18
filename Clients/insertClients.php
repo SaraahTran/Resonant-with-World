@@ -9,7 +9,7 @@ ob_start();
 <head>
     <title>Resonant With World Clients</title>
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts and Icons-->
@@ -18,7 +18,7 @@ ob_start();
 </head>
 
 <body>
-<?php include('./menu.php');?>
+<?php include('../Menu/menu.php');?>
 
 <div class="container">
 
@@ -88,11 +88,11 @@ ob_start();
                         </div>
                     </form>
                     <div class="center row">New category has been added.
-                        <button class='justify-content-center back-button' onclick="window.location='clients.php.php'">Back to the client list</button>
+                        <button class='justify-content-center back-button' onclick="window.location='index.php.php'">Back to the client list</button>
                     </div>
                     <?php } else {
                         echo "New client has been added.";
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='clients.php'\">Back to the client list</button></div>";
+                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='index.php'\">Back to the client list</button></div>";
                     }
                     } else {
                         die(friendlyError($stmt->errorInfo()[2]));
@@ -144,8 +144,8 @@ ob_start();
                             </div>
                             <br/>
                             <div class="modal-footer">
-                                <input type="submit" class="submit-button" value="Add" onclick="window.location='clients.php'"/>
-                                <button type="button" class="cancel-button"  onclick="window.location='clients.php';return false;">Cancel</button>
+                                <input type="submit" class="submit-button" value="Add" onclick="window.location='index.php'"/>
+                                <button type="button" class="cancel-button"  onclick="window.location='index.php';return false;">Cancel</button>
                             </div>
                         </form>
                     <?php } ?></div></div>

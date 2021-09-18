@@ -13,7 +13,7 @@
 
 <body>
 
-<?php include('./menu.php');?>
+<?php include('./Menu/menu.php');?>
 <?php
 include('./connection.php');
 $dsn = "mysql:host=$db_host;dbname=$db_name";

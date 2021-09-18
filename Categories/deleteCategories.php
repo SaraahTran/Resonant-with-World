@@ -2,7 +2,7 @@
 <head>
     <title>Resonant With World Category</title>
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts and Icons-->
@@ -13,7 +13,7 @@
 
 </table>
 
-<?php include('./menu.php');?>
+<?php include('../Menu/menu.php');?>
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
@@ -24,7 +24,7 @@
 <div class="container">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
-    include("connection.php");
+        include('../connection.php');
     if (!empty($_POST)) {
         // Process to delete record request (if a POST form is submitted)
         $query = "DELETE FROM `Category` WHERE `Category_ID`=?";

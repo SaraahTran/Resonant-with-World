@@ -2,7 +2,7 @@
 <head>
     <title>Resonant With World Category</title>
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts and Icons-->
@@ -11,9 +11,9 @@
 </head>
 
 <body>
-<?php include('./menu.php');?>
+<?php include('../Menu/menu.php');?>
 <?php
-include('./connection.php');
+include('../connection.php');
 $dsn = "mysql:host=$db_host;dbname=$db_name";
 $dbh = new PDO($dsn, $db_username, $db_passwd);
 $stmt = $dbh->prepare("SELECT * FROM `Category`");
@@ -54,9 +54,10 @@ $stmt->execute();
 
 
 
+<?php include('../Menu/footer.php');?>
+
 </body>
 
 
 
 </html>
-

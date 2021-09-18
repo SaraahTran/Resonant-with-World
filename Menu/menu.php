@@ -2,7 +2,7 @@
 <head>
     <title>Resonant With World Menu</title>
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts and Icons-->
@@ -14,7 +14,7 @@
 <!--Side Bar-->
 <div class="sidebar-container">
     <div class="sidebar-logo d-flex justify-content-center">
-        <img class="logo " src="Images/Logo.png"/>
+        <img class="logo " src="../Images/Logo.png"/>
         <br/>
         <h3 class="company-name">Resonant With World</h3>
     </div>
@@ -32,44 +32,44 @@
         </li>
 
         <li>
-            <a href="/clients.php">
+            <a href="/Clients/index.php">
                 <i class="bi bi-people-fill" aria-hidden="true"></i> Clients
             </a>
         </li>
         
         <li>
-            <a href="/products.php">
+            <a href="/Products/products.php">
                 <i class="bi bi-bag-fill" aria-hidden="true"></i> Products
             </a>
         </li>
 
         <li>
-            <a href="/multiple-products.php">
+            <a href="/Multiple%20Products/multiple-products.php">
                 <i class="bi bi-basket3-fill" aria-hidden="true"></i> Multiple Products
             </a>
         </li>
 
 
         <li>
-            <a href="/photoshoots.php">
+            <a href="/Photoshoot/photoshoots.php">
                 <i class="bi bi-camera-fill" aria-hidden="true"></i> Photoshoots
             </a>
         </li>
 
         <li>
-            <a href="/categories.php">
+            <a href="/Categories/categories.php">
                 <i class="bi bi-tags-fill" aria-hidden="true"></i> Categories
             </a>
         </li>
 
         <li>
-            <a href="/images.php">
+            <a href="/Images/images.php">
                 <i class="bi bi-image-fill" aria-hidden="true"></i> Images
             </a>
         </li>
 
         <li>
-            <a href="/documentation.php">
+            <a href="/Documentation/documentation.php">
                 <i class="bi bi-file-earmark-fill" aria-hidden="true"></i> Documentation
             </a>
         </li>
