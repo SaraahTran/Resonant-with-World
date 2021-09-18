@@ -27,7 +27,7 @@
                         include('../connection.php');
                         if (!empty($_POST)) {
                             // Process to view record request (if a POST form is submitted)
-                            $query = "SELECT * FROM `Photo_Shoot` WHERE `Photo_Shoot_ID`=?";
+                            $query = "SELECT * FROM `Client` WHERE `Client_ID`=?";
                             $stmt = $dbh->prepare($query);
                             if ($stmt->execute([$_GET['id']])) {
                             } else {
@@ -35,7 +35,7 @@
                             }
                         } else {
                             // When no POST form is submitted, get the record from database
-                            $query = "SELECT * FROM `Photo_Shoot` WHERE `Photo_Shoot_ID`=?";
+                            $query = "SELECT * FROM `Client` WHERE `Client_ID`=?";
                             $stmt = $dbh->prepare($query);
                             if ($stmt->execute([$_GET['id']])) {
                                 if ($stmt->rowCount() > 0) {
@@ -43,37 +43,37 @@
                                     <form method="post">
                                         <div class="aligned-form">
                                             <div class="row">
-                                                <label for="photo_shoot_id">ID</label>
-                                                <input type="number" id="photo_shoot_id" value="<?= $record->Photo_Shoot_ID ?>" disabled/>
+                                                <label for="client_id">ID</label>
+                                                <input type="number" id="Client_ID" value="<?= $record->Client_ID ?>" disabled/>
                                             </div>
                                             <div class="row">
-                                                <label for="client_id">Client ID</label>
-                                                <input type="text" id="client_id" value="<?= $record->Client_ID ?>" disabled/>
+                                                <label for="firstname">First Name</label>
+                                                <input type="text" id="Client_FirstName" value="<?= $record->Client_FirstName ?>" disabled/>
                                             </div>
                                             <div class="row">
-                                                <label for="photo_shoot_name">Photoshoot Name</label>
-                                                <input type="text" id="photo_shoot_name" value="<?= $record->Photo_Shoot_Name ?>" disabled/>
+                                                <label for="surname">Surname</label>
+                                                <input type="text" id="Client_Surname" value="<?= $record->Client_Surname ?>" disabled/>
                                             </div>
                                             <div class="row">
-                                                <label for="photo_shoot_description">Photoshoot Description</label>
-                                                <input type="text" id="photo_shoot_description" value="<?= $record->Photo_Shoot_Description ?>" disabled/>
-                                            </div>
-                                                <div class="row">
-                                                    <label for="photo_shoot_datetime">Photoshoot Date</label>
-                                                    <input type="text" id="photo_shoot_datetime" value="<?= $record->Photo_Shoot_DateTime ?>" disabled/>
-                                                </div>
-                                             <div class="row">
-                                                <label for="photo_shoot_quote">Photoshoot Quote</label>
-                                                <input type="text" id="photo_shoot_quote" value="<?= $record->Photo_Shoot_Quote ?>" disabled/>
+                                                <label for="address">Address</label>
+                                                <input type="text" id="Client_Address" value="<?= $record->Client_Address ?>" disabled/>
                                             </div>
                                             <div class="row">
-                                                <label for="photo_shoot_other_information">Photoshoot Other Information</label>
-                                                <input type="text" id="photo_shoot_other_information" value="<?= $record->Photo_Shoot_Other_Information ?>" disabled/>
+                                                <label for="Phone">Phone</label>
+                                                <input type="text" id="Client_Phone" value="<?= $record->Client_Phone ?>" disabled/>
                                             </div>
-                                            <br/>
-                                            <div class="modal-footer">
-                                                <button class="cancel-button" type="button" onclick="window.location='/Photoshoots';return false;">Cancel</button>
+                                            <div class="row">
+                                                <label for="email">Email</label>
+                                                <input type="text" id="Client_Email" value="<?= $record->Client_Email ?>" disabled/>
                                             </div>
+                                            <div class="row">
+                                                <label for="other information">Other Information</label>
+                                                <input type="text" id="Client_Other_Information" value="<?= $record->Client_Other_Information ?>" disabled/>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="cancel-button" type="button" onclick="window.location='/Clients';return false;">Cancel</button>
+                                        </div>
                                     </form>
 
                                 <?php } else {

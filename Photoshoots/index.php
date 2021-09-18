@@ -51,7 +51,7 @@ $stmt->execute();
         <td><?php echo $row->Photo_Shoot_Quote; ?> </td>
         <td><?php echo $row->Photo_Shoot_Other_Information; ?> </td>
         <td>
-            <button class="action-button" onclick="window.location='.Photoshoots/viewPhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">View</button>
+            <button class="action-button" onclick="window.location='Photoshoots/viewPhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">View</button>
             <button class="action-button" onclick="window.location='Photoshoots/updatePhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">Update</button>
             <button class="action-button" onclick="window.location='Photoshoots/deletePhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">Delete</button>
         </td>
