@@ -91,11 +91,11 @@
         <br/>
         <div class="modal-footer">
             <input type="submit" value="Update"/>
-            <button type="button" onclick="window.location='clients.php';return false;">Cancel</button>
+            <button type="button" onclick="window.location='/Clients';return false;">Cancel</button>
         </div>
     </form>
      <?php } else {
-            header("Location: index.php");
+            header("Location: Client");
         }
         } else {
           die(friendlyError($stmt->errorInfo()[2]));

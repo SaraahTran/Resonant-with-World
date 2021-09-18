@@ -144,8 +144,8 @@ ob_start();
                             </div>
                             <br/>
                             <div class="modal-footer">
-                                <input type="submit" class="submit-button" value="Add" onclick="window.location='index.php'"/>
-                                <button type="button" class="cancel-button"  onclick="window.location='index.php';return false;">Cancel</button>
+                                <input type="submit" class="submit-button" value="Add" onclick="window.location='/Clients'"/>
+                                <button type="button" class="cancel-button"  onclick="window.location='/Clients';return false;">Cancel</button>
                             </div>
                         </form>
                     <?php } ?></div></div>
