@@ -5,8 +5,13 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   background: #f2f7fb;
+}
+
+.container{
+  min-height: 70vh!important;
+
 }
 
 /*Menu*/
@@ -34,14 +39,14 @@ body {
   border-bottom: 1px dotted rgba(173, 216, 230, 0.329);
 }
 
-.company-name{
+.company-name {
   font-size: 16px;
   font-weight: bold;
   padding-left: 20px;
   padding-top: 5px;
 }
 
-.logo{
+.logo {
   height: 50px;
 }
 
@@ -100,22 +105,18 @@ i {
   width: 100%;
 }
 
-
-@media screen and (max-width: 800px){
- .sidebar-container{
-   display: none;
-   position: relative;
- }
-
- .content-container{
-   padding: 0!important;
- }
-
+@media screen and (max-width: 800px) {
+  .sidebar-container {
+    display: none;
+    position: relative;
   }
 
+  .content-container {
+    padding: 0 !important;
+  }
+}
+
 /*Top Bar*/
-
-
 
 nav {
   box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
@@ -154,7 +155,6 @@ nav {
 
 /*Pages*/
 
-
 .content-container {
   padding: 0 0 0 250px;
   margin: 0;
@@ -164,72 +164,70 @@ nav {
   height: 100%;
 }
 
-
-
 h1 {
-  font-weight: 400!important;
+  font-weight: 400 !important;
   font-size: 17px !important;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-top: 25px!important;
+  margin-top: 25px !important;
 }
 
 /*Home*/
 
-.row{
-  margin-top: 20px!important;
+.row {
+  margin-top: 20px !important;
 }
 
-.card{
+.card {
   box-shadow: 0 1px 10px rgba(58, 59, 69, 0.15);
 }
 
-.card-photoshoot{
-  font-size: 13px!important;
+.card-photoshoot {
+  font-size: 13px !important;
   display: inline-block;
   width: 100%;
 }
 
-.upcoming-photoshoot{
+.upcoming-photoshoot {
   padding-left: 10px;
 }
 
-.big-card{
+.big-card {
   height: 350px;
 }
 
-.small-card{
-  border-left: 4px solid #7986b4!important;
+.small-card {
+  border-left: 4px solid #7986b4 !important;
   margin-bottom: 15px;
 }
 
-.card-title{
+.card-title {
   font-size: 13px;
-  color: #AEAEAE;
+  color: #aeaeae;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
 }
 
-.card-header{
+.card-header {
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 1px;
   color: #385972;
-  border: none!important;
-  background: #E3E5EE!important;
+  border: none !important;
+  background: #e3e5ee !important;
 }
 
-.big-card .card-body{
-  padding-top: 0!important;
+.big-card .card-body {
+  padding-top: 0 !important;
 }
 
-.count{
+.count {
   font-weight: 600;
   font-size: 22px;
 }
 
-.photoshoot-list{
+.photoshoot-list {
   font-size: 12px;
   width: 100%;
   list-style-type: square;
@@ -237,7 +235,7 @@ h1 {
   color: #385972;
 }
 
-.photoshoot-date{
+.photoshoot-date {
   font-size: 12px;
   width: 100%;
   color: #535353;
@@ -252,12 +250,12 @@ ul {
 .month {
   padding: 10px 20px;
   width: 100%;
-  color: #535353!important;
+  color: #535353 !important;
   font-weight: 600;
   text-align: center;
 }
 
-.today{
+.today {
   color: grey;
   font-weight: 400;
   font-size: 12px;
@@ -322,7 +320,7 @@ ul {
   width: 13.6%;
   text-align: center;
   margin-bottom: 5px;
-  font-size:12px;
+  font-size: 12px;
   color: #777;
 }
 
@@ -330,39 +328,44 @@ ul {
 .days li .active {
   padding: 5px;
   background: #1abc9c;
-  color: white !important
+  color: white !important;
 }
 
-@media screen and (max-width: 800px){
-  .prev, .weekdays, .days, .next{
+@media screen and (max-width: 800px) {
+  .prev,
+  .weekdays,
+  .days,
+  .next {
     display: none;
   }
 
-  .card-header{
+  .card-header {
     font-size: 10px;
     letter-spacing: 0;
     transition: all 0.5s;
   }
 
-  .photoshoot-date{
+  .photoshoot-date {
     display: none;
   }
 }
 
 /*Tables*/
 
-.table-container{
+.table-container {
   margin-top: 20px;
   padding: 0;
   width: 100%;
 }
-table{
-  border: none!important;
-  border-collapse: separate!important; 
+table {
+  border: none !important;
+  border-collapse: separate !important;
+  margin-bottom: 350px;
 }
-th, td {
+th,
+td {
   padding: 3px;
-  vertical-align: middle!important;
+  vertical-align: middle !important;
 }
 
 thead tr:first-child th:first-child {
@@ -381,34 +384,37 @@ tbody tr:last-child td:last-child {
   border-radius: 0 0 0.6em 0;
 }
 
-th{
-  width: 20px!important;
+th {
+  width: 20px !important;
 }
 
-thead{
-  font-size: 14px!important;
+thead {
+  font-size: 14px !important;
   font-weight: 600;
   letter-spacing: 1px;
   color: #385972;
-  padding-top: 0!important;
-  background: #E3E5EE;
+  padding-top: 0 !important;
+  background: #e3e5ee;
   text-align: center;
-
 }
 
-td{
-  background: white!important;
-  border: none!important;
+td {
+  background: white !important;
+  border: none !important;
   color: grey;
-  font-size: 14px!important;
+  font-size: 14px !important;
   padding: 5px;
 }
 
 /*Add Button*/
 
-
 .add-button {
-  background-image: linear-gradient(to right, #2d475c 0%, #7986b4 100%, #416683  100%)
+  background-image: linear-gradient(
+    to right,
+    #2d475c 0%,
+    #7986b4 100%,
+    #416683 100%
+  );
 }
 
 .add-button {
@@ -426,7 +432,7 @@ td{
   box-shadow: 0 0 20px #eee;
   border-radius: 5px;
   display: block;
-  border: none!important;
+  border: none !important;
 }
 
 .add-button:hover {
@@ -435,16 +441,15 @@ td{
   text-decoration: none;
 }
 
-@media screen and (max-width: 800px){
-  .add-button{
+@media screen and (max-width: 800px) {
+  .add-button {
     width: 100%;
   }
 }
 
-
 /*Action Buttons*/
 
-.action-button{
+.action-button {
   border: none;
   background: #7986b4;
   color: white;
@@ -453,16 +458,16 @@ td{
   padding: 5px;
   margin-bottom: 5px;
   letter-spacing: 1px;
-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.action-button:hover{
+.action-button:hover {
   background: #f2f7fb;
   color: #535353;
 }
 
 /*Submit Button*/
-.submit-button{
+.submit-button {
   border: none;
   background: #7986b4;
   color: white;
@@ -476,14 +481,14 @@ transition: all 0.5s;
   margin: 2px;
 }
 
-.submit-button:hover{
+.submit-button:hover {
   background: #f2f7fb;
   color: #535353;
 }
 
 /*Cancel Button*/
 
-.cancel-button{
+.cancel-button {
   border: none;
   background: #97a1c0;
   color: white;
@@ -497,13 +502,13 @@ transition: all 0.5s;
   margin: 2px;
 }
 
-.cancel-button:hover{
+.cancel-button:hover {
   background: #f2f7fb;
   color: #535353;
 }
 
 /*Back Button*/
-.back-button{
+.back-button {
   border: none;
   background: #7986b4;
   color: white;
@@ -517,23 +522,23 @@ transition: all 0.5s;
   margin: 20px;
 }
 
-.back-button:hover{
+.back-button:hover {
   background: #f2f7fb;
   color: #535353;
 }
 
 /*Form*/
-label{
+label {
   display: block;
   font-size: 16px;
-
 }
 
-input[id="client_id"], input[id="category_id"]{
+input[id="client_id"],
+input[id="category_id"] {
   background: #f1f1f1 !important;
 }
-input{
-  background: #E3E5EE;
+input {
+  background: #e3e5ee;
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -543,12 +548,24 @@ input{
 }
 
 /*Action Card*/
-.aligned-form{
-  padding: 0 20px 20px 20px!important;
+.aligned-form {
+  padding: 0 20px 20px 20px !important;
 }
 
-.action-card{
+.action-card {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
+/*Footer*/
+.footer{
+  background: transparent!important;
+  box-shadow: none!important;
+  font-size: 12px!important;
+  text-align: center!important;
+  width: 100%!important;
+}
+
+.navbar-collapse justify-content-center{
+  width: 100%!important;
+}

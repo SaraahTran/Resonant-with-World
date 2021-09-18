@@ -12,7 +12,9 @@
 
 <body>
 
+
 <?php include('../Menu/menu.php');?>
+<div class="container">
 
 <h1>Documentation</h1>
 
@@ -22,7 +24,7 @@
     <tr>
         <th>Tasks</th>
         <th>Martin Li 30584280</th>
-        <th>Sarah Tran</th>
+        <th>Sarah Tran 30584930</th>
     </tr>
     <tr>
         <td>Clients</td>
@@ -86,7 +88,7 @@ show_source("../connection.php");
 echo "<br/> ";
 ?>
 
-
+    <?php include('../Menu/footer.php'); ?></div>
 </body>
 
 </html>

@@ -68,4 +68,6 @@
             die(friendlyError($stmt->errorInfo()[2]));
         }
     } ?></div></div></div></div></div></div>
+
+<?php include('../Menu/footer.php'); ?>
 </html>

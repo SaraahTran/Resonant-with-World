@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
 </head>
-
+<body>
 
 </table>
 
@@ -88,5 +88,9 @@
             die(friendlyError($stmt->errorInfo()[2]));
         }
     } ?></div></div></div></div></div></div>
+</div>
+
+<?php include('../Menu/footer.php'); ?>
+</body>
 </html>
 

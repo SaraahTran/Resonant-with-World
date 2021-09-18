@@ -120,6 +120,7 @@ echo "<div class=\"photoshoot-date\">",$row["Photo_Shoot_DateTime"];
 
 </div>
 
+<?php include('./Menu/footer.php'); ?>
 </body>
 
 

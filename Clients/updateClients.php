@@ -103,6 +103,7 @@
     } ?>
 </div>
 
+<?php include('../Menu/footer.php'); ?>
 </body>
 </html>
 

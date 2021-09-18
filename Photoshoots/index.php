@@ -57,6 +57,7 @@ $stmt->execute();
         </td>
         <?php endwhile; ?>
     </tr></table></div></div>
+<?php include('../Menu/footer.php'); ?>
 </body>
 
 </html>
