@@ -17,7 +17,7 @@
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
-            <div class="card action-card">
+            <div class="card small-action-card">
                 <h5 class="card-header">Update Category</h5>
                 <div class="card-body action-body">
                     <p class="card-text">

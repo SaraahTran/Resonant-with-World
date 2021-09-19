@@ -35,7 +35,7 @@
                                 }
                             }
                             // Process the update record request (if a POST form is submitted)
-                            $query = "UPDATE `Photo_Shoot` SET `Photo_Shoot_Name`=:photoshootname WHERE `Photo_Shoot_ID`=:id";
+                            $query = "UPDATE `Photo_Shoot` SET `Photo_Shoot_Name`=:photoshootname, `Photo_Shoot_Description`=:description WHERE `Photo_Shoot_ID`=:id";
                             $stmt = $dbh->prepare($query);
                             $parameters = [
                                 'photoshootname' => $_POST['photoshootname'],
