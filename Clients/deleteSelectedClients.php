@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Client_ID'])) {
 $title_stmt = $dbh->prepare("SELECT * FROM `Client`");
 if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
 <div class="container">
-    <h1>Categories</h1>
+    <h1>Clients</h1>
     <div class="row"><div class="col-sm">
             <button class="add-button" onclick="window.location='/Clients'">Back to Full List</button>
         </div>

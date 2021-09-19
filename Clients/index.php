@@ -29,6 +29,11 @@
 
 
         </div>
+        <div class="col-sm">
+            <button class="add-button" onclick="window.location='./Clients/email.php'">Email Clients</button>
+
+
+        </div>
 
     </div>
     <?php
