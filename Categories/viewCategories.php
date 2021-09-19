@@ -52,8 +52,8 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <button type="button" class="cancel-button"
-                                                        onclick="window.location='/Categories';return false;">Cancel
+                                                <button type="button" class="back-button"
+                                                        onclick="window.location='/Categories';return false;">Back
                                                 </button>
                                             </div>
                                     </form>

@@ -72,7 +72,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="cancel-button" type="button" onclick="window.location='/Clients';return false;">Cancel</button>
+                                            <button class="back-button" type="button" onclick="window.location='/Clients';return false;">Back</button>
                                         </div>
                                     </form>
 
