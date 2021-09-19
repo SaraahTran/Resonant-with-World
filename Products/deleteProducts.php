@@ -19,7 +19,7 @@
 
     <div class="row justify-content-center">
         <div class="col-8">
-            <div class="card action-card">
+            <div class="card product-action-card">
                 <h5 class="card-header">Delete Product</h5>
                 <div class="card-body action-body">
                     <p class="card-text">

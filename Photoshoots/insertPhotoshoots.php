@@ -25,7 +25,7 @@ ob_start();
 
     <div class="row justify-content-center">
         <div class="col-8">
-            <div class="card action-card">
+            <div class="card photoshoot-action-card">
                 <h5 class="card-header">Add New Photoshoot</h5>
                 <div class="card-body action-body">
                     <p class="card-text">

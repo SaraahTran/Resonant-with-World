@@ -17,7 +17,7 @@
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
-            <div class="card small-action-card">
+            <div class="card product-action-card">
                 <h5 class="card-header">Update Product</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
@@ -62,16 +62,16 @@
                                     <form method="post">
                                         <div class="aligned-form">
                                             <div class="row">
-                                                <label for="product_id">ID</label>
-                                                <input type="number" id="product_id" value="<?= $record->Product_ID ?>" disabled/>
+                                                <label for="id">ID</label>
+                                                <input type="number" id="id" value="<?= $record->Product_ID ?>" disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="productname">Product Name</label>
                                                 <input type="text" id="productname" name="productname" value="<?= $record->Product_Name ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="product_upc">Product UPC</label>
-                                                <input type="number" id="product_upc" value="<?= $record->Product_UPC ?>" disabled/>
+                                                <label for="productupc">Product UPC</label>
+                                                <input type="number" id="productupc" name="productupc" value="<?= $record->Product_UPC ?>" disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="productprice">Product Price</label>
@@ -79,7 +79,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="product_category">Product Category</label>
-                                                <input type="text" id="product_category" name="product_category" value="<?= $record->Product_Category ?>"/>
+                                                <input type="text" id="productcategory" name="productcategory" value="<?= $record->Product_Category ?>"/>
                                             </div>
                                             <br/>
                                             <div cldass="modal-footer">

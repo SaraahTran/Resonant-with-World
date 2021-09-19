@@ -20,6 +20,14 @@
 
 <h1>Update Client Details</h1>
 <div class="container">
+
+    <div class="row justify-content-center"><div class="col-8">
+            <div class="card client-action-card">
+                <h5 class="card-header">Update Client</h5>
+                <div class="card-body action-body">
+                    <p class="card-text">
+
+                    <div class="justify-content-center center">
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
     if (!empty($_POST)) {
@@ -31,7 +39,7 @@
        }
    }
     // Process the update record request (if a POST form is submitted)
-        $query = "UPDATE `Client` SET `Client_FirstName`=:firstname,`Client_Surname`=:surname,`Client_Address`=:address,`Client_Phone`=:phone,`Client_Email`=:email, `Client_Subscribed`=:subscribe, `Client_Other_Information`=:otherinfo WHERE `Client_ID`=:id";
+        $query = "UPDATE `Client` SET `Client_FirstName`=:firstname,`Client_Surname`=:surname,`Client_Address`=:address,`Client_Phone`=:phone,`Client_Email`=:email, `Client_Subscribed`=:subscribe, `Client_Other_Information`=:otherInformation WHERE `Client_ID`=:id";
         $stmt = $dbh->prepare($query);
         $parameters = [
             'firstname' => $_POST['firstname'],
@@ -39,15 +47,16 @@
             'address' => $_POST['address'],
             'phone' => $_POST['phone'],
             'email' => $_POST['email'],
-            'subscribed' => $_POST['subscribed'],
-            'other information' => $_POST['other information'],
+            'subscribe' => $_POST['subscribe'],
+            'otherInformation' => $_POST['otherInformation'],
             'id' => $_GET['id']
         ];
-         if ($stmt->execute($parameters)) {
-            header("Location: index.php");
+        echo ("The client information has been updated.");
+        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Client'\">Back to the client list</button></div>";
+        if ($stmt->execute($parameters)) {
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
-            echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
+            echo "<div class=\"center row\"><button onclick=\"window.location='/Client'\">Back to previous page</button></div>";
             die();
         }
     } else {
@@ -61,7 +70,7 @@
         <div class="aligned-form">
             <div class="row">
                 <label for="client_id">ID</label>
-                <input type="number" id="client_id" value="<?= $record->Client_ID ?>" disabled/>
+                <input type="number" id="id" value="<?= $record->Client_ID ?>" disabled/>
             </div>
             <div class="row">
                 <label for="firstname">First Name</label>
@@ -76,22 +85,26 @@
                 <input type="text" id="address" name="address" value="<?= $record->Client_Address ?>"/>
             </div>
             <div class="row">
-                <label for="contact">Phone</label>
-                <input type="text" id="contact" name="contact" value="<?= $record->Client_Phone ?>"/>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" value="<?= $record->Client_Phone ?>"/>
             </div>
             <div class="row">
-                <label for="company">Subscribe</label>
-                <input type="text" id="company" name="company" value="<?= $record->Client_Subscribed ?>"/>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" value="<?= $record->Client_Email ?>"/>
+            </div>
+            <div class="row">
+                <label for="subscribe">Subscribe</label>
+                <input type="text" id="subscribe" name="subscribe" value="<?= $record->Client_Subscribed ?>"/>
             </div>
             <div class="row">
                 <label for="company">Other Information</label>
-                <input type="text" id="company" name="company" value="<?= $record->Client_Other_Information ?>"/>
+                <input type="text" id="otherInformation" name="otherInformation" value="<?= $record->Client_Other_Information ?>"/>
             </div>
         </div>
         <br/>
         <div class="modal-footer">
-            <input type="submit" value="Update"/>
-            <button type="button" onclick="window.location='/Clients';return false;">Cancel</button>
+            <input class="submit-button" type="submit" value="Update"/>
+            <button class="cancel-button" type="button" onclick="window.location='/Products';return false;">Cancel</button>
         </div>
     </form>
      <?php } else {

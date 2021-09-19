@@ -17,7 +17,7 @@
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
-            <div class="card action-card">
+            <div class="card product-action-card">
                 <h5 class="card-header">View Product</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
@@ -64,7 +64,7 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <button class="back-button" type="button" onclick="window.location='/Products';return false;">Back</button>
+                                                <button class="cancel-button" type="button" onclick="window.location='/Products';return false;">Back</button>
                                                 </button>
                                             </div>
                                     </form>

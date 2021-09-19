@@ -16,7 +16,7 @@
 <?php include('../Menu/menu.php');?>
 <div class="container">
 <div class="row justify-content-center"><div class="col-8">
-        <div class="card action-card">
+        <div class="card photoshoot-action-card">
             <h5 class="card-header">Delete Photshoots</h5>
             <div class="card-body action-body">
                 <p class="card-text">

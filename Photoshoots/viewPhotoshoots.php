@@ -17,9 +17,9 @@
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
-            <div class="card action-card">
+            <div class="card photoshoot-action-card">
                 <h5 class="card-header">View Photoshoot</h5>
-                <div class="card-body action-body">
+
                     <p class="card-text">
                     <div class="container">
                         <?php
@@ -72,7 +72,7 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <button class="back-button" type="button" onclick="window.location='/Photoshoots';return false;">Back</button>
+                                                <button class="cancel-button" type="button" onclick="window.location='/Photoshoots';return false;">Back</button>
                                             </div>
                                     </form>
 

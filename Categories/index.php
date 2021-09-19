@@ -38,9 +38,9 @@ $stmt->execute();
         <table class="table table-bordered responsive">
             <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Category Name</th>
-                <th scope="col">Actions</th>
+                <th style="width:33.33%" scope="col">ID</th>
+                <th style="width:33.33%" scope="col">Category Name</th>
+                <th style="width:33.33%" scope="col">Actions</th>
 
             </tr>
             </thead>

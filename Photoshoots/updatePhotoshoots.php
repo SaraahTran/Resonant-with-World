@@ -17,7 +17,7 @@
 <div class="container">
 
     <div class="row justify-content-center"><div class="col-8">
-            <div class="card action-card">
+            <div class="card photoshoot-action-card">
                 <h5 class="card-header">Update Photoshoot</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
@@ -35,17 +35,17 @@
                                 }
                             }
                             // Process the update record request (if a POST form is submitted)
-                            $query = "UPDATE `Photo_Shoot` SET `Photo_Shoot_Name`=:photoshootname, `Photo_Shoot_Description`=:description WHERE `Photo_Shoot_ID`=:id";
+                            $query = "UPDATE `Photo_Shoot` SET `Photo_Shoot_Name`=:name, `Photo_Shoot_Description`=:description, `Photo_Shoot_DateTime`=:date, `Photo_Shoot_Quote`=:quote, `Photo_Shoot_Other_Information`=:otherInformation WHERE `Photo_Shoot_ID`=:id";
                             $stmt = $dbh->prepare($query);
                             $parameters = [
-                                'photoshootname' => $_POST['photoshootname'],
+                                'name' => $_POST['name'],
                                 'description' => $_POST['description'],
                                 'date' => $_POST['date'],
                                 'quote' => $_POST['quote'],
-                                'other information' => $_POST['other information'],
+                                'otherInformation' => $_POST['otherInformation'],
                                 'id' => $_GET['id']
                             ];
-                            echo ("'$fieldValue' has been updated.");
+                            echo ("Photoshoot information has been updated.");
                             echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the category list</button></div>";
                             if ($stmt->execute($parameters)) {
                             } else {
@@ -71,20 +71,24 @@
                                                 <input type="text" id="client_id" name="client_id" value="<?= $record->Client_ID ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="photoshootname">Photoshoot Name</label>
-                                                <input type="text" id="photoshootname" name="photoshootname" value="<?= $record->Photo_Shoot_Name ?>"/>
+                                                <label for="name">Photoshoot Name</label>
+                                                <input type="text" id="name" name="name" value="<?= $record->Photo_Shoot_Name ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="photoshootdescription">Photoshoot Description</label>
-                                                <input type="text" id="photoshootdescription" name="photoshootdescription" value="<?= $record->Photo_Shoot_Description ?>"/>
+                                                <label for="description">Photoshoot Description</label>
+                                                <input type="text" id="description" name="description" value="<?= $record->Photo_Shoot_Description ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="photoshootquote">Photoshoot Quote</label>
-                                                <input type="text" id="photoshootquote" name="photoshootquote" value="<?= $record->Photo_Shoot_Quote ?>"/>
+                                                <label for="date">Photoshoot Date and Time</label>
+                                                <input type="text" id="date" name="date" value="<?= $record->Photo_Shoot_DateTime ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="photoshootinformation">Photoshoot Other Information</label>
-                                                <input type="text" id="photoshootinformation" name="photoshootinformation" value="<?= $record->Photo_Shoot_Other_Information ?>"/>
+                                                <label for="quote">Photoshoot Quote</label>
+                                                <input type="text" id="quote" name="quote" value="<?= $record->Photo_Shoot_Quote ?>"/>
+                                            </div>
+                                            <div class="row">
+                                                <label for="otherInformation">Photoshoot Other Information</label>
+                                                <input type="text" id="otherInformation" name="otherInformation" value="<?= $record->Photo_Shoot_Other_Information ?>"/>
                                             </div>
                                             <br/>
                                             <div class="modal-footer">

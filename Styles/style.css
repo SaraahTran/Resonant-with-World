@@ -506,7 +506,7 @@ td {
   border: none;
   background: #7986b4;
   color: white;
-  width: 100px;
+  width: 100%;
   font-size: 10px;
   padding: 5px;
   display: inline-block;
@@ -646,6 +646,26 @@ input {
   margin-top: 50px!important;
   margin-bottom: 40px;
 
+}
+
+.product-action-card{
+  margin-top: 50px!important;
+  height: 650px!important;
+  margin-bottom: 40px;
+}
+
+.client-action-card{
+  margin-top: 50px!important;
+  min-height: 300px!important;
+  max-height: 950px!important;
+  margin-bottom: 40px;
+}
+
+.photoshoot-action-card{
+  margin-top: 50px!important;
+  max-height: 950px!important;
+  min-height: 300px!important;
+  margin-bottom: 40px;
 }
 
 
