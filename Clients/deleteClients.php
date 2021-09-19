@@ -33,7 +33,7 @@
                             $stmt = $dbh->prepare($query);
                             if ($stmt->execute([$_GET['id']])) {
                                 echo "Client #" . $_GET['id'] . " has been deleted. ";
-                                echo "<div class=\"center row\"><button onclick=\"window.location='/Clients'\">Back to the client list</button></div>";
+                                echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Clients'\">Back To Clients </button></div>";
                             } else {
                                 echo friendlyError($stmt->errorInfo()[2]);
                                 echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Back to previous page</button></div>";
