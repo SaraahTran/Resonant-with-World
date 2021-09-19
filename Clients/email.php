@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Clients</title>
+    <title>Resonant With World Email</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
@@ -19,7 +19,7 @@ include("../connection.php");
     <h1>Emails</h1>
     </br>
 
-    <form method="post" action="email_send.php" id="send-emails">
+    <form method="post" action="sendEmail.php" id="send-emails">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 Select clients you would like to send emails to
@@ -53,14 +53,14 @@ include("../connection.php");
                         </table>
 
                     <?php else: ?>
-                        <p class="mb-4">There's no user in the database. </p>
+                        <p class="mb-4">There's no clients in the database. </p>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                Step 2: Compose the email and send
+                Compose the email and send
             </div>
             <div class="card-body">
                 <div class="form-group">
@@ -69,7 +69,7 @@ include("../connection.php");
                 </div>
                 <div class="form-group">
                     <label for="sendmailMessage">Message</label>
-                    <textarea class="form-control" id="sendmailMessage" name="body" rows="5" placeholder="Hi, &#10;&#10;...&#10;&#10;Regards" required></textarea>
+                    <textarea class="form-control" id="sendmailMessage" name="body" rows="5" placeholder="Dear Resonant With World Clients, &#10;&#10;...&#10;&#10;Kind Regards, Anna Sola" required></textarea>
                 </div>
                 <button type="submit" class="send-button">Send Email</button>
             </div>

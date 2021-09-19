@@ -1,4 +1,4 @@
-<?php
+`<?php
 ob_start(); // To allow setting header when there's already page contents rendered
 $PAGE_ID = "login";
 
