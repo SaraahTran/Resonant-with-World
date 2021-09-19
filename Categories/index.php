@@ -27,7 +27,7 @@ $stmt->execute();
 
         </div>
         <div class="col-sm">
-                <button class="delete-selected-button" onclick="window.location='./Categories/deleteSelectedCategories.php'">Delete Multiple Categies</button>
+                <button class="delete-selected-button" onclick="window.location='./Categories/deleteSelectedCategories.php'">Delete Multiple Categories</button>
 
 
         </div>

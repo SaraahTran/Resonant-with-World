@@ -11,7 +11,8 @@ ob_start();
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts and Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
@@ -22,7 +23,8 @@ ob_start();
 
 <div class="container">
 
-    <div class="row justify-content-center"><div class="col-8">
+    <div class="row justify-content-center">
+        <div class="col-8">
             <div class="card action-card">
                 <h5 class="card-header">Add New Photoshoot</h5>
                 <div class="card-body action-body">
@@ -39,7 +41,12 @@ ob_start();
                             }
                         }
                         // Process the update record request (if a POST form is submitted)
-                        $query = "INSERT INTO `Photo_Shoot`(`Photo_Shoot_Name`) VALUES (NULLIF('$_POST[photo_shoot_name]', ''))";
+                        $query = "INSERT INTO `Photo_Shoot`(`Photo_Shoot_Name`,`Photo_Shoot_Description`,`Photo_Shoot_DateTime`,`Photo_Shoot_Quote`,`Photo_Shoot_Other_Information` ) 
+VALUES (NULLIF('$_POST[photo_shoot_name]',  
+        NULLIF('$_POST[photo_shoot_description]', ''), 
+        NULLIF('$_POST[photo_shoot_datetime]', ''), 
+        NULLIF('$_POST[photo_shoot_quote]', ''), 
+        NULLIF('$_POST[photo_shoot_other_information]', ''))";
 
                         $stmt = $dbh->prepare($query);
                         if ($stmt->execute())
@@ -88,19 +95,17 @@ ob_start();
                         <button class='justify-content-center back-button' onclick="window.location='/Photoshoots'">Back to the photoshoot list</button>
                     </div>
                     <?php } else {
-                        echo "New category has been added.";
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the category list</button></div>";
+                        echo "New client has been added.";
+                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the client list</button></div>";
                     }
                     } else {
-                        die(friendlyError($stmt->errorInfo()[2]));
+                        header("Location: error.html");
                     }
                     } else {
-                        echo friendlyError($stmt->errorInfo()[2]);
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.history.back()\">Back to previous page</button></div>";
-                        die();
+                        header("Location: error.html");
                     }
                     } else {
-                        $query = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'fit2104_assignment2' AND TABLE_NAME='photo_shoot'";
+                        $query = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'fit2104_assignment2' AND TABLE_NAME='Photo_Shoot'";
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
                         ?>

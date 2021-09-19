@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Category</title>
+    <title>Resonant With World Photoshoots</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
@@ -15,27 +15,27 @@ include('../Menu/menu.php');
 include("../connection.php");
 /** @var PDO $dbh */
 //Now we'll process the POST request
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Category_ID'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Photo_Shoot_ID'])) {
     //Noticed that we're adding questions marks (parameters) to the query
     //To match number of selected items in POST request
-    $query_placeholders = trim(str_repeat("?,", count($_POST['Category_ID'])), ",");
-    $query = "DELETE FROM `Category` WHERE `Category_ID` in (" . $query_placeholders . ")";
+    $query_placeholders = trim(str_repeat("?,", count($_POST['Photo_Shoot_ID'])), ",");
+    $query = "DELETE FROM `Photo_Shoot` WHERE `Photo_Shoot_ID` in (" . $query_placeholders . ")";
     $stmt = $dbh->prepare($query);
-    if ($stmt->execute($_POST['Category_ID'])) {
-        echo "<p class='message'>Selected category have been deleted.</p>";
+    if ($stmt->execute($_POST['Photo_Shoot_ID'])) {
+        echo "<p class='message'>Selected photoshoot have been deleted.</p>";
     } else {
-        echo "<p class='message'>Error occurred while deleting category.</p>";
+        echo "<p class='message'>Error occurred while deleting photoshoot.</p>";
     }
 } else {
 
 }
 
-$title_stmt = $dbh->prepare("SELECT * FROM `Category`");
+$title_stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
 if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
 <div class="container">
-    <h1>Categories</h1>
+    <h1>Photoshoots</h1>
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='/Categories'">Back to Full List</button>
+            <button class="add-button" onclick="window.location='/Photoshoots'">Back to Full List</button>
         </div>
         <div class="col-sm">
             <form method="post">
@@ -51,17 +51,27 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             <tr>
                 <th>Delete</th>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Client ID</th>
+                <th>Photoshoot Name</th>
+                <th>Photoshoot Description</th>
+                <th>Photoshoot Date and Time</th>
+                <th>Photoshoot Quote</th>
+                <th>Photoshoot Other Information</th>
             </tr>
             </thead>
             <?php while ($row = $title_stmt->fetchObject()) { ?>
             <tbody>
             <tr>
                 <td class="col-checkbox">
-                    <input type="checkbox" name="Category_ID[]" value="<?php echo $row->Category_ID; ?>"/>
+                    <input type="checkbox" name="Photo_Shoot_ID[]" value="<?php echo $row->Photo_Shoot_ID; ?>"/>
                 </td>
-                <td><?= $row->Category_ID ?></td>
-                <td><?= $row->Category_Name ?></td>
+                <td><?= $row->Photo_Shoot_ID; ?> </td>
+                <td><?= $row->Client_ID; ?> </td>
+                <td><?= $row->Photo_Shoot_Name; ?> </td>
+                <td><?= $row->Photo_Shoot_Description; ?> </td>
+                <td><?= $row->Photo_Shoot_DateTime; ?> </td>
+                <td><?= $row->Photo_Shoot_Quote; ?> </td>
+                <td><?= $row->Photo_Shoot_Other_Information; ?> </td>
 
             </tr>
             <?php } }?>

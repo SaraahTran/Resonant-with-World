@@ -20,8 +20,17 @@
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
     <h1>Clients</h1>
+    <div class="row"><div class="col-sm">
+            <button class="add-button" onclick="window.location='./Clients/insertClients.php'">Add New Client</button>
 
-    <button class="add-button" onclick="window.location='./Clients/insertClients.php'">Add New Client</button>
+        </div>
+        <div class="col-sm">
+            <button class="delete-selected-button" onclick="window.location='./Clients/deleteSelectedClients.php'">Delete Multiple Clients</button>
+
+
+        </div>
+
+    </div>
     <?php
     include('../connection.php');
     $dsn = "mysql:host=$db_host;dbname=$db_name";

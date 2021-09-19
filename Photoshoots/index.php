@@ -15,8 +15,17 @@
 <?php include('../Menu/menu.php');?>
 <div class="container">
 <h1>Photoshoots</h1>
+    <div class="row"><div class="col-sm">
+            <button class="add-button" onclick="window.location='./Photoshoots/insertPhotoshoots.php'">Add New Photoshoots</button>
 
-<button  class="add-button" onclick="window.location='./Photoshoots/insertPhotoshoots.php'">Add New Photoshoot</button>
+        </div>
+        <div class="col-sm">
+            <button class="delete-selected-button" onclick="window.location='./Photoshoots/deleteSelectedPhotoshoots.php'">Delete Multiple Photoshoots</button>
+
+
+        </div>
+
+    </div>
 
 <?php
 include('../connection.php');

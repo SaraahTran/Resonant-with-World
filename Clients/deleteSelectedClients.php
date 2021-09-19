@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Resonant With World Category</title>
+    <title>Resonant With World Clients</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
@@ -15,27 +15,27 @@ include('../Menu/menu.php');
 include("../connection.php");
 /** @var PDO $dbh */
 //Now we'll process the POST request
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Category_ID'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Client_ID'])) {
     //Noticed that we're adding questions marks (parameters) to the query
     //To match number of selected items in POST request
-    $query_placeholders = trim(str_repeat("?,", count($_POST['Category_ID'])), ",");
-    $query = "DELETE FROM `Category` WHERE `Category_ID` in (" . $query_placeholders . ")";
+    $query_placeholders = trim(str_repeat("?,", count($_POST['Client_ID'])), ",");
+    $query = "DELETE FROM `Client` WHERE `Client_ID` in (" . $query_placeholders . ")";
     $stmt = $dbh->prepare($query);
-    if ($stmt->execute($_POST['Category_ID'])) {
-        echo "<p class='message'>Selected category have been deleted.</p>";
+    if ($stmt->execute($_POST['Client_ID'])) {
+        echo "<p class='message'>Selected client have been deleted.</p>";
     } else {
-        echo "<p class='message'>Error occurred while deleting category.</p>";
+        echo "<p class='message'>Error occurred while deleting client.</p>";
     }
 } else {
 
 }
 
-$title_stmt = $dbh->prepare("SELECT * FROM `Category`");
+$title_stmt = $dbh->prepare("SELECT * FROM `Client`");
 if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
 <div class="container">
     <h1>Categories</h1>
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='/Categories'">Back to Full List</button>
+            <button class="add-button" onclick="window.location='/Clients'">Back to Full List</button>
         </div>
         <div class="col-sm">
             <form method="post">
@@ -52,16 +52,28 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
                 <th>Delete</th>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Surname</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Subscribed</th>
+                <th>Other Information</th>
             </tr>
             </thead>
             <?php while ($row = $title_stmt->fetchObject()) { ?>
             <tbody>
             <tr>
                 <td class="col-checkbox">
-                    <input type="checkbox" name="Category_ID[]" value="<?php echo $row->Category_ID; ?>"/>
+                    <input type="checkbox" name="Client_ID[]" value="<?php echo $row->Client_ID; ?>"/>
                 </td>
-                <td><?= $row->Category_ID ?></td>
-                <td><?= $row->Category_Name ?></td>
+                <td><?= $row->Client_ID ?></td>
+                <td><?= $row->Client_FirstName ?></td>
+                <td><?= $row->Client_Surname ?></td>
+                <td><?= $row->Client_Address ?></td>
+                <td><?= $row->Client_Phone ?></td>
+                <td><?= $row->Client_Email ?></td>
+                <td><?= $row->Client_Subscribed ?></td>
+                <td><?= $row->Client_Other_Information ?></td>
 
             </tr>
             <?php } }?>
