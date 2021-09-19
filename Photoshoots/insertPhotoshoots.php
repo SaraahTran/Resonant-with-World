@@ -58,7 +58,7 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                         if ($stmt->execute([$newRecordId])) {
                         if ($stmt->rowCount() > 0) {
                         $record = $stmt->fetchObject(); ?>
-                    <div class="center row">New photoshoot has been added.</div>
+                    <div class="center row">New Photoshoot has been added.</div>
                     <form method="post">
                         <div class="aligned-form">
                             <div class="row">
@@ -95,8 +95,8 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                         <button class='justify-content-center back-button' onclick="window.location='/Photoshoots'">Back to the photoshoot list</button>
                     </div>
                     <?php } else {
-                        echo "New client has been added.";
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the client list</button></div>";
+                        echo "New phootshoot has been added.";
+                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the photoshoot list</button></div>";
                     }
                     } else {
                         header("Location: error.html");

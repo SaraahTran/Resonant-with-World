@@ -97,7 +97,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                             </div>
                         </div>
                     </form>
-                    <div class="center row">New category has been added.
+                    <div class="center row">New client has been added.
                         <button class='justify-content-center back-button' onclick="window.location='/Clients'">Back to
                             the client list
                         </button>
