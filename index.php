@@ -92,33 +92,104 @@ echo "<div class=\"photoshoot-date\">",$row["Photo_Shoot_DateTime"];
         <div class="col">
             <div class="card small-card" >
                 <div class="card-body">
+                    <div class="row">
+                    <div class="col-sm">
                     <h5 class="card-title">Total Clients</h5>
-                    <p class="card-text count">20</p>
-                </div>
+                    <p class="card-text count">
+                       <?php
+                       $count1 = $dbh->query("SELECT COUNT(*) FROM Client");
+                       $count_client = $count1->fetchColumn();
+                       echo $count_client;
+                       ?>
+                    </p>
+                    </div>
+
+                    <div class="col-sm">
+
+                        <i class="card-icon bi bi-people-fill"></i>
+                         </div>
+                    </div></div>
             </div>
 
         </div>
-        <div class="col"><div class="card small-card" >
+        <div class="col">
+            <div class="card small-card" >
                 <div class="card-body">
-                    <h5 class="card-title">Total Products</h5>
-                    <p class="card-text count">30</p>
-                </div>
-            </div></div>
-        <div class="col"><div class="card small-card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Photoshoots</h5>
-                    <p class="card-text count">20</p>
-                </div>
-            </div></div>
-        <div class="col"><div class="card small-card" >
-                <div class="card-body">
-                    <h5 class="card-title">Total Categories</h5>
-                    <p class="card-text count">4</p>
-                </div>
-            </div></div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <h5 class="card-title">Total Products</h5>
+                            <p class="card-text count">
+                             20
+                            </p>
+                        </div>
+
+                        <div class="col-sm">
+
+                            <i class="card-icon bi bi-bag-fill"></i>
+                        </div>
+                    </div></div>
     </div>
 
+
+
 </div>
+
+        <div class="col">
+            <div class="card small-card" >
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h5 class="card-title">Total Photoshoots</h5>
+                            <p class="card-text count">
+                                <?php
+                                $count3 = $dbh->query("SELECT COUNT(*) FROM Photo_Shoot");
+                                $count_photoshoot = $count3->fetchColumn();
+                                echo $count_photoshoot;
+                                ?>
+                            </p>
+                        </div>
+
+                        <div class="col-sm">
+
+                            <i class="card-icon bi bi-camera-fill"></i>
+                        </div>
+                    </div></div>
+            </div>
+
+
+
+        </div>
+
+        <div class="col">
+            <div class="card small-card" >
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h5 class="card-title">Total Categories</h5>
+                            <p class="card-text count">
+                                <?php
+                                $count4 = $dbh->query("SELECT COUNT(*) FROM Category");
+                                $count_category = $count4->fetchColumn();
+                                echo $count_category;
+                                ?>
+                            </p>
+                        </div>
+
+                        <div class="col-sm">
+
+                            <i class="card-icon bi bi-tags-fill"></i>
+                        </div>
+                    </div></div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div><
 
 <?php include('./Menu/footer.php'); ?>
 </body>

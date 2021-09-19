@@ -21,16 +21,16 @@
 <div class="container">
     <h1>Clients</h1>
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='./Clients/insertClients.php'">Add New Client</button>
+            <button class="add-button" onclick="window.location='./Clients/insertClients.php'"><span class="icon-button left-align"><i class="bi bi-plus-circle-fill"></i></span>Add New Client</button>
 
         </div>
         <div class="col-sm">
-            <button class="delete-selected-button" onclick="window.location='./Clients/deleteSelectedClients.php'">Delete Multiple Clients</button>
+            <button class="delete-selected-button" onclick="window.location='./Clients/deleteSelectedClients.php'"><i class="bi bi-trash-fill"></i>Delete Multiple Clients</button>
 
 
         </div>
         <div class="col-sm">
-            <button class="add-button" onclick="window.location='./Clients/email.php'">Email Clients</button>
+            <button class="add-button" onclick="window.location='./Clients/email.php'"><i class="bi bi-envelope-fill"></i>Email Clients</button>
 
 
         </div>

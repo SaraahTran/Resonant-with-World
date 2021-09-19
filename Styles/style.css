@@ -6,6 +6,7 @@
 html,
 body {
   min-height: 100%;
+  background: #f2f7fb;
 }
 
 .container{
@@ -195,9 +196,16 @@ h1 {
   height: 350px;
 }
 
+.card-icon{
+  font-size: 40px!important;
+  color: #ece9e9;
+  float: right;
+}
+
 .small-card {
   border-left: 4px solid #7986b4 !important;
   margin-bottom: 15px;
+  padding: 2px;
 }
 
 .card-title {
@@ -361,6 +369,10 @@ table {
   border-collapse: separate !important;
   margin-bottom: 350px;
 }
+
+.email-head{
+  background: rgba(231, 233, 239, 0.55);
+}
 th,
 td {
   padding: 3px;
@@ -417,6 +429,7 @@ td {
 }
 
 .add-button {
+  display: inline;
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 15px 45px;
@@ -460,7 +473,7 @@ td {
 .delete-selected-button {
   margin-bottom: 10px;
   margin-top: 10px;
-  padding: 15px 45px;
+  padding: 15px 25px;
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -513,6 +526,26 @@ td {
   display: inline-block!important;
   width: 100%!important;
   data-inline: true!important;
+}
+
+/*Send Button*/
+.send-button {
+  border: none;
+  background: #7986b4;
+  color: white;
+  width: 200px;
+  font-size: 17px;
+  padding: 5px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+  border-radius: 0;
+  margin: 2px;
+}
+
+.send-button:hover {
+  background: #f2f7fb;
+  color: #535353;
 }
 
 /*Submit Button*/
@@ -615,6 +648,8 @@ input {
 
 }
 
+
+
 /*Footer*/
 .footer{
   background: transparent!important;
@@ -662,3 +697,17 @@ input {
   margin-top: 50px!important;
 }
 
+/*Email*/
+
+.email-link{
+  color: #535353;
+}
+
+.email-link:hover{
+  color: #7986b4;
+}
+
+.email-table{
+  border: 1px solid lightgrey!important;
+  border-radius: 2!important;
+}

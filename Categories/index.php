@@ -23,11 +23,11 @@ $stmt->execute();
     <h1>Categories</h1>
 
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='./Categories/insertCategories.php'">Add New Category</button>
+            <button class="add-button" onclick="window.location='./Categories/insertCategories.php'"><i class="bi bi-plus-circle-fill"></i>Add New Category</button>
 
         </div>
         <div class="col-sm">
-                <button class="delete-selected-button" onclick="window.location='./Categories/deleteSelectedCategories.php'">Delete Multiple Categories</button>
+                <button class="delete-selected-button" onclick="window.location='./Categories/deleteSelectedCategories.php'"><i class="bi bi-trash-fill"></i>Delete Multiple Categories</button>
 
 
         </div>

@@ -35,11 +35,11 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
 <div class="container">
     <h1>Categories</h1>
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='/Categories'">Back to Full List</button>
+            <button class="add-button" onclick="window.location='/Categories'"><i class="bi bi-arrow-left-circle-fill"></i>Back to Full List</button>
         </div>
         <div class="col-sm">
             <form method="post">
-                <input class="delete-selected-button" type="submit" value="Delete selected categories"/>
+                <button class="delete-selected-button" type="submit" value="Delete selected categories"/><i class="bi bi-trash-fill"></i>Delete selected categories
 
         </div>
 
@@ -49,7 +49,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         <table class="table table-bordered responsive">
             <thead>
             <tr>
-                <th>Delete</th>
+                <th>Delete?</th>
                 <th>ID</th>
                 <th>Name</th>
             </tr>

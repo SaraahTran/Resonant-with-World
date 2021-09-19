@@ -16,11 +16,11 @@
 <div class="container">
 <h1>Photoshoots</h1>
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='./Photoshoots/insertPhotoshoots.php'">Add New Photoshoots</button>
+            <button class="add-button" onclick="window.location='./Photoshoots/insertPhotoshoots.php'"><i class="bi bi-plus-circle-fill"></i>Add New Photoshoots</button>
 
         </div>
         <div class="col-sm">
-            <button class="delete-selected-button" onclick="window.location='./Photoshoots/deleteSelectedPhotoshoots.php'">Delete Multiple Photoshoots</button>
+            <button class="delete-selected-button" onclick="window.location='./Photoshoots/deleteSelectedPhotoshoots.php'"><i class="bi bi-trash-fill"></i>Delete Multiple Photoshoots</button>
 
 
         </div>

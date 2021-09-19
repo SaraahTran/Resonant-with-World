@@ -22,14 +22,15 @@ include("../connection.php");
     <form method="post" action="email_send.php" id="send-emails">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Select clients you would like to send emails to</h6>
+                Select clients you would like to send emails to
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <?php $users_stmt = $dbh->prepare("SELECT * FROM `users`");
-                    if ($users_stmt->execute() && $users_stmt->rowCount() > 0): ?>
-                        <table class="table table-bordered" width="100%" cellspacing="0">
-                            <thead>
+                    <?php $client_stmt = $dbh->prepare("SELECT * FROM `client`");
+
+                    if ($client_stmt->execute() && $client_stmt->rowCount() > 0): ?>
+                        <table class="email-table table" width="100%" cellspacing="0">
+                            <thead class="email-head">
                             <tr>
                                 <th>Send?</th>
                                 <th>Username</th>
@@ -38,14 +39,14 @@ include("../connection.php");
                             </tr>
                             </thead>
                             <tbody>
-                            <?php while ($user = $users_stmt->fetchObject()): ?>
+                            <?php while ($client = $client_stmt->fetchObject()): ?>
                                 <tr>
                                     <td class="table-cell-center">
-                                        <input type="checkbox" name="user_ids[]" class="emails-to-send" value="<?php echo $user->id; ?>" />
+                                        <input type="checkbox" name="client_ids[]" class="emails-to-send" value="<?php echo $client->client_id; ?>" />
                                     </td>
-                                    <td><code><?= $user->username ?></code></td>
-                                    <td><?= $user->fullname ?></td>
-                                    <td><a href="mailto:<?= $user->email ?>"><?= $user->email ?></a></td>
+                                    <td><?= $client->Client_FirstName ?></td>
+                                    <td><?= $client->Client_Surname ?></td>
+                                    <td><a class="email-link" href="mailto:<?= $client->Client_Email ?>"><?= $client->Client_Email ?></a></td>
                                 </tr>
                             <?php endwhile; ?>
                             </tbody>
@@ -59,18 +60,18 @@ include("../connection.php");
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Step 2: Compose the email and send</h6>
+                Step 2: Compose the email and send
             </div>
             <div class="card-body">
                 <div class="form-group">
                     <label for="sendmailSubject">Subject</label>
-                    <input type="text" class="form-control" id="sendmailSubject" name="subject" placeholder="Latest newsletter!" required>
+                    <input type="text" class="form-control" id="sendmailSubject" name="subject" placeholder="Latest Newsletter!" required>
                 </div>
                 <div class="form-group">
-                    <label for="sendmailMessage">Message body</label>
+                    <label for="sendmailMessage">Message</label>
                     <textarea class="form-control" id="sendmailMessage" name="body" rows="5" placeholder="Hi, &#10;&#10;...&#10;&#10;Regards" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send email</button>
+                <button type="submit" class="send-button">Send Email</button>
             </div>
         </div>
     </form>

@@ -16,11 +16,11 @@
 <div class="container">
     <h1>Products</h1>
     <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='./Products/insertProducts.php'">Add New Product</button>
+            <button class="add-button" onclick="window.location='./Products/insertProducts.php'"><i class="bi bi-plus-circle-fill"></i>Add New Product</button>
 
         </div>
         <div class="col-sm">
-            <button class="delete-selected-button" onclick="window.location='./Products/deleteSelectedProducts.php'">Delete Multiple Products</button>
+            <button class="delete-selected-button" onclick="window.location='./Products/deleteSelectedProducts.php'"><i class="bi bi-trash-fill"></i>Delete Multiple Products</button>
 
 
         </div>
