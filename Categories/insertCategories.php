@@ -30,7 +30,8 @@ ob_start();
                 <div class="card-body action-body">
                     <p class="card-text">
                         <?php
-                        $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2', 'fit2104', 'fit2104');
+                        include('../connection.php');
+                        global $dbh;
                         if (!empty($_POST)) {
                         // Check if any of the POST fields are empty (which shouldn't be!)
                         foreach ($_POST as $fieldName => $fieldValue) {

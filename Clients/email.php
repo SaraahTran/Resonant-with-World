@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <title>Resonant With World Email</title>
     <!--CSS-->
@@ -12,12 +12,13 @@
 </head>
 <?php
 include('../Menu/menu.php');
-include("../connection.php");
+include('../connection.php');
+global $dbh;
 ?>
-
+<body>
 <div class="container">
     <h1>Emails</h1>
-    </br>
+
 
     <form method="post" action="sendEmail.php" id="send-emails">
         <div class="card shadow mb-4">
@@ -42,11 +43,14 @@ include("../connection.php");
                             <?php while ($client = $client_stmt->fetchObject()): ?>
                                 <tr>
                                     <td class="table-cell-center">
-                                        <input type="checkbox" name="client_ids[]" class="emails-to-send" value="<?php echo $client->client_id; ?>" />
+                                        <input type="checkbox" name="client_ids[]" class="emails-to-send"
+                                               value="<?php echo $client->client_id; ?>"/>
                                     </td>
                                     <td><?= $client->Client_FirstName ?></td>
                                     <td><?= $client->Client_Surname ?></td>
-                                    <td><a class="email-link" href="mailto:<?= $client->Client_Email ?>"><?= $client->Client_Email ?></a></td>
+                                    <td><a class="email-link"
+                                           href="mailto:<?= $client->Client_Email ?>"><?= $client->Client_Email ?></a>
+                                    </td>
                                 </tr>
                             <?php endwhile; ?>
                             </tbody>
@@ -65,11 +69,14 @@ include("../connection.php");
             <div class="card-body">
                 <div class="form-group">
                     <label for="sendmailSubject">Subject</label>
-                    <input type="text" class="form-control" id="sendmailSubject" name="subject" placeholder="Latest Newsletter!" required>
+                    <input type="text" class="form-control" id="sendmailSubject" name="subject"
+                           placeholder="Latest Newsletter!" required>
                 </div>
                 <div class="form-group">
                     <label for="sendmailMessage">Message</label>
-                    <textarea class="form-control" id="sendmailMessage" name="body" rows="5" placeholder="Dear Resonant With World Clients, &#10;&#10;...&#10;&#10;Kind Regards, Anna Sola" required></textarea>
+                    <textarea class="form-control" id="sendmailMessage" name="body" rows="5"
+                              placeholder="Dear Resonant With World Clients, &#10;&#10;...&#10;&#10;Kind Regards, Anna Sola"
+                              required></textarea>
                 </div>
                 <button type="submit" class="send-button">Send Email</button>
             </div>
@@ -77,8 +84,7 @@ include("../connection.php");
     </form>
 </div>
 
-<?php include('../Menu/footer.php'); ?>    </div>
+<?php include('../Menu/footer.php'); ?>
 </body>
-</div>
 
 </html>

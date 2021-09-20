@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <title>Resonant With World Client</title>
     <!--CSS-->
@@ -100,7 +100,11 @@
                             }
                         } ?>
                     </div>
-                </div></div></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

@@ -19,7 +19,7 @@ ob_start();
 </head>
 
 <body>
-<?php include('../Menu/menu.php');?>
+<?php include('../Menu/menu.php'); ?>
 
 <div class="container">
 
@@ -30,12 +30,13 @@ ob_start();
                 <div class="card-body action-body">
                     <p class="card-text">
                         <?php
-                        $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
+                        include('../connection.php');
+                        global $dbh;
                         if (!empty($_POST)) {
                         // Check if any of the POST fields are empty (which shouldn't be!)
                         foreach ($_POST as $fieldName => $fieldValue) {
                             if (empty($fieldValue)) {
-                                echo ("'$fieldName' field is empty. Please fix the issue try again. ");
+                                echo("'$fieldName' field is empty. Please fix the issue try again. ");
                                 echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
                                 die();
                             }
@@ -63,11 +64,11 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                         <div class="aligned-form">
                             <div class="row">
                                 <label for="photo_shoot_id">ID</label>
-                                <input type="text" id="photo_shoot_id" value="<?=$nextId?>" disabled/>
+                                <input type="text" id="photo_shoot_id" value="<?= $nextId ?>" disabled/>
                             </div>
                             <div class="row">
                                 <label for="client_id">Client ID</label>
-                                <input type="text" id="client_id" value="<?=$nextId?>" disabled/>
+                                <input type="text" id="client_id" value="<?= $nextId ?>" disabled/>
                             </div>
                             <div class="row">
                                 <label for="photo_shoot_name">Photoshoot Name</label>
@@ -87,12 +88,15 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                             </div>
                             <div class="row">
                                 <label for="photo_shoot_other_information">Photoshoot Other Information</label>
-                                <input type="text" id="photo_shoot_other_information" name="photo_shoot_other_information"/>
+                                <input type="text" id="photo_shoot_other_information"
+                                       name="photo_shoot_other_information"/>
                             </div>
                         </div>
                     </form>
                     <div class="center row">New photoshoot has been added.
-                        <button class='justify-content-center back-button' onclick="window.location='/Photoshoots'">Back to the photoshoot list</button>
+                        <button class='justify-content-center back-button' onclick="window.location='/Photoshoots'">Back
+                            to the photoshoot list
+                        </button>
                     </div>
                     <?php } else {
                         echo "New phootshoot has been added.";
@@ -113,11 +117,11 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                             <div class="aligned-form">
                                 <div class="row">
                                     <label for="photo_shoot_id">ID</label>
-                                    <input type="text" id="photo_shoot_id" value="<?=$nextId?>" disabled/>
+                                    <input type="text" id="photo_shoot_id" value="<?= $nextId ?>" disabled/>
                                 </div>
                                 <div class="row">
                                     <label for="client_id">Client ID</label>
-                                    <input type="text" id="client_id" value="<?=$nextId?>" disabled/>
+                                    <input type="text" id="client_id" value="<?= $nextId ?>" disabled/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_name">Photoshoot Name</label>
@@ -137,17 +141,25 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_other_information">Photoshoot Other Information</label>
-                                    <input type="text" id="photo_shoot_other_information" name="photo_shoot_other_information"/>
+                                    <input type="text" id="photo_shoot_other_information"
+                                           name="photo_shoot_other_information"/>
                                 </div>
                                 <br/>
                                 <div class="modal-footer">
-                                    <input type="submit" class="submit-button" value="Add" onclick="window.location='/Photoshoots'"/>
-                                    <button type="button" class="cancel-button"  onclick="window.location='/Photoshoots';return false;">Cancel</button>
+                                    <input type="submit" class="submit-button" value="Add"
+                                           onclick="window.location='/Photoshoots'"/>
+                                    <button type="button" class="cancel-button"
+                                            onclick="window.location='/Photoshoots';return false;">Cancel
+                                    </button>
                                 </div>
                             </div>
                         </form>
-                    <?php } ?></div></div>
-        </div></div></div></div></div>
+                    <?php } ?></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div></div>
 
 </body>
 

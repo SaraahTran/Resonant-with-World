@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <title>Resonant With World Product</title>
     <!--CSS-->
@@ -12,7 +12,6 @@
 </head>
 
 <body>
-</table>
 
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
@@ -25,8 +24,8 @@
                     <p class="card-text">
                     <div class="container">
                         <?php
-                        $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2', 'fit2104', 'fit2104');
                         include('../connection.php');
+                        global $dbh;
                         if (!empty($_POST)) {
                             // Process to delete record request (if a POST form is submitted)
                             $query = "DELETE FROM `Product` WHERE `Product_ID`=?";
@@ -51,27 +50,33 @@
                                         <div class="aligned-form">
                                             <div class="row">
                                                 <label for="product_id">ID</label>
-                                                <input type="number" id="product_id" value="<?= $record->Product_ID ?>" disabled/>
+                                                <input type="number" id="product_id" value="<?= $record->Product_ID ?>"
+                                                       disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="productname">Product Name</label>
-                                                <input type="text" id="productname" value="<?= $record->Product_Name ?>" disabled/>
+                                                <input type="text" id="productname" value="<?= $record->Product_Name ?>"
+                                                       disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="product_upc">Product UPC</label>
-                                                <input type="number" id="product_upc" value="<?= $record->Product_UPC ?>" disabled/>
+                                                <input type="number" id="product_upc"
+                                                       value="<?= $record->Product_UPC ?>" disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="productprice">Product Price</label>
-                                                <input type="text" id="productprice"  value="<?= $record->Product_Price ?>" disabled/>
+                                                <input type="text" id="productprice"
+                                                       value="<?= $record->Product_Price ?>" disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="product_category">Product Category</label>
-                                                <input type="text" id="product_category" value="<?= $record->Product_Category ?>" disabled/>
+                                                <input type="text" id="product_category"
+                                                       value="<?= $record->Product_Category ?>" disabled/>
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
+                                                <input class="submit-button" type="submit" name="action"
+                                                       id="delete-button" value="Delete"/>
                                                 <button type="button" class="cancel-button"
                                                         onclick="window.location='/Products';return false;">Cancel
                                                 </button>
@@ -85,7 +90,11 @@
                             }
                         } ?>
                     </div>
-                </div></div></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

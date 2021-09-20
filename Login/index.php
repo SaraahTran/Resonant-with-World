@@ -44,10 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts and Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
 </head>
 <body class="login white-bg">
@@ -86,10 +88,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <form class="user" method="post">
                                     <div class="form-group">
-                                        <input type="text"  id="loginUsername" name="username" aria-describedby="emailHelp" placeholder="Username">
+                                        <input type="text" id="loginUsername" name="username"
+                                               aria-describedby="emailHelp" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" id="loginUserPassword" name="password" placeholder="Password">
+                                        <input type="password" id="loginUserPassword" name="password"
+                                               placeholder="Password">
                                     </div>
                                     <button type="submit" class="add-button">Login</button>
                                 </form>
@@ -97,12 +101,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                     </div>
                 </div>
+            </div>
+
+
         </div>
 
-
     </div>
-
-</div>
 
 
 </body>

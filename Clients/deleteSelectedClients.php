@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <title>Resonant With World Clients</title>
     <!--CSS-->
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
 </head>
+<body>
 <?php
 include('../Menu/menu.php');
 include("../connection.php");
@@ -34,12 +35,16 @@ $title_stmt = $dbh->prepare("SELECT * FROM `Client`");
 if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
 <div class="container">
     <h1>Clients</h1>
-    <div class="row"><div class="col-sm">
-            <button class="add-button" onclick="window.location='/Clients'"><i class="bi bi-arrow-left-circle-fill"></i>Back to Full List</button>
+    <div class="row">
+        <div class="col-sm">
+            <button class="add-button" onclick="window.location='/Clients'"><i class="bi bi-arrow-left-circle-fill"></i>Back
+                to Full List
+            </button>
         </div>
         <div class="col-sm">
             <form method="post">
-                <button class="delete-selected-button" type="submit" value="Delete selected clients"/><i class="bi bi-trash-fill"></i>Delete selected clients
+                <button class="delete-selected-button" type="submit" value="Delete selected clients"/>
+                <i class="bi bi-trash-fill"></i>Delete selected clients
 
         </div>
 
@@ -76,12 +81,14 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
                 <td><?= $row->Client_Other_Information ?></td>
 
             </tr>
-            <?php } }?>
+            <?php }
+            } ?>
             </tbody>
-        </table></form>
-    </div></div>
-<?php include('../Menu/footer.php'); ?>    </div>
-</body>
+        </table>
+    </div>
 </div>
+<?php include('../Menu/footer.php'); ?>
+</body>
+
 
 </html>

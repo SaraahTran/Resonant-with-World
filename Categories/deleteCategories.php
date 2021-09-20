@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <title>Resonant With World Category</title>
     <!--CSS-->
@@ -10,9 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
 </head>
 
-
-</table>
-
 <?php include('../Menu/menu.php');?>
 <div class="container">
 
@@ -23,8 +20,8 @@
                     <p class="card-text">
 <div class="container">
     <?php
-    $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2','fit2104','fit2104');
-        include('../connection.php');
+    include('../connection.php');
+    global $dbh;
     if (!empty($_POST)) {
         // Process to delete record request (if a POST form is submitted)
         $query = "DELETE FROM `Category` WHERE `Category_ID`=?";
