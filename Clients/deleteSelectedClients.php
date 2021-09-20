@@ -39,7 +39,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         </div>
         <div class="col-sm">
             <form method="post">
-                <button class="delete-selected-button" type="submit" value="Delete selected categories"/><i class="bi bi-trash-fill"></i>Delete selected clients
+                <button class="delete-selected-button" type="submit" value="Delete selected clients"/><i class="bi bi-trash-fill"></i>Delete selected clients
 
         </div>
 

@@ -52,11 +52,11 @@
             'id' => $_GET['id']
         ];
         echo ("The client information has been updated.");
-        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Client'\">Back to the client list</button></div>";
+        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Clients'\">Back to the client list</button></div>";
         if ($stmt->execute($parameters)) {
         } else {
             echo friendlyError($stmt->errorInfo()[2]);
-            echo "<div class=\"center row\"><button onclick=\"window.location='/Client'\">Back to previous page</button></div>";
+            echo "<div class=\"center row\"><button onclick=\"window.location='/Clients'\">Back to previous page</button></div>";
             die();
         }
     } else {
@@ -104,11 +104,11 @@
         <br/>
         <div class="modal-footer">
             <input class="submit-button" type="submit" value="Update"/>
-            <button class="cancel-button" type="button" onclick="window.location='/Products';return false;">Cancel</button>
+            <button class="cancel-button" type="button" onclick="window.location='/Clients';return false;">Cancel</button>
         </div>
     </form>
      <?php } else {
-            header("Location: Client");
+            header("Location: Clients");
         }
         } else {
           die(friendlyError($stmt->errorInfo()[2]));
