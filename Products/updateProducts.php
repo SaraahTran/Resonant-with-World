@@ -43,9 +43,9 @@
                                 'productupc' => $_POST['productupc'],
                                 'productprice' => $_POST['productprice'],
                                 'productcategory' => $_POST['productcategory'],
-                                'id' => $_GET['id']
+                                    'id' => $_GET['id']
                             ];
-                            echo("'$fieldValue' has been updated.");
+                            echo("The product information has been updated.");
                             echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Products'\">Back to the product list</button></div>";
                             if ($stmt->execute($parameters)) {
                             } else {
@@ -75,7 +75,7 @@
                                             <div class="row">
                                                 <label for="productupc">Product UPC</label>
                                                 <input type="number" id="productupc" name="productupc"
-                                                       value="<?= $record->Product_UPC ?>" disabled/>
+                                                       value="<?= $record->Product_UPC ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="productprice">Product Price</label>
