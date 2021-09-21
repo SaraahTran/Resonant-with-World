@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <div class="card action-card">
-                <h5 class="card-header">View Photoshoot</h5>
+                <h5 class="card-header">View Client</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
                     <div class="container">

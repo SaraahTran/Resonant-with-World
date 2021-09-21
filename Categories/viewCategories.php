@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
 </head>
-
-
-</table>
-
+<body>
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
 
@@ -56,7 +53,7 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <button type="button" class="back-button"
+                                                <button type="button" class="cancel-button"
                                                         onclick="window.location='/Categories';return false;">Back
                                                 </button>
                                             </div>
@@ -72,4 +69,5 @@
         </div>
     </div>
 </div>
+</body>
 </html>

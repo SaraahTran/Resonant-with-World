@@ -98,9 +98,9 @@ $stmt->execute();
                         $photoshoot_stmt->execute();
                         while ($row = $photoshoot_stmt->fetch()): ?>
                     <div>
-                        <li class=photoshoot-list> <?php echo $row["Photo_Shoot_Name"] ?></li>
+                        <li class=photoshoot-list><input type="checkbox"> <?php echo $row["Photo_Shoot_Name"] ?></li>
                         <div class="flex-row-reverse">
-                            <div class=photoshoot-date>"<?php echo $row["Photo_Shoot_DateTime"]; ?>
+                            <div class=photoshoot-date><?php echo $row["Photo_Shoot_DateTime"]; ?>
                                 <br/><br/></div>
                         </div>
                     </div>

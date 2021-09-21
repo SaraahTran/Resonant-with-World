@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Photo_Shoot_ID'])) {
         echo "<p class='message'>Error occurred while deleting photoshoot.</p>";
     }
 } else {
+    echo "<p class='message'>Please select at least one photoshoot to delete.</p>";
 
 }
 

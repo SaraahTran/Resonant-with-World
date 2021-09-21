@@ -41,7 +41,7 @@ $stmt->execute();
     </div>
 
     <div class="table-responsive">
-        <table class="table table-bordered responsive">
+        <table class="table table-bordered responsive table-condensed">
             <thead>
             <tr>
                 <th style="width:33.33%" scope="col">ID</th>
@@ -53,32 +53,33 @@ $stmt->execute();
             <?php while ($row = $stmt->fetchObject()): ?>
             <tbody>
             <tr>
-                <td><?php echo $row->Category_ID; ?> </td>
-                <td><?php echo $row->Category_Name; ?> </td>
-                <td>
-                    <button class="action-button"
-                            onclick="window.location='./Categories/viewCategories.php?id=<?= $row->Category_ID ?>'">View
-                    </button>
-                    <button class="action-button"
-                            onclick="window.location='./Categories/updateCategories.php?id=<?= $row->Category_ID ?>'">
-                        Update
-                    </button>
-                    <button class="action-button"
-                            onclick="window.location='./Categories/deleteCategories.php?id=<?= $row->Category_ID ?>'">
-                        Delete
-                    </button>
+                <td style="width:33.33%"><?php echo $row->Category_ID; ?> </td>
+                <td style="width:33.33%"><?php echo $row->Category_Name; ?> </td>
+                <td style="width:33.33%">
+                    <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
+                            onclick="window.location='./Categories/viewCategories.php?id=<?= $row->Category_ID ?>'"><i
+                                class="center bi bi-eye-fill"></i></button>
+                    <button class="action-button" data-toggle="tooltip" data-placement="top" title="Update"
+                            onclick="window.location='./Categories/updateCategories.php?id=<?= $row->Category_ID ?>'"><i
+                                class="center bi bi-pencil-fill"></i></button>
+                    <button class="action-button" data-toggle="tooltip" data-placement="top" title="Delete"
+                            onclick="window.location='./Categories/deleteCategories.php?id=<?= $row->Category_ID ?>'"><i
+                                class="center bi bi-trash-fill"></i></button>
                 </td>
                 <?php endwhile; ?>
             </tr>
             </tbody>
         </table>
 
-
     </div>
 </div>
 
 
 <?php include('../Menu/footer.php'); ?>
+<script>$(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })</script>
+
 
 </body>
 

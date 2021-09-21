@@ -237,7 +237,7 @@ h1 {
 .photoshoot-list {
   font-size: 12px;
   width: 100%;
-  list-style-type: square;
+  list-style-type: none;
   font-weight: 600;
   color: #385972;
 }
@@ -362,7 +362,6 @@ ul {
 .table-container {
   margin-top: 20px;
   padding: 0;
-  width: 100%;
 }
 table {
   border: none !important;
@@ -504,21 +503,43 @@ td {
 
 .action-button {
   border: none;
-  background: #7986b4;
-  color: white;
-  width: 100%;
+  border: 1px solid #7986b4;
+  background: rgba(202, 210, 238, 0.1);
+  color: #7986b4;
+  width: 50px;
+  height: 50px;
   font-size: 10px;
   padding: 5px;
-  display: inline-block;
-  margin-bottom: 5px;
   letter-spacing: 1px;
   transition: all 0.5s;
   z-index: 300!important;
+  border-radius: 100%;
+  text-align: center;
+  margin: 5px;
 }
 
 .action-button:hover {
-  background: #f2f7fb;
-  color: #535353;
+  background: rgba(121, 134, 180, 0.29);
+}
+
+.center{
+  margin-right: 0!important;
+}
+
+.tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #fff;
+  text-align: center;
+  background-color: #2d475c !important;
+  border-radius: .25rem;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
+  margin-left: -3px;
+  content: "";
+  border-width: 5px 5px 0;
+  border-top-color: #2d475c!important;
 }
 
 /*Buttons*/
@@ -617,6 +638,12 @@ label {
   font-size: 16px;
 }
 
+input[type="checkbox"]{
+  width:auto!important;
+  margin:0!important;
+  margin-right: 5px!important;
+}
+
 input[id="client_id"],
 input[id="category_id"] {
   background: #f1f1f1 !important;
@@ -685,7 +712,7 @@ input {
 
 /*Message*/
 .message{
-  background: #f1f1f1;
+  background: #ffffff;
   border-radius: 10px;
   text-align: center;
   padding: 10px;

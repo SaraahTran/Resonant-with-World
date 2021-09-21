@@ -52,7 +52,7 @@
                 <th scope="col">Photoshoot Date and Time</th>
                 <th scope="col">Photoshoot Quote</th>
                 <th scope="col">Photoshoot Other Information</th>
-                <th scope="col">Actions</th>
+                <th style="width:20%" scope="col">Actions</th>
 
             </tr>
             </thead>
@@ -66,19 +66,16 @@
                 <td><?php echo $row->Photo_Shoot_DateTime; ?> </td>
                 <td><?php echo $row->Photo_Shoot_Quote; ?> </td>
                 <td><?php echo $row->Photo_Shoot_Other_Information; ?> </td>
-                <td>
-                    <button class="action-button"
-                            onclick="window.location='Photoshoots/viewPhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">
-                        View
-                    </button>
-                    <button class="action-button"
-                            onclick="window.location='Photoshoots/updatePhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">
-                        Update
-                    </button>
-                    <button class="action-button"
-                            onclick="window.location='Photoshoots/deletePhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'">
-                        Delete
-                    </button>
+                <td style="width:20%">
+                    <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
+                            onclick="window.location='./Photoshoots/viewPhotoshoots.php?id=<?= $row->Photo_Shoot_ID ?>'"><i
+                                class="center bi bi-eye-fill"></i></button>
+                    <button class="action-button" data-toggle="tooltip" data-placement="top" title="Update"
+                            onclick="window.location='./Photoshoots/updatePhotoshoots.php?id=<?= $row->Photo_Shoot_ID  ?>'"><i
+                                class="center bi bi-pencil-fill"></i></button>
+                    <button class="action-button" data-toggle="tooltip" data-placement="top" title="Delete"
+                            onclick="window.location='./Photoshoots/deletePhotoshoots.php?id=<?= $row->Photo_Shoot_ID  ?>'"><i
+                                class="center bi bi-trash-fill"></i></button>
                 </td>
                 <?php endwhile; ?>
             </tr>
@@ -86,6 +83,9 @@
     </div>
 </div>
 <?php include('../Menu/footer.php'); ?>
+<script>$(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })</script>
 </body>
 
 </html>

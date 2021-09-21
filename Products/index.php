@@ -48,7 +48,7 @@
                 <th scope="col">Product UPC</th>
                 <th scope="col">Product Price</th>
                 <th scope="col">Product Category</th>
-                <th scope="col">Actions</th>
+                <th style="width:20%" scope="col">Actions</th>
             </tr>
             </thead>
             <?php while ($row = $stmt->fetchObject()): ?>
@@ -59,16 +59,16 @@
                 <td><?php echo $row->Product_UPC; ?> </td>
                 <td><?php echo $row->Product_Price; ?> </td>
                 <td><?php echo $row->Product_Category; ?> </td>
-                <td>
-                    <button class="action-button"
-                            onclick="window.location='./Products/viewProducts.php?id=<?= $row->Product_ID ?>'">View
-                    </button>
-                    <button class="action-button"
-                            onclick="window.location='./Products/updateProducts.php?id=<?= $row->Product_ID ?>'">Update
-                    </button>
-                    <button class="action-button"
-                            onclick="window.location='./Products/deleteProducts.php?id=<?= $row->Product_ID ?>'">Delete
-                    </button>
+                <td style="width:20%">
+                    <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
+                            onclick="window.location='./Products/viewProducts.php?id=<?= $row->Product_ID ?>'"><i
+                                class="center bi bi-eye-fill"></i></button>
+                    <button class="action-button" data-toggle="tooltip" data-placement="top" title="Update"
+                            onclick="window.location='./Products/updateProducts.php?id=<?= $row->Product_ID  ?>'"><i
+                                class="center bi bi-pencil-fill"></i></button>
+                    <button class="action-button" data-toggle="tooltip" data-placement="top" title="Delete"
+                            onclick="window.location='./Products/deleteProducts.php?id=<?= $row->Product_ID  ?>'"><i
+                                class="center bi bi-trash-fill"></i></button>
                 </td>
                 <?php endwhile; ?>
             </tr>
@@ -77,6 +77,9 @@
     </div>
 </div>
 <?php include('../Menu/footer.php'); ?>
+<script>$(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })</script>
 </body>
 
 </html>

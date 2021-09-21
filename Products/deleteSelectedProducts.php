@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Product_ID'])) {
         echo "<p class='message'>Error occurred while deleting product.</p>";
     }
 } else {
+    echo "<p class='message'>Please select at least one product to delete.</p>";
 
 }
 
