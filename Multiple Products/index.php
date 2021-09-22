@@ -40,7 +40,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Product Price</th>
-                <th style="width:20%" scope="col">Actions</th>
             </tr>
             </thead>
             <?php while ($row = $stmt->fetchObject()): ?>
@@ -49,12 +48,6 @@
                 <td><?php echo $row->Product_ID; ?> </td>
                 <td><?php echo $row->Product_Name; ?> </td>
                 <td><?php echo $row->Product_Price; ?> </td>
-                <td style="width:20%">
-                    <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
-                            onclick="window.location='./Products/viewProducts.php?id=<?= $row->Product_ID ?>'"><i
-                                class="center bi bi-eye-fill"></i></button>
-
-                </td>
                 <?php endwhile; ?>
             </tr>
             </tbody>
