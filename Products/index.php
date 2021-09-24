@@ -15,15 +15,15 @@
 
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
-    <h1>Products</h1>
     <div class="row">
+        <div class="col-sm">
+            <h1>Products</h1>
+            <p class="description">You can manage your products here.</p>
+        </div>
         <div class="col-sm">
             <button class="add-button" onclick="window.location='./Products/insertProducts.php'"><i
                         class="bi bi-plus-circle-fill"></i>Add New Product
             </button>
-
-        </div>
-        <div class="col-sm">
             <button class="delete-selected-button" onclick="window.location='./Products/deleteSelectedProducts.php'"><i
                         class="bi bi-trash-fill"></i>Delete Multiple Products
             </button>

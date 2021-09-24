@@ -15,13 +15,18 @@
 
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
-    <h1>Multiple Products</h1>
     <div class="row">
         <div class="col-sm">
+            <h1>Multiple Products</h1>
+            <p class="description">You can manage multiple products here.</p>
+
         </div>
+        <div class="col-sm justify-content-center align-content-end">
             <button class="delete-selected-button" onclick="window.location='/Multiple Products/editMultipleProducts.php'"><i
                         class="bi bi-pencil-fill"></i>Edit Multiple Products
             </button>
+
+        </div>
 
 
 

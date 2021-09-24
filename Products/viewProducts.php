@@ -15,6 +15,8 @@
 </table>
 
 <?php include('../Menu/menu.php'); ?>
+
+
 <div class="container">
 
     <div class="row justify-content-center">
@@ -70,6 +72,15 @@
                                                        value="<?= $record->Product_Category ?>" disabled/>
                                             </div>
                                             <br/>
+                                            <?php // Fetch product images
+                                            $product_images = [];
+                                            $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `Product_Image_ID` = ?");
+                                            $stmt->execute([$_GET['id']]);
+                                            while ($image = $stmt->fetchObject()) {
+                                                $product_images[] = $image;
+                                            }
+
+                                            $product_fetched = true;?>
                                                 <label for="product_image">Product Image</label>
                                                 <?php if (empty($product_images)): ?>
                                                     <p>This product has no images</p>

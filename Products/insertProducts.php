@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($serverSideErrors)) {
             $dbh->commit();
-            header("Location: products_detail.php?id=" . $insertedProductId);
+            header("Location: viewProducts.php?id=" . $insertedProductId);
             exit();
         } else {
             $dbh->rollBack();
@@ -250,7 +250,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                     <input type="text" id="product_category" name="product_category"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="productSalePrice">Product images</label>
+                                    <label for="productSalePrice">Product Images</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
                                         <label class="custom-file-label" for="customFile">Choose one or more image files</label>

@@ -15,22 +15,23 @@
 
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
-    <h1>Photoshoots</h1>
     <div class="row">
         <div class="col-sm">
-            <button class="add-button" onclick="window.location='./Photoshoots/insertPhotoshoots.php'"><i
+            <h1>Photoshoots</h1>
+            <p class="description">You can manage your photoshoots here.</p>
+        </div>
+
+        <div class="col-sm">
+            <button class="add-button" onclick="window.location='./Products/insertPhotoshootss.php'"><i
                         class="bi bi-plus-circle-fill"></i>Add New Photoshoots
             </button>
-
-        </div>
-        <div class="col-sm">
-            <button class="delete-selected-button"
-                    onclick="window.location='./Photoshoots/deleteSelectedPhotoshoots.php'"><i
+            <button class="delete-selected-button" onclick="window.location='./Products/deleteSelectedPhotoshoots.php'"><i
                         class="bi bi-trash-fill"></i>Delete Multiple Photoshoots
             </button>
 
 
         </div>
+
 
     </div>
 

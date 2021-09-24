@@ -62,7 +62,7 @@
                                     $record = $stmt->fetchObject();
                                     // Fetch product images
                                     $product_images = [];
-                                    $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `product_id` = ?");
+                                    $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `Product_Image_ID` = ?");
                                     $stmt->execute([$_GET['id']]);
                                     while ($image = $stmt->fetchObject()) {
                                         $product_images[] = $image;

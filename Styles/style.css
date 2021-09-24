@@ -166,7 +166,7 @@ nav {
 
 h1 {
   font-weight: 400 !important;
-  font-size: 17px !important;
+  font-size: 18px !important;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-top: 25px !important;
@@ -428,18 +428,15 @@ td {
 }
 
 .add-button {
-  display: inline;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 15px 45px;
-  width: 100%;
+  margin: 5px;
+  width: 250px;
+  height: 50px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   letter-spacing: 2px;
-  font-size: 13px;
+  font-size: 8px;
   background-size: 200% auto;
-  display: inline-block;
   color: white;
   box-shadow: 0 0 20px #eee;
   border-radius: 5px;
@@ -470,16 +467,14 @@ td {
 }
 
 .delete-selected-button {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 15px 25px;
-  display: inline-block;
-  width: 100%;
+  margin: 5px;
+  height: 50px;
+  width: 250px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   letter-spacing: 2px;
-  font-size: 13px;
+  font-size: 8px;
   background-size: 200% auto;
   color: white;
   box-shadow: 0 0 20px #eee;
@@ -677,7 +672,8 @@ input {
 
 .product-action-card{
   margin-top: 50px!important;
-  height: 650px!important;
+  min-height: 300px!important;
+  max-height: 850px!important;
   margin-bottom: 40px;
 }
 
@@ -758,3 +754,43 @@ input {
   border: 1px solid lightgrey!important;
   border-radius: 2!important;
 }
+
+/*Description*/
+
+.description{
+  font-size: 13px;
+}
+
+/*Login*/
+
+.login-button {
+  background-image: linear-gradient(
+          to right,
+          #2d475c 0%,
+          #7986b4 100%,
+          #416683 100%
+  );
+}
+
+.login-button {
+  margin: 5px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 2px;
+  font-size: 13px;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 5px;
+  border: none !important;
+}
+
+.login-button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+

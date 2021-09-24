@@ -1,3 +1,9 @@
+<?php
+$PAGE_ID = "home";
+$PAGE_HEADER = "Welcome";
+$PAGE_ALLOWGUEST = true; // Homepage should allow guest to visit
+?>
+
 <html lang="en">
 
 <head>

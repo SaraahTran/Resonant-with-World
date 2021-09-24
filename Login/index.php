@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $row->id;
             //Successfully logged in, redirect user to referer, or index page
             if (empty($_SESSION['referer'])) {
-                header("Location: index.php");
+                header("Location: ../index.php");
             } else {
                 header("Location: " . $_SESSION['referer']);
             }
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
 
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="Styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="password" id="loginUserPassword" name="password"
                                                placeholder="Password">
                                     </div>
-                                    <button type="submit" class="add-button">Login</button>
+                                    <button type="submit" class="login-button">Login</button>
                                 </form>
                             </div>
                         </div>

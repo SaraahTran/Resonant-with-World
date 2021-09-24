@@ -22,16 +22,17 @@ $stmt = $dbh->prepare("SELECT * FROM `Category`");
 $stmt->execute();
 ?>
 <div class="container">
-    <h1>Categories</h1>
-
     <div class="row">
+        <div class="col-sm">
+
+                <h1>Categories</h1>
+                <p class="description">You can manage your categories here.</p>
+
+        </div>
         <div class="col-sm">
             <button class="add-button" onclick="window.location='./Categories/insertCategories.php'"><i
                         class="bi bi-plus-circle-fill"></i>Add New Category
             </button>
-
-        </div>
-        <div class="col-sm">
             <button class="delete-selected-button"
                     onclick="window.location='./Categories/deleteSelectedCategories.php'"><i
                         class="bi bi-trash-fill"></i>Delete Multiple Categories

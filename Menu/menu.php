@@ -1,3 +1,14 @@
+<?php
+ob_start(); // To allow setting header when there's already page contents rendered
+
+/** @var string $PAGE_ID Identify which page is loading the header, so the active menu item can be correctly recognised */
+/** @var string $PAGE_HEADER The page title set in individual pages */
+/** @var string $PAGE_USERNAME Username of the current logged in user */
+/** @var string $PAGE_ALLOWGUEST If a page allows guest to visit */
+
+?>
+
+
 <html lang="en">
 <head>
     <title>Resonant With World Menu</title>
@@ -92,12 +103,12 @@
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle topbar-text" data-toggle="dropdown"><i
-                            class="bi bi-person-circle"></i> Anna Sola</a>
+                            class="bi bi-person-circle"></i>Anna Sola</a>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a href="../login/logout" class="dropdown-item">LogOut</a>
+                    <a href="../login/logout.php" class="dropdown-item">Log Out</a>
                 </div>
             </div>
 

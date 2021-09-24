@@ -1,3 +1,8 @@
+<?php
+$PAGE_ID = "products_add";
+$PAGE_HEADER = "Add new product";
+?>
+
 <html lang="en">
 <head>
     <title>Resonant With World Client </title>
@@ -19,23 +24,21 @@
 
 <?php include('../Menu/menu.php'); ?>
 <div class="container">
-    <h1>Clients</h1>
     <div class="row">
+        <div class="col-sm">
+            <h1>Clients</h1>
+            <p class="description">You can manage your clients here.</p>
+        </div>
+
         <div class="col-sm">
             <button class="add-button" onclick="window.location='./Clients/insertClients.php'"><span
                         class="icon-button left-align"><i class="bi bi-plus-circle-fill"></i></span>Add New Client
             </button>
-
-        </div>
-        <div class="col-sm">
             <button class="delete-selected-button" onclick="window.location='./Clients/deleteSelectedClients.php'"><i
                         class="bi bi-trash-fill"></i>Delete Multiple Clients
             </button>
-
-
-        </div>
-        <div class="col-sm">
-            <button class="add-button" onclick="window.location='./Clients/email.php'"><i
+            <br/>
+            <button class="delete-selected-button" onclick="window.location='./Clients/email.php'"><i
                         class="bi bi-envelope-fill"></i>Email Clients
             </button>
 
