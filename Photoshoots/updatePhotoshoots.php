@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="quote">Photoshoot Quote</label>
-                                                <input type="text" id="quote" name="quote"
+                                                <input type="number" id="quote" name="quote"
                                                        value="<?= $record->Photo_Shoot_Quote ?>"/>
                                             </div>
                                             <div class="row">

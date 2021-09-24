@@ -1,4 +1,120 @@
 <?php
+$PAGE_ID = "products_add";
+$PAGE_HEADER = "Add new product";
+
+/** @var PDO $dbh Database connection */
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // PHP $_FILES error readable references
+    $phpFileUploadErrors = array(
+        0 => 'There is no error, the file uploaded with success',
+        1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+        2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+        3 => 'The uploaded file was only partially uploaded',
+        4 => 'No file was uploaded',
+        6 => 'Missing a temporary folder',
+        7 => 'Failed to write file to disk.',
+        8 => 'A PHP extension stopped the file upload.',
+    );
+
+    // Allowed MIME types
+    $allowedMIME = array(
+        'image/jpeg',
+        'image/png',
+        'image/gif'
+    );
+
+    $insertedProductId = 0;
+
+    if (!empty($_POST['Product_Name']) &&
+        !empty($_POST['Product_UPC']) &&
+        !empty($_POST['Product_Price']) &&
+        !empty($_POST['Product_Category'])) {
+
+        $serverSideErrors = [];
+        $filenames = [];
+
+        // As we'll need to do multiple queries, and need to check if all files are uploaded correctly
+        // Better to do a transaction that allows us to revert if any error occurs
+        $dbh->beginTransaction();
+
+        // Insert product
+        $query = "INSERT INTO `Products`(`Product_Name`, `Product_UPC`, `Product_Price`,`Product_Category`) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $dbh->prepare($query);
+        $parameters = [
+            $_POST['Product_Name'],
+            $_POST['Product_UPC'],
+            $_POST['Product_Price'],
+            $_POST['Product_Category']
+        ];
+        if ($stmt->execute($parameters)) {
+            $insertedProductId = $dbh->lastInsertId();
+
+            // NOTE: file size validation in this demo code is only implemented in Javascript - see /js/scripts.js file for details
+
+            // If no file is uploaded, then no need to process uploaded files
+            if (!(isset($_FILES['images']['error'][0]) && $_FILES['images']['error'][0] == 4)) {
+                // Check if any of the files has error during upload
+                foreach ($_FILES['images']['error'] as $index => $error) {
+                    if ($error != 0) {
+                        $serverSideErrors[] = "File '" . $_FILES['images']['name'][$index] . "' did not upload because: " . $phpFileUploadErrors[$error];
+                        break;
+                    }
+                }
+
+                // Check if any of the files is in wrong MIME type
+                foreach ($_FILES['images']['type'] as $index => $type) {
+                    if (!empty($type) && !in_array($type, $allowedMIME)) {
+                        $serverSideErrors[] = "The type of file '" . $_FILES['images']['name'][$index] . "' (" . $type . ") is not allowed";
+                        break;
+                    }
+                }
+
+                // Insert new product images to product_images table
+                if (empty($serverSideErrors)) {
+                    foreach ($_FILES['images']['name'] as $index => $filename) {
+                        $query = "INSERT INTO `Product_Image`(`Product_ID`, `Product_Image_File_name`) VALUES (?, ?)";
+                        $stmt = $dbh->prepare($query);
+                        $currentFileName = uniqid('product_' . $insertedProductId . '_', true) . "." . pathinfo($filename, PATHINFO_EXTENSION);
+                        if ($stmt->execute([$insertedProductId, $currentFileName])) {
+                            $filenames[$index] = $currentFileName;
+                        } else {
+                            $serverSideErrors[] = $stmt->errorInfo()[2];
+                            break;
+                        }
+                    }
+                }
+
+                // Finally, move images to its final place
+                if (empty($serverSideErrors)) {
+                    foreach ($_FILES['images']['tmp_name'] as $index => $tmp_name) {
+                        if (!move_uploaded_file($tmp_name, "product_images" . DIRECTORY_SEPARATOR . $filenames[$index])) {
+                            $serverSideErrors[] = "Failed to save image files to the filesystem.";
+                            break;
+                        }
+                    }
+                }
+            }
+        } else {
+            $serverSideErrors[] = $stmt->errorInfo()[2];
+        }
+
+        if (empty($serverSideErrors)) {
+            $dbh->commit();
+            header("Location: products_detail.php?id=" . $insertedProductId);
+            exit();
+        } else {
+            $dbh->rollBack();
+            $ERROR = implode("</li><li>", $serverSideErrors);
+        }
+
+    } else {
+        $ERROR = "The request is invalid. This may be due to the uploaded files are too large to process.";
+    }
+
+}
+?>
+<?php
 ob_start();
 
 /** @var $dbh PDO */
@@ -71,15 +187,23 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                             </div>
                             <div class="row">
                                 <label for="product_upc">Product UPC</label>
-                                <input type="text" id="product_upc" name="product_upc"/>
+                                <input type="number" id="product_upc" name="product_upc"/>
                             </div>
                             <div class="row">
                                 <label for="product_price">Product Price</label>
-                                <input type="text" id="product_price" name="product_price"/>
+                                <input type="number" id="product_price" name="product_price"/>
                             </div>
                             <div class="row">
                                 <label for="product_category">Product Category</label>
                                 <input type="text" id="product_category" name="product_category"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="productSalePrice">Product images</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
+                                    <label class="custom-file-label" for="customFile">Choose one or more image files</label>
+                                    <div id="productProductImagesFeedback" class="invalid-feedback" id="productProductImagesFeedback">File error</div>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -115,15 +239,23 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="product_upc">Product UPC</label>
-                                    <input type="text" id="product_upc" name="product_upc"/>
+                                    <input type="number" id="product_upc" name="product_upc"/>
                                 </div>
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
-                                    <input type="text" id="product_price" name="product_price"/>
+                                    <input type="number" id="product_price" name="product_price"/>
                                 </div>
                                 <div class="row">
                                     <label for="product_category">Product Category</label>
                                     <input type="text" id="product_category" name="product_category"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productSalePrice">Product images</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
+                                        <label class="custom-file-label" for="customFile">Choose one or more image files</label>
+                                        <div id="productProductImagesFeedback" class="invalid-feedback" id="productProductImagesFeedback">File error</div>
+                                    </div>
                                 </div>
                             </div>
                             <br/>
@@ -146,3 +278,4 @@ VALUES (NULLIF('$_POST[product_name]', ''),
 
 
 </html>
+

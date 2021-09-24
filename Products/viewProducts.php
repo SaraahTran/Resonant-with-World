@@ -70,6 +70,16 @@
                                                        value="<?= $record->Product_Category ?>" disabled/>
                                             </div>
                                             <br/>
+                                                <label for="product_image">Product Image</label>
+                                                <?php if (empty($product_images)): ?>
+                                                    <p>This product has no images</p>
+                                                <?php else:
+                                                    foreach ($product_images as $image): ?>
+                                                        <a href="product_images/<?= $image->filename ?>" target="_blank"><img src="product_images/<?= $image->filename ?>" width="200" height="200" class="rounded mb-1 product-image-thumbnail" alt="Product Image"></a>
+                                                    <?php endforeach;
+                                                endif; ?>
+
+                                            <br/>
                                             <div class="modal-footer">
                                                 <button class="cancel-button" type="button"
                                                         onclick="window.location='/Products';return false;">Back

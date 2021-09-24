@@ -138,7 +138,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_phone">Client Phone</label>
-                                    <input type="text" id="client_phone" name="client_phone"/>
+                                    <input type="number" id="client_phone" name="client_phone"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_email">Client Email</label>

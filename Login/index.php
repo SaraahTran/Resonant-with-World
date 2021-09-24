@@ -9,27 +9,28 @@ require('../connection.php');
 
 // Process login request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['Username']) && !empty($_POST['Password'])) {
+    if (!empty($_POST['username']) && !empty($_POST['password'])) {
         //Run some SQL query here to find that user
-        $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `Username` = ? AND `Password` = ?");
+        $stmt = $dbh->prepare("SELECT * FROM `User` WHERE `username` = ? AND `password` = ?");
         if ($stmt->execute([
-                $_POST['Username'],
-                hash('sha256', $_POST['Password'])
+                $_POST['username'],
+                hash('sha256', $_POST['password'])
             ]) && $stmt->rowCount() == 1) {
             $row = $stmt->fetchObject();
-            $_SESSION['user_id'] = $row->User_ID;
+            $_SESSION['user_id'] = $row->id;
             //Successfully logged in, redirect user to referer, or index page
             if (empty($_SESSION['referer'])) {
-                echo "hello";
+                header("Location: index.php");
             } else {
-                echo "hello";
+                header("Location: " . $_SESSION['referer']);
             }
+            exit();
         } else {
-            echo "Your username and/or password is incorrect. Please try again!";
+            header("Location: login.php?action=error&message=" . urlencode('Your username and/or password is incorrect. Please try again!'));
+            exit();
         }
-        exit();
     } else {
-        echo "Please enter both username and password to login!";
+        header("Location: login.php?action=error&message=" . urlencode('Please enter both username and password to login!'));
         exit();
     }
 }
@@ -108,6 +109,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </div>
 
+
+    <!-- Error Message Modal-->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">You have logged out successfully.</div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

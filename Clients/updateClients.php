@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="phone">Phone</label>
-                                                <input type="text" id="phone" name="phone"
+                                                <input type="number" id="phone" name="phone"
                                                        value="<?= $record->Client_Phone ?>"/>
                                             </div>
                                             <div class="row">
@@ -106,7 +106,7 @@
                                                        value="<?= $record->Client_Subscribed ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="company">Other Information</label>
+                                                <label for="otherInformation">Other Information</label>
                                                 <input type="text" id="otherInformation" name="otherInformation"
                                                        value="<?= $record->Client_Other_Information ?>"/>
                                             </div>

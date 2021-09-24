@@ -84,7 +84,7 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                             </div>
                             <div class="row">
                                 <label for="photo_shoot_quote">Photoshoot Quote</label>
-                                <input type="text" id="photo_shoot_quote" name="photo_shoot_quote"/>
+                                <input type="number" id="photo_shoot_quote" name="photo_shoot_quote"/>
                             </div>
                             <div class="row">
                                 <label for="photo_shoot_other_information">Photoshoot Other Information</label>
@@ -137,7 +137,7 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_quote">Photoshoot Quote</label>
-                                    <input type="text" id="photo_shoot_quote" name="photo_shoot_quote"/>
+                                    <input type="number" id="photo_shoot_quote" name="photo_shoot_quote"/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_other_information">Photoshoot Other Information</label>

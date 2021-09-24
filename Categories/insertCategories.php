@@ -89,7 +89,7 @@ ob_start();
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
                         ?>
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="aligned-form">
                                 <div class="row">
                                     <label for="category_id">ID</label>
@@ -97,7 +97,7 @@ ob_start();
                                 </div>
                                 <div class="row">
                                     <label for="category_name">Category Name</label>
-                                    <input type="text" id="category_name" name="category_name"/>
+                                    <input type="text" id="category_name" name="category_name" name="name" name="name" maxlength="64" required value="<?= empty($_POST['name']) ? "" : $_POST['name'] ?>"/>
                                 </div>
 
                             </div>

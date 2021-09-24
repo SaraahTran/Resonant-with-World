@@ -59,7 +59,17 @@
                             $stmt = $dbh->prepare($query);
                             if ($stmt->execute([$_GET['id']])) {
                                 if ($stmt->rowCount() > 0) {
-                                    $record = $stmt->fetchObject(); ?>
+                                    $record = $stmt->fetchObject();
+                                    // Fetch product images
+                                    $product_images = [];
+                                    $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `product_id` = ?");
+                                    $stmt->execute([$_GET['id']]);
+                                    while ($image = $stmt->fetchObject()) {
+                                        $product_images[] = $image;
+                                    }
+
+                                    $product_fetched = true;
+                                    ?>
                                     <form method="post">
                                         <div class="aligned-form">
                                             <div class="row">
@@ -79,7 +89,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="productprice">Product Price</label>
-                                                <input type="text" id="productprice" name="productprice"
+                                                <input type="number" id="productprice" name="productprice"
                                                        value="<?= $record->Product_Price ?>"/>
                                             </div>
                                             <div class="row">

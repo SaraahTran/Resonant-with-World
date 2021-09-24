@@ -97,7 +97,7 @@
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Log Out</a>
+                    <a href="../login/logout" class="dropdown-item">LogOut</a>
                 </div>
             </div>
 
