@@ -28,6 +28,9 @@ $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
 $stmt->execute();
 ?>
 <div class="container">
+
+
+
     <h1>Resonant With World</h1>
 
     <div class="row">

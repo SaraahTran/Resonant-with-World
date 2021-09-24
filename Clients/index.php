@@ -1,4 +1,5 @@
 <?php
+session_start();
 $PAGE_ID = "products_add";
 $PAGE_HEADER = "Add new product";
 ?>

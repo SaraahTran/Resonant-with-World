@@ -122,10 +122,11 @@ ob_start();
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Resonant With World Products</title>
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="../Styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css" />
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -175,40 +176,44 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                         if ($stmt->rowCount() > 0) {
                         $record = $stmt->fetchObject(); ?>
                     <div class="center row">New Product has been added.</div>
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="aligned-form">
                             <div class="row">
                                 <label for="product_id">ID</label>
-                                <input type="text" id="product_id" value="<?= $nextId ?>" disabled/>
+                                <input type="text" id="product_id" value="<?= $nextId ?>" disabled />
                             </div>
                             <div class="row">
                                 <label for="product_name">Product Name</label>
-                                <input type="text" id="product_name" name="product_name"/>
+                                <input type="text" id="product_name" name="product_name" />
                             </div>
                             <div class="row">
                                 <label for="product_upc">Product UPC</label>
-                                <input type="number" id="product_upc" name="product_upc"/>
+                                <input type="number" id="product_upc" name="product_upc" />
                             </div>
                             <div class="row">
                                 <label for="product_price">Product Price</label>
-                                <input type="number" id="product_price" name="product_price"/>
+                                <input type="number" id="product_price" name="product_price" />
                             </div>
                             <div class="row">
                                 <label for="product_category">Product Category</label>
-                                <input type="text" id="product_category" name="product_category"/>
+                                <input type="text" id="product_category" name="product_category" />
                             </div>
                             <div class="form-group">
                                 <label for="productSalePrice">Product images</label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
-                                    <label class="custom-file-label" for="customFile">Choose one or more image files</label>
-                                    <div id="productProductImagesFeedback" class="invalid-feedback" id="productProductImagesFeedback">File error</div>
+                                    <input type="file" class="custom-file-input" id="productProductImages"
+                                           aria-describedby="productProductImagesFeedback" name="images[]" multiple>
+                                    <label class="custom-file-label" for="customFile">Choose one or more image
+                                        files</label>
+                                    <div id="productProductImagesFeedback" class="invalid-feedback"
+                                         id="productProductImagesFeedback">File error</div>
                                 </div>
                             </div>
                         </div>
                     </form>
                     <div class="center row">New product has been added.
-                        <button class='justify-content-center back-button' onclick="window.location='/Products'">Back to
+                        <button class='justify-content-center back-button'
+                                onclick="window.location='/Products'">Back to
                             the client list
                         </button>
                     </div>
@@ -227,47 +232,51 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
                         ?>
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="aligned-form">
                                 <div class="row">
                                     <label for="product_id">ID</label>
-                                    <input type="text" id="product_id" value="<?= $nextId ?>" disabled/>
+                                    <input type="text" id="product_id" value="<?= $nextId ?>" disabled />
                                 </div>
                                 <div class="row">
                                     <label for="product_name">Product Name</label>
-                                    <input type="text" id="product_name" name="product_name"/>
+                                    <input type="text" id="product_name" name="product_name" />
                                 </div>
                                 <div class="row">
                                     <label for="product_upc">Product UPC</label>
-                                    <input type="number" id="product_upc" name="product_upc"/>
+                                    <input type="number" id="product_upc" name="product_upc" />
                                 </div>
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
-                                    <input type="number" id="product_price" name="product_price"/>
+                                    <input type="number" id="product_price" name="product_price" />
                                 </div>
                                 <div class="row">
                                     <label for="product_category">Product Category</label>
-                                    <input type="text" id="product_category" name="product_category"/>
+                                    <input type="text" id="product_category" name="product_category" />
                                 </div>
                                 <div class="form-group">
                                     <label for="productSalePrice">Product Images</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
-                                        <label class="custom-file-label" for="customFile">Choose one or more image files</label>
-                                        <div id="productProductImagesFeedback" class="invalid-feedback" id="productProductImagesFeedback">File error</div>
+                                        <input type="file" class="custom-file-input" id="productProductImages"
+                                               aria-describedby="productProductImagesFeedback" name="images[]" multiple>
+                                        <label class="custom-file-label" for="customFile">Choose one or more image
+                                            files</label>
+                                        <div id="productProductImagesFeedback" class="invalid-feedback"
+                                             id="productProductImagesFeedback">File error</div>
                                     </div>
                                 </div>
                             </div>
-                            <br/>
+                            <br />
                             <div class="modal-footer">
                                 <input type="submit" class="submit-button" value="Add"
-                                       onclick="window.location='/Products'"/>
+                                       onclick="window.location='/Products'" />
                                 <button type="button" class="cancel-button"
                                         onclick="window.location='/Products';return false;">Cancel
                                 </button>
                             </div>
                         </form>
-                    <?php } ?></div>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </div>
@@ -278,4 +287,3 @@ VALUES (NULLIF('$_POST[product_name]', ''),
 
 
 </html>
-

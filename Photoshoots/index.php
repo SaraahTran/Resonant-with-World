@@ -22,10 +22,10 @@
         </div>
 
         <div class="col-sm">
-            <button class="add-button" onclick="window.location='./Products/insertPhotoshootss.php'"><i
+            <button class="add-button" onclick="window.location='./Photoshoots/insertPhotoshoots.php'"><i
                         class="bi bi-plus-circle-fill"></i>Add New Photoshoots
             </button>
-            <button class="delete-selected-button" onclick="window.location='./Products/deleteSelectedPhotoshoots.php'"><i
+            <button class="delete-selected-button" onclick="window.location='./Photoshoots/deleteSelectedPhotoshoots.php'"><i
                         class="bi bi-trash-fill"></i>Delete Multiple Photoshoots
             </button>
 

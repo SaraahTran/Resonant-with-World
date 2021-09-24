@@ -1,8 +1,7 @@
 <?php
 session_start();
 if (session_destroy()){
-    $message = "You have logged out";
-    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<script type='text/javascript'>alert('You have logged out');</script>";
     header("Refresh:0.5; url=index.php");
 }
 
