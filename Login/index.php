@@ -17,14 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 hash('sha256', $_POST['password'])
             ]) && $stmt->rowCount() == 1) {
             $row = $stmt->fetchObject();
-            $_SESSION['user_id'] = $row->id;
+            $_SESSION['user_id'] = $row->User_ID;
             //Successfully logged in, redirect user to referer, or index page
             if (empty($_SESSION['referer'])) {
                 header("Location: ../index.php");
-            } else {
-                header("Location: " . $_SESSION['referer']);
             }
-            exit();
         } else {
             echo "<script type='text/javascript'>alert('Your username or password is incorrect. Please try again');</script>";
             header("Refresh:0.5; url=index.php");

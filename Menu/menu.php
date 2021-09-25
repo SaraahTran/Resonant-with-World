@@ -5,7 +5,8 @@ ob_start(); // To allow setting header when there's already page contents render
 /** @var string $PAGE_HEADER The page title set in individual pages */
 /** @var string $PAGE_USERNAME Username of the current logged in user */
 /** @var string $PAGE_ALLOWGUEST If a page allows guest to visit */
-
+global $PAGE_USERNAME;
+include("connection.php");
 ?>
 
 
@@ -103,7 +104,7 @@ ob_start(); // To allow setting header when there's already page contents render
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle topbar-text" data-toggle="dropdown"><i
-                            class="bi bi-person-circle"></i>Anna Sola</a>
+                            class="bi bi-person-circle"></i><?php echo $PAGE_USERNAME?></a>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Settings</a>
@@ -113,6 +114,7 @@ ob_start(); // To allow setting header when there's already page contents render
             </div>
 
         </div>
+
     </nav>
 
     <!--Start of Page-->

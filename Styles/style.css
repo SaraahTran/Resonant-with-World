@@ -886,3 +886,13 @@ input {
   border-radius: 10px;
   margin: 10px;
 }
+
+/*Username*/
+
+.username{
+  color: grey;
+}
+
+.username:hover{
+  color: #2d475c;
+}

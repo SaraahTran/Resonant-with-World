@@ -22,14 +22,14 @@ $stmt->execute();
 <div class="container">
 
 <form action="" method="get">
-    <input class="search" type="text" name="search" placeholder="Search by Product UPC">
+    <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
     <button class="search-button" type="submit" name="submit"><i class="bi bi-search"></i></button>
 </form>
 
 <?php
 $search=$_GET['search'];
-$sql="Select * from Product where Product_UPC like '%$search%'";
-$res=$dbh->query($sql);
+$stmt="Select * from Product where Product_UPC like '%$search%'";
+$res=$dbh->query($stmt);
 
 while($row=$res->fetch()){
     echo 'Product Name:  '.$row["Product_Name"].', ';
