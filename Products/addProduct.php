@@ -140,6 +140,8 @@ VALUES (NULLIF('$_POST[product_name]', ''),
         NULLIF('$_POST[product_price]', ''), 
         NULLIF('$_POST[product_category]',''))";
 
+                        $query = "SELECT * FROM `Categories` ORDER BY `Category_Name`";
+
                         $stmt = $dbh->prepare($query);
                         if ($stmt->execute())
                         {
@@ -169,10 +171,17 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 <label for="product_price">Product Price</label>
                                 <input type="number" id="product_price" name="product_price" />
                             </div>
-                            <div class="row">
+
+                            <?php if ($stmt->execute() && $stmt-> rowCount()): ?>
+                            <form>
                                 <label for="product_category">Product Category</label>
-                                <input type="text" id="product_category" name="product_category" />
-                            </div>
+                                <select name="product_category" id="product_category"/>
+                                    <?php while($row =$stmt->fetchObject()): ?>
+                                        <option value="<?= $row->Product_Category?>"><?= $row->Category_ID ?></option>
+                                    <?php endwhile; ?>
+                            </form>
+                            <?php endif; ?>
+
                             <div class="form-group">
                                 <label for="productSalePrice">Product images</label>
                                 <div class="custom-file">

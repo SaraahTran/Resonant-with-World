@@ -121,9 +121,16 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                     <label for="product_price">Product Price</label>
                                     <input type="text" id="product_price" name="product_price"/>
                                 </div>
-                                <div class="row">
-                                    <label for="product_category">Product Category</label>
-                                    <input type="text" id="product_category" name="product_category"/>
+                                <div>
+                                <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_Name`");
+                                if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
+                                        <label for="category_name">Product Category</label>
+                                        <select name="category_name" id="category_name">
+                                        <?php while($row =$stmt->fetchObject()): ?>
+                                            <option value="<?= $row->Product_ID?>" <?= ($row->Category_ID == $row->Product_IDs ) ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
+                                        <?php endwhile; ?>
+                                        </select>
+                                <?php } ?>
                                 </div>
                             </div>
                             <br/>
