@@ -455,6 +455,39 @@ td {
   }
 }
 
+
+/*Back to Full Button*/
+
+.back-full-button {
+  background-image: linear-gradient(
+          to right,
+          #2d475c 0%,
+          #7986b4 100%,
+          #416683 100%
+  );
+}
+
+.back-full-button {
+  margin: 5px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 2px;
+  font-size: 10px;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 5px;
+  border: none !important;
+}
+
+.back-full-button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 /*Delete Selected Button*/
 
 .delete-selected-button {
@@ -483,6 +516,40 @@ td {
 }
 
 .delete-selected-button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+.delete-selected-button2 {
+  background-image: linear-gradient(
+          to right,
+          #416683 20%,
+          #2d475c  100%,
+          #7986b4 100%
+  );
+}
+
+.delete-selected-button2 {
+  margin: 5px;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 2px;
+  font-size: 10px;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 5px;
+  border: none !important;
+}
+
+.delete-selected-button2:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;

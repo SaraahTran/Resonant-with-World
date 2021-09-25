@@ -38,13 +38,13 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
     <h1>Categories</h1>
     <div class="row">
         <div class="col-sm">
-            <button class="add-button" onclick="window.location='/Categories'"><i
+            <button class="back-full-button" onclick="window.location='/Categories'"><i
                         class="bi bi-arrow-left-circle-fill"></i>Back to Full List
             </button>
         </div>
         <div class="col-sm">
             <form method="post">
-                <button class="delete-selected-button" type="submit" value="Delete selected categories"/>
+                <button class="delete-selected-button2" type="submit" value="Delete selected categories"/>
                 <i class="bi bi-trash-fill"></i>Delete selected categories
 
         </div>
