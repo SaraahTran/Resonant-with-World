@@ -15,8 +15,7 @@
 <?php
 include('../connection.php');
 global $dbh;
-$stmt = $dbh->prepare("SELECT * FROM `Product`");
-$stmt->execute();
+
 ?>
 
 <div class="container">
@@ -29,14 +28,32 @@ $stmt->execute();
 <?php
 $search=$_GET['search'];
 $stmt="Select * from Product where Product_UPC like '%$search%'";
-$res=$dbh->query($stmt);
+$res=$dbh->query($stmt);?>
 
-while($row=$res->fetch()){
-    echo 'Product Name:  '.$row["Product_Name"].', ';
-    echo 'Product UPC:  '.$row["Product_UPC"].'</br>';
+    <div class=" table-responsive">
+    <table class="table table-bordered responsive">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product UPC</th>
+            <th scope="col">Product Price</th>
+        </tr>
+        </thead>
 
+    <?php while($row=$res->fetch()) {?>
+        <tbody>
+        <tr>
+            <?php
 
-}
+        echo ' <td>  ' . $row["Product_ID"] . ' </td>';
+        echo '<td>' . $row["Product_Name"] . '</td>';
+        echo '<td>' . $row["Product_UPC"] . '</td>';
+        echo '<td>' . $row["Product_Price"] . '</td>';
+
+    }
 ?>
+
+        </tr></tbody></table></div>
 
 </div>
