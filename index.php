@@ -20,9 +20,7 @@ $PAGE_ALLOWGUEST = true; // Homepage should allow guest to visit
 </head>
 
 <body>
-<?php include('./Menu/menu.php'); ?>
-<?php
-include('./Menu/connection.php');
+<?php include('./Menu/menu.php');
 global $dbh;
 $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
 $stmt->execute();

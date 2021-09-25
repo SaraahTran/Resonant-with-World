@@ -38,25 +38,32 @@ echo "<p class='message'>Please select at least one product to update.</p>";
 $title_stmt = $dbh->prepare("SELECT * FROM `Product`");
 if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
     <div class="container">
-        <h1>Update Multiple Products Price</h1>
+        <h1>Update Multiple Products Prices</h1>
         <div class="row">
+
             <div class="col-sm">
-            </div>
-            <button class="add-button" onclick="window.location='/Multiple%20Products'"><i
+            <button class="back-full-button" onclick="window.location='/Multiple%20Products'"><i
                         class="bi bi-arrow-left-circle-fill"></i>Back to Full List
             </button>
+            </div>
+            <div class="col-sm">
+                <form method="post">
+                    <button class="delete-selected-button2" type="submit" value="Update the prices of selected products"/>
+                    <i class="center bi bi-pencil-fill"></i>Update prices of selected products
+
+            </div>
         </div>
-            <form method ="post">
-                <input type="submit" value="Update the prices of selected titles"/>
+        <div class="table-responsive">
                 <table class="table table-bordered responsive">
-                    <div class="table-responsive">
+
                         <thead>
                         <tr>
-                            <th>Update</th>
-                            <th>ID</th>
-                            <th>Product Name</th>
-                            <th>Edit Price</th>
+                            <th scope="col">Update?</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Edit Price</th>
                          </tr>
+                        </thead><tbody>
 
                         <?php while ($row = $title_stmt->fetchObject()) { ?>
                             <tr>
@@ -67,7 +74,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
                                 <td><?= $row->Product_Name ?></td>
                                 <td><input type="text" name="Product_Price[<?= $row->Product_ID ?>]" value="<?= $row->Product_Price ?>"/></td>
                             </tr>
-                        <?php } ?>
+                        <?php } ?></tbody>
                 </table>
             </form>
     </div>

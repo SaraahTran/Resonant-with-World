@@ -20,10 +20,7 @@ $PAGE_ALLOWGUEST = true; // Homepage should allow guest to visit
 </head>
 
 <body>
-<?php include('./Menu/menu.php'); ?>
-<?php
-include('./connection.php');
-global $dbh;
+<?php include('./Menu/menu.php');
 ?>
 <div class="container">
 
