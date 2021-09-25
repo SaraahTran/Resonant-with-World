@@ -24,8 +24,8 @@
         </button>
 
 
-
     </div>
+
     <?php
     include('../connection.php');
     global $dbh;
@@ -37,25 +37,25 @@
         <table class="table table-bordered responsive">
             <thead>
             <tr>
+                <th scope="col">Update</th>
                 <th scope="col">ID</th>
                 <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
             </tr>
             </thead>
             <?php while ($row = $stmt->fetchObject()): ?>
             <tbody>
             <tr>
+                <td class="col-checkbox">
+                    <input type="checkbox" name="Photo_Shoot_ID[]" value="<?php echo $row->Photo_Shoot_ID; ?>"/>
+                </td>
                 <td><?php echo $row->Product_ID; ?> </td>
                 <td><?php echo $row->Product_Name; ?> </td>
+                <td><?php echo $row->Product_Price; ?> </td>
                 <?php endwhile; ?>
             </tr>
             </tbody>
         </table>
-    </div>
-
-    <div class="row">
-        <label for="productprice">Product Price</label>
-        <input type="text" id="productprice" name="productprice"
-               value="<?= $record->Product_Price ?>"/>
     </div>
 
 </div>

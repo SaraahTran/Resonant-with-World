@@ -42,7 +42,9 @@ $PAGE_HEADER = "Add new product";
             <button class="delete-selected-button" onclick="window.location='./Clients/email.php'"><i
                         class="bi bi-envelope-fill"></i>Email Clients
             </button>
-
+            <button class="delete-selected-button" onclick="window.location='./Clients/pdf.php'"><i
+                        class="bi bi-envelope-fill"></i>PDF
+            </button>
 
         </div>
 
