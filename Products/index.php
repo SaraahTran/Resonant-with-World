@@ -27,6 +27,8 @@
             <button class="delete-selected-button" onclick="window.location='./Products/deleteSelectedProducts.php'"><i
                         class="bi bi-trash-fill"></i>Delete Multiple Products
             </button>
+            <button class="delete-selected-button" onclick="window.location='./Products/searchProducts.php'"><i class="bi bi-search"></i>Search by Product UPC
+            </button>
 
 
         </div>

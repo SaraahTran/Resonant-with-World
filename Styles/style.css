@@ -367,6 +367,7 @@ table {
   border: none !important;
   border-collapse: separate !important;
   margin-bottom: 350px;
+  margin-top: 20px;
 }
 
 .email-head{
@@ -715,6 +716,7 @@ input[id="client_id"],
 input[id="category_id"] {
   background: #f1f1f1 !important;
 }
+
 input {
   background: #e3e5ee;
   border: none;
@@ -724,6 +726,7 @@ input {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 
 /*Action Card*/
 .aligned-form {
@@ -866,3 +869,20 @@ input {
   text-decoration: none;
 }
 
+/*Search*/
+
+.search{
+  width: 400px;
+  background: white;
+  border: 1px solid grey;
+}
+
+.search-button{
+  color: white;
+  background: #2d475c;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 10px;
+}
