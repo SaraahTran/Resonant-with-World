@@ -374,7 +374,7 @@ table {
 }
 th,
 td {
-  padding: 3px;
+  padding: 1px;
   vertical-align: middle !important;
 }
 
@@ -501,8 +501,8 @@ td {
   border: 1px solid #7986b4;
   background: rgba(202, 210, 238, 0.1);
   color: #7986b4;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   font-size: 10px;
   padding: 5px;
   letter-spacing: 1px;
@@ -511,6 +511,11 @@ td {
   border-radius: 100%;
   text-align: center;
   margin: 5px;
+}
+
+.action-button i{
+  width: 15px;
+  height: 15px;
 }
 
 .action-button:hover {

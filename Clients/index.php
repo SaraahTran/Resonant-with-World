@@ -42,8 +42,7 @@ $PAGE_HEADER = "Add new product";
             <button class="delete-selected-button" onclick="window.location='./Clients/email.php'"><i
                         class="bi bi-envelope-fill"></i>Email Clients
             </button>
-            <button class="delete-selected-button" onclick="window.location='./Clients/pdf.php'"><i
-                        class="bi bi-envelope-fill"></i>PDF
+            <button class="add-button" onclick="window.location='./Clients/pdf.php'"><i class="bi bi-file-earmark-pdf-fill"></i>Generate PDF
             </button>
 
         </div>
@@ -60,11 +59,11 @@ $PAGE_HEADER = "Add new product";
         <table class="table table-bordered responsive table-condensed">
             <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">First Name</th>
+                <th style="width:5%"  scope="col">ID</th>
+                <th style="width:5%"  scope="col">First Name</th>
                 <th scope="col">Surname</th>
                 <th scope="col">Address</th>
-                <th scope="col">Phone</th>
+                <th style="width:5%" scope="col">Phone</th>
                 <th style="width:10%"scope="col">Email</th>
                 <th style="width:5%" scope="col">Sub</th>
                 <th style="width:5%" scope="col">Other</th>
@@ -74,11 +73,11 @@ $PAGE_HEADER = "Add new product";
             <?php while ($row = $stmt->fetchObject()): ?>
             <tbody>
             <tr>
-                <td><?php echo $row->Client_ID; ?> </td>
-                <td><?php echo $row->Client_FirstName; ?> </td>
+                <td style="width:5%" > <?php echo $row->Client_ID; ?> </td>
+                <td style="width:5%" ><?php echo $row->Client_FirstName; ?> </td>
                 <td><?php echo $row->Client_Surname; ?> </td>
                 <td><?php echo $row->Client_Address; ?> </td>
-                <td><?php echo $row->Client_Phone; ?> </td>
+                <td style="width:5%" ><?php echo $row->Client_Phone; ?> </td>
                 <td style="width:10%"><?php echo $row->Client_Email; ?> </td>
                 <td style="width:5%"><?php echo $row->Client_Subscribed; ?> </td>
                 <td style="width:5%"><?php echo $row->Client_Other_Information; ?> </td>
