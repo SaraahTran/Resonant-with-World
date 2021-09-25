@@ -22,7 +22,7 @@ $PAGE_ALLOWGUEST = true; // Homepage should allow guest to visit
 <body>
 <?php include('./Menu/menu.php'); ?>
 <?php
-include('./connection.php');
+include('./Menu/connection.php');
 global $dbh;
 $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
 $stmt->execute();
@@ -232,7 +232,6 @@ $stmt->execute();
 
 
 </div>
-<
 
 <?php include('./Menu/footer.php'); ?>
 </body>
