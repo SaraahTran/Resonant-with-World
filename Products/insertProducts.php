@@ -71,11 +71,11 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                             </div>
                             <div class="row">
                                 <label for="product_upc">Product UPC</label>
-                                <input type="text" id="product_upc" name="product_upc"/>
+                                <input type="number" id="product_upc" name="product_upc"/>
                             </div>
                             <div class="row">
                                 <label for="product_price">Product Price</label>
-                                <input type="text" id="product_price" name="product_price"/>
+                                <input type="number" id="product_price" name="product_price"/>
                             </div>
                             <div class="row">
                                 <label for="product_category">Product Category</label>
@@ -115,26 +115,28 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="product_upc">Product UPC</label>
-                                    <input type="text" id="product_upc" name="product_upc"/>
+                                    <input type="number" id="product_upc" name="product_upc"/>
                                 </div>
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
-                                    <input type="text" id="product_price" name="product_price"/>
+                                    <input type="number" id="product_price" name="product_price"/>
                                 </div>
+
                                 <div>
                                     <div class="row">
                                     <label for="product_category">Product Category</label>
-                                <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_Name`");
-                                if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
-
-                                        <select name="product_category" id="product_category">
-                                        <?php while($row =$category_stmt->fetchObject()): ?>
-                                            <option value="<?= $row->Product_ID?>" <?= ($row->Category_ID == $row->Product_ID) ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
-                                        <?php endwhile; ?>
-                                        </select>
-                                <?php } ?>
+                                        <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_ID`");
+                                        if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
+                                            <select name="product_category" id="product_category">
+                                                <?php while($row =$category_stmt->fetchObject()): ?>
+                                                    <option value="<?= $row->Category_ID?>" <?= ($row->Product_ID == $row->Category_ID) ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
+                                                <?php endwhile; ?>
+                                            </select>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
+
+
                             <br/>
                             <div class="modal-footer">
                                 <input type="submit" class="submit-button" value="Add"
