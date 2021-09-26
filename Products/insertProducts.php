@@ -128,8 +128,9 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                         <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_ID`");
                                         if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
                                             <select name="product_category" id="product_category">
+                                                <option value="">Select the category</option>
                                                 <?php while($row =$category_stmt->fetchObject()): ?>
-                                                    <option value="<?= $row->Category_ID?>" <?= ($row->Product_ID == $row->Category_ID) ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
+                                                    <option value="<?= $row->Category_Name?>"  ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
                                                 <?php endwhile; ?>
                                             </select>
                                         <?php } ?>
