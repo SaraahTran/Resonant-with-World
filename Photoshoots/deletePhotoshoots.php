@@ -23,7 +23,7 @@
                     <div class="container">
                         <div class="container">
                             <?php
-                            include('../connection.php');
+
                             global $dbh;
                             if (!empty($_POST)) {
                                 // Process to delete record request (if a POST form is submitted)

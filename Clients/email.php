@@ -12,7 +12,6 @@
 </head>
 <?php
 include('../Menu/menu.php');
-include('../connection.php');
 global $dbh;
 ?>
 <body>

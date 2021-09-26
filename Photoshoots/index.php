@@ -36,7 +36,7 @@
     </div>
 
     <?php
-    include('../connection.php');
+
     global $dbh;
     $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
     $stmt->execute();

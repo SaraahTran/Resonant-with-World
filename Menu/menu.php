@@ -40,7 +40,7 @@ include("connection.php");
 
         <li>
             <a href="/dashboard.php">
-                <i class="bi bi-house-door-fill" aria-hidden="true"></i> Dashboard
+                <i class="bi bi-speedometer"></i> Dashboard
             </a>
         </li>
 

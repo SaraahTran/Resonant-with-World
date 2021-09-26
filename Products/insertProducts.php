@@ -30,7 +30,7 @@ ob_start();
                 <div class="card-body action-body">
                     <p class="card-text">
                         <?php
-                        include('../connection.php');
+
                         global $dbh;
                         if (!empty($_POST)) {
                         // Check if any of the POST fields are empty (which shouldn't be!)

@@ -13,7 +13,7 @@
 
 <?php include('../Menu/menu.php'); ?>
 <?php
-include('../connection.php');
+
 global $dbh;
 
 ?>

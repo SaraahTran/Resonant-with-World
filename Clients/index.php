@@ -48,7 +48,6 @@ $PAGE_HEADER = "Add new product";
 
     </div>
     <?php
-    include('../connection.php');
     global $dbh;
     $stmt = $dbh->prepare("SELECT * FROM `Client`");
     $stmt->execute();

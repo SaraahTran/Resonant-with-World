@@ -31,7 +31,7 @@
 
     </div>
     <?php
-    include('../connection.php');
+
     global $dbh;
     $stmt = $dbh->prepare("SELECT * FROM `Product`");
     $stmt->execute();

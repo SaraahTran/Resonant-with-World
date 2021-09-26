@@ -13,7 +13,6 @@
 <body>
 <?php
 include('../Menu/menu.php');
-include("../connection.php");
 /** @var PDO $dbh */
 //Now we'll process the POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Client_ID'])) {

@@ -16,7 +16,7 @@
 <?php include('../Menu/menu.php'); ?>
 <?php
 $PAGE_ID = "category_index";
-include('../connection.php');
+
 global $dbh;
 $stmt = $dbh->prepare("SELECT * FROM `Category`");
 $stmt->execute();

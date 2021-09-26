@@ -26,7 +26,7 @@
                     <div class="container">
                         <?php
                         $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2', 'fit2104', 'fit2104');
-                        include('../connection.php');
+
                         if (!empty($_POST)) {
                             // Process to delete record request (if a POST form is submitted)
                             $query = "DELETE FROM `Client` WHERE `Client_ID`=?";

@@ -24,7 +24,7 @@
 
                     <div class="justify-content-center center">
                         <?php
-                        include('../connection.php');
+
                         global $dbh;
                         if (!empty($_POST)) {
                             // Check if any of the POST fields are empty (which shouldn't be!)

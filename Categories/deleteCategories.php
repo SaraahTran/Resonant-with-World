@@ -1,4 +1,4 @@
-<html lang="en">
+<i class="bi bi-speedometer"></i><html lang="en">
 <head>
     <title>Resonant With World Category</title>
     <!--CSS-->
@@ -20,7 +20,7 @@
                     <p class="card-text">
 <div class="container">
     <?php
-    include('../connection.php');
+
     global $dbh;
     if (!empty($_POST)) {
         // Process to delete record request (if a POST form is submitted)

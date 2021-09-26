@@ -22,8 +22,6 @@
                     <p class="card-text">
                     <div class="container">
                         <?php
-                        $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2', 'fit2104', 'fit2104');
-                        include('../connection.php');
                         if (!empty($_POST)) {
                             // Process to view record request (if a POST form is submitted)
                             $query = "SELECT * FROM `Category` WHERE `Category_ID`=?";
