@@ -3,7 +3,7 @@ ob_start(); // To allow setting header when there's already page contents render
 $PAGE_ID = "login";
 
 // Database connection
-require('../connection.php');
+require('../Menu/connection.php');
 
 /** @var PDO $dbh Database connection */
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $row->User_ID;
             //Successfully logged in, redirect user to referer, or index page
             if (empty($_SESSION['referer'])) {
-                header("Location: ../index.php");
+                header("Location: ../dashboard.php");
             }
         } else {
             echo "<script type='text/javascript'>alert('Your username or password is incorrect. Please try again');</script>";

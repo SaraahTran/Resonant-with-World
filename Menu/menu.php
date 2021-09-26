@@ -112,10 +112,11 @@ include("connection.php");
                 <a href="#" class="nav-link dropdown-toggle topbar-text" data-toggle="dropdown"><i
                             class="bi bi-person-circle"></i><?php echo $PAGE_USERNAME?></a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Profile</a>
-                    <a href="#" class="dropdown-item">Settings</a>
-                    <div class="dropdown-divider"></div>
+                    <?php if (empty($PAGE_USERNAME)): ?>
+                    <a href="../login" class="dropdown-item">Log In</a>
+                    <?php else: ?>
                     <a href="../login/logout.php" class="dropdown-item">Log Out</a>
+                    <?php endif; ?>
                 </div>
             </div>
 
