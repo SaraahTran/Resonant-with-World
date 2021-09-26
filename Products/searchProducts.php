@@ -28,17 +28,22 @@ global $dbh;
         </div>
     </div>
         <div class="col-sm">
+            <?php
+            $search=$_GET['search'];
+            $stmt="Select * from Product where Product_UPC like '%$search%'";
+            $res=$dbh->query($stmt);
+            if (!isset($_GET['search'])){
+                echo "hello";
+            }
+
+            ?>
 <form action="" method="get">
     <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
     <button class="search-button" type="submit" name="submit"><i class="bi bi-search"></i></button>
+
+
+
 </form></div>
-
-<?php
-$search=$_GET['search'];
-$stmt="Select * from Product where Product_UPC like '%$search%'";
-$res=$dbh->query($stmt);
-
-?>
 
 
     <div class=" table-responsive">

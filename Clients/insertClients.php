@@ -118,7 +118,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
                         ?>
-                        <form method="post">
+                        <form name="clientForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                             <div class="aligned-form">
                                 <div class="row">
                                     <label for="client_id">ID</label>
@@ -126,15 +126,15 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_firstname">Client First Name</label>
-                                    <input type="text" id="client_firstname" name="client_firstname"/>
+                                    <input type="text" id="client_firstname" name="client_firstname" maxlength="64" required value="<?= empty($_POST['client_firstname']) ? "" : $_POST['client_firstname'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_surname">Client Surname</label>
-                                    <input type="text" id="client_surname" name="client_surname"/>
+                                    <input type="text" id="client_surname" name="client_surname" maxlength="64" required value="<?= empty($_POST['client_surname']) ? "" : $_POST['client_surname'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_address">Client Address</label>
-                                    <input type="text" id="client_address" name="client_address"/>
+                                    <input type="text" id="client_address" name="client_address" maxlength="64" required value="<?= empty($_POST['name']) ? "" : $_POST['name'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_phone">Client Phone</label>
@@ -142,7 +142,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_email">Client Email</label>
-                                    <input type="text" id="client_email" name="client_email"/>
+                                    <input type="text" id="client_email" name="client_email" maxlength="256" required value="<?= empty($_POST['client_email']) ? "" : $_POST['client_email'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_subscribed">Subscribed?</label>
@@ -156,7 +156,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                             <br/>
                             <div class="modal-footer">
                                 <input type="submit" class="submit-button" value="Add"
-                                       onclick="window.location='/Clients'"/>
+                                       onclick="submiBtnClick()";/>
                                 <button type="button" class="cancel-button"
                                         onclick="window.location='/Clients';return false;">Cancel
                                 </button>
@@ -167,6 +167,31 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
         </div>
     </div>
 </div>
+
+
+
+<script>
+    function validate() {
+        let client_firstname = document.forms["clientForm"]["client_firstname"].value;
+        if (client_firstname == "") {
+            alert("First name must be filled out");
+            return false;
+        }
+
+        let client_surname = document.forms["clientForm"]["client_surname"].value;
+        if (client_surname == "") {
+            alert("Surname must be filled out");
+            return false;
+        }
+
+    }
+
+    function submiBtnClick(){
+        var formValid = document.forms["post-form"].checkValidity();
+        return formValid;
+    }
+</script>
+
 
 
 </body>
