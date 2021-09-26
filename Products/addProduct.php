@@ -249,6 +249,9 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                              id="productProductImagesFeedback">File error</div>
                                     </div>
                                 </div>
+
+
+
                             </div>
                             <br />
                             <div class="modal-footer">
