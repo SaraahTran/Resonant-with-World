@@ -68,7 +68,13 @@ $PAGE_HEADER = "Add new product";
                 <th style="width:25%" scope="col">Actions</th>
             </tr>
             </thead>
-            <?php while ($row = $stmt->fetchObject()): ?>
+            <?php
+            function yesNo($n)
+            {
+                return $n == 1 ? 'Yes' : 'No';
+            }
+
+            while ($row = $stmt->fetchObject()): ?>
             <tbody>
             <tr>
                 <td style="width:5%" > <?php echo $row->Client_ID; ?> </td>
@@ -77,7 +83,7 @@ $PAGE_HEADER = "Add new product";
                 <td><?php echo $row->Client_Address; ?> </td>
                 <td style="width:5%" ><?php echo $row->Client_Phone; ?> </td>
                 <td style="width:10%"><?php echo $row->Client_Email; ?> </td>
-                <td style="width:5%"><?php echo $row->Client_Subscribed; ?> </td>
+                <td style="width:5%"><?php echo yesNo($row->Client_Subscribed); ?> </td>
                 <td style="width:5%"><?php echo $row->Client_Other_Information; ?> </td>
                 <td style="width:25%">
                     <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
@@ -90,17 +96,25 @@ $PAGE_HEADER = "Add new product";
                             onclick="window.location='./Clients/deleteClients.php?id=<?= $row->Client_ID ?>'"><i
                                 class="center bi bi-trash-fill"></i></button>
                 </td>
-                <?php endwhile; ?>
+                <?php
+                endwhile;
+
+
+                ?>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
 <?php include('../Menu/footer.php'); ?>
 <script>$(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })</script>
 </body>
+
+
 
 </html>
 
