@@ -14,7 +14,10 @@
 <body>
 
 
-<?php include('../Menu/menu.php'); ?>
+<?php
+include('../Menu/menu.php');
+global $dbh;
+?>
 <div class="container">
 
     <h1>Documentation</h1>
@@ -67,26 +70,174 @@
                 Repository</a></p>
     <br/>
     <h4>Credentials</h4>
-    <p>Username: </p>
-    <p>Password: </p>
+    <p>Username: annas</p>
+    <p>Password: annas</p>
     <br/>
 
     <h4>Database Scheme and Demo Data SQL</h4>
     <br/>
 
     <h4>Clients</h4>
+    <p><b>Total Number of Clients: </b>
+        <?php
+        $count1 = $dbh->query("SELECT COUNT(*) FROM Client");
+        $count_client = $count1->fetchColumn();
+        echo $count_client;
+        ?>
+        <?php
+        global $dbh;
+        $stmt = $dbh->prepare("SELECT * FROM `Client`");
+        $stmt->execute();
+        ?></p>
+    <div class=" table-responsive">
+        <table class="table table-bordered responsive table-condensed">
+            <thead>
+            <tr>
+                <th style="width:5%"  scope="col">ID</th>
+                <th style="width:5%"  scope="col">First Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Address</th>
+                <th style="width:5%" scope="col">Phone</th>
+                <th style="width:10%"scope="col">Email</th>
+                <th style="width:5%" scope="col">Sub</th>
+                <th style="width:5%" scope="col">Other</th>
+            </tr>
+            </thead>
+            <?php while ($row = $stmt->fetchObject()): ?>
+            <tbody>
+            <tr>
+                <td style="width:5%" > <?php echo $row->Client_ID; ?> </td>
+                <td style="width:5%" ><?php echo $row->Client_FirstName; ?> </td>
+                <td><?php echo $row->Client_Surname; ?> </td>
+                <td><?php echo $row->Client_Address; ?> </td>
+                <td style="width:5%" ><?php echo $row->Client_Phone; ?> </td>
+                <td style="width:10%"><?php echo $row->Client_Email; ?> </td>
+                <td style="width:5%"><?php echo $row->Client_Subscribed; ?> </td>
+                <td style="width:5%"><?php echo $row->Client_Other_Information; ?> </td>
+                <?php endwhile; ?>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
     <br/>
     <h4>Products</h4>
+<p><b>Total Number of Products: </b>
+    <?php
+    $count2 = $dbh->query("SELECT COUNT(*) FROM Product");
+    $count_product = $count2->fetchColumn();
+    echo $count_product; ?>
+    <?php
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM `Product`");
+    $stmt->execute();
+    ?>
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered responsive">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product UPC</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Product Category</th>
+        </tr>
+        </thead>
+        <?php while ($row = $stmt->fetchObject()): ?>
+        <tbody>
+        <tr>
+            <td><?php echo $row->Product_ID; ?> </td>
+            <td><?php echo $row->Product_Name; ?> </td>
+            <td><?php echo $row->Product_UPC; ?> </td>
+            <td>$<?php echo $row->Product_Price; ?> </td>
+            <td><?php echo $row->Product_Category; ?> </td>
+            <?php endwhile; ?>
+        </tr>
+        </tbody>
+    </table>
+</div>
     <br/>
     <h4>Photoshoots</h4>
+    <p><b>Total Number of Photoshoots: </b>
+        <?php
+        $count3 = $dbh->query("SELECT COUNT(*) FROM Photo_Shoot");
+        $count_photoshoot = $count3->fetchColumn();
+        echo $count_photoshoot;
+        ?>
+        <?php
+        global $dbh;
+        $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
+        $stmt->execute();
+        ?></p>
+<div class="table-responsive">
+    <table class="table table-bordered responsive">
+        <thead>
+
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Client ID</th>
+            <th scope="col">Photoshoot Name</th>
+            <th scope="col">Photoshoot Description</th>
+            <th scope="col">Photoshoot Date and Time</th>
+            <th scope="col">Photoshoot Quote</th>
+            <th scope="col">Photoshoot Other Information</th>
+
+        </tr>
+        </thead>
+        <?php while ($row = $stmt->fetchObject()): ?>
+
+        <tr class="rows">
+            <td><?php echo $row->Photo_Shoot_ID; ?> </td>
+            <td><?php echo $row->Client_ID; ?> </td>
+            <td><?php echo $row->Photo_Shoot_Name; ?> </td>
+            <td><?php echo $row->Photo_Shoot_Description; ?> </td>
+            <td><?php echo $row->Photo_Shoot_DateTime; ?> </td>
+            <td>$<?php echo $row->Photo_Shoot_Quote; ?> </td>
+            <td><?php echo $row->Photo_Shoot_Other_Information; ?> </td>
+            <?php endwhile; ?>
+        </tr>
+    </table>
+</div>
     <br/>
     <h4>Categories</h4>
+    <p><b>Total Number of Categories: </b>
+        <?php
+        $count4 = $dbh->query("SELECT COUNT(*) FROM Category");
+        $count_category = $count4->fetchColumn();
+        echo $count_category;
+        ?>
+        <?php
+        global $dbh;
+        $stmt = $dbh->prepare("SELECT * FROM `Category`");
+        $stmt->execute();
+        ?></p>
+<div class="table-responsive">
+    <table class="table table-bordered responsive table-condensed">
+        <thead>
+        <tr>
+            <th style="width:33.33%" scope="col">ID</th>
+            <th style="width:33.33%" scope="col">Category Name</th>
+
+        </tr>
+        </thead>
+        <?php while ($row = $stmt->fetchObject()): ?>
+        <tbody>
+        <tr>
+            <td style="width:33.33%"><?php echo $row->Category_ID; ?> </td>
+            <td style="width:33.33%"><?php echo $row->Category_Name; ?> </td>
+            <?php endwhile; ?>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
     <br/>
 
 
     <h4>MySQL</h4>
     <?php
-    show_source("../connection.php");
+    show_source("connection.php");
     echo "<br/> ";
     ?>
 
