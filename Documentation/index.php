@@ -120,7 +120,6 @@ global $dbh;
             </tbody>
         </table>
     </div>
-</div>
     <br/>
     <h4>Products</h4>
 <p><b>Total Number of Products: </b>
@@ -244,7 +243,13 @@ $stmt->execute();
     echo "<br/> ";
     ?>
 
-    <?php include('../Menu/footer.php'); ?></div>
+    <?php include('../Menu/footer.php'); ?>
+
+</div>
+
+
+</div>
+
 </body>
 
 </html>
