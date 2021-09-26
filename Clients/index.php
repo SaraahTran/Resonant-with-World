@@ -73,7 +73,6 @@ $PAGE_HEADER = "Add new product";
             {
                 return $n == 1 ? 'Yes' : 'No';
             }
-
             while ($row = $stmt->fetchObject()): ?>
             <tbody>
             <tr>
@@ -96,10 +95,7 @@ $PAGE_HEADER = "Add new product";
                             onclick="window.location='./Clients/deleteClients.php?id=<?= $row->Client_ID ?>'"><i
                                 class="center bi bi-trash-fill"></i></button>
                 </td>
-                <?php
-                endwhile;
-
-
+                <?php endwhile;
                 ?>
             </tr>
             </tbody>

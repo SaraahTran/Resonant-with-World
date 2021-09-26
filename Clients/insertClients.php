@@ -174,8 +174,6 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
     </div>
 </div>
 
-
-
 <script>
 
 
@@ -184,8 +182,6 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
         return formValid;
     }
 </script>
-
-
 
 </body>
 

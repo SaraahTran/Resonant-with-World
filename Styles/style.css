@@ -954,6 +954,7 @@ background: #385972;
 }
 
 /*Select*/
+
 select {
   cursor: pointer;
   display: inline-block;
