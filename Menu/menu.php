@@ -110,7 +110,9 @@ include("connection.php");
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle topbar-text" data-toggle="dropdown"><i
-                            class="bi bi-person-circle"></i><?php echo $PAGE_USERNAME?></a>
+                            class="bi bi-person-circle"></i>
+                    <?php echo $PAGE_USERNAME?></a>
+
                 <div class="dropdown-menu">
                     <?php if (empty($PAGE_USERNAME)): ?>
                     <a href="../login" class="dropdown-item">Log In</a>

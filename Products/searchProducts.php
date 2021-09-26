@@ -32,10 +32,6 @@ global $dbh;
             $search=$_GET['search'];
             $stmt="Select * from Product where Product_UPC like '%$search%'";
             $res=$dbh->query($stmt);
-            if (!isset($_GET['search'])){
-                echo "hello";
-            }
-
             ?>
 <form action="" method="get">
     <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
