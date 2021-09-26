@@ -1,4 +1,4 @@
-<i class="bi bi-speedometer"></i><html lang="en">
+<html lang="en">
 <head>
     <title>Resonant With World Category</title>
     <!--CSS-->

@@ -35,10 +35,10 @@
                                 }
                             }
                             // Process the update record request (if a POST form is submitted)
-                            $query = "UPDATE `Category` SET `Category_Name`=:categoryname WHERE `Category_ID`=:id";
+                            $query = "UPDATE `Category` SET `Category_Name`=:category_name WHERE `Category_ID`=:id";
                             $stmt = $dbh->prepare($query);
                             $parameters = [
-                                'categoryname' => $_POST['categoryname'],
+                                'category_name' => $_POST['category_name'],
                                 'id' => $_GET['id']
                             ];
                             echo("'$fieldValue' has been updated.");
@@ -64,8 +64,8 @@
                                                        value="<?= $record->Category_ID ?>" disabled/>
                                             </div>
                                             <div class="row">
-                                                <label for="categoryname">Category Name</label>
-                                                <input type="text" id="categoryname" name="categoryname"
+                                                <label for="category_name">Category Name</label>
+                                                <input type="text" id="category_name" name="category_name"
                                                        value="<?= $record->Category_Name ?>"/>
                                             </div>
                                             <br/>
