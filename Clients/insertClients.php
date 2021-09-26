@@ -138,7 +138,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_phone">Client Phone</label>
-                                    <input type="number" id="client_phone" name="client_phone"/>
+                                    <input type="number" id="client_phone" name="client_phone" maxlength="10"  required value="<?= empty($_POST['client_phone']) ? "" : $_POST['client_phone'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_email">Client Email</label>
@@ -146,11 +146,17 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_subscribed">Subscribed?</label>
-                                    <input type="text" id="client_subscribed" name="client_subscribed"/>
+                                    <br/>
+                                    <select name="client_subscribed" id="client_subscribed" required value="<?= empty($_POST['client_subscribed']) ? "" : $_POST['client_subscribed'] ?>">
+                                        <option value="">Select the value</option>
+                                            <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+
                                 </div>
                                 <div class="row">
                                     <label for="client_other_information">Other Information</label>
-                                    <input type="text" id="client_other_information" name="client_other_information"/>
+                                    <input type="text" id="client_other_information" name="client_other_information"  maxlength="256"/>
                                 </div>
                             </div>
                             <br/>
@@ -171,20 +177,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
 
 
 <script>
-    function validate() {
-        let client_firstname = document.forms["clientForm"]["client_firstname"].value;
-        if (client_firstname == "") {
-            alert("First name must be filled out");
-            return false;
-        }
 
-        let client_surname = document.forms["clientForm"]["client_surname"].value;
-        if (client_surname == "") {
-            alert("Surname must be filled out");
-            return false;
-        }
-
-    }
 
     function submiBtnClick(){
         var formValid = document.forms["post-form"].checkValidity();
