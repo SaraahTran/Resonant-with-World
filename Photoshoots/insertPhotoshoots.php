@@ -113,7 +113,7 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
                         ?>
-                        <form method="post">
+                        <form name="photoshootForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                             <div class="aligned-form">
                                 <div class="row">
                                     <label for="photo_shoot_id">ID</label>
@@ -125,11 +125,11 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_name">Photoshoot Name</label>
-                                    <input type="text" id="photo_shoot_name" name="photo_shoot_name"/>
+                                    <input type="text" id="photo_shoot_name" name="photo_shoot_name" maxlength="64" required value="<?= empty($_POST['photo_shoot_name']) ? "" : $_POST['photo_shoot_name'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_description">Photoshoot Description</label>
-                                    <input type="text" id="photo_shoot_description" name="photo_shoot_description"/>
+                                    <input type="text" id="photo_shoot_description" name="photo_shoot_description" maxlength="64" required value="<?= empty($_POST['photo_shoot_description']) ? "" : $_POST['photo_shoot_description'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_datetime">Photoshoot Date Time</label>
@@ -147,7 +147,7 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
                                 <br/>
                                 <div class="modal-footer">
                                     <input type="submit" class="submit-button" value="Add"
-                                           onclick="window.location='/Photoshoots'"/>
+                                           onclick="submiBtnClick()";/>
                                     <button type="button" class="cancel-button"
                                             onclick="window.location='/Photoshoots';return false;">Cancel
                                     </button>
@@ -162,6 +162,14 @@ VALUES (NULLIF('$_POST[photo_shoot_name]',
 </div></div>
 
 </body>
+
+<script>
+
+    function submiBtnClick(){
+        var formValid = document.forms["post-form"].checkValidity();
+        return formValid;
+    }
+</script>
 
 
 </html>

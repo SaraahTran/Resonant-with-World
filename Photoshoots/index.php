@@ -65,7 +65,7 @@
                 <td><?php echo $row->Photo_Shoot_Name; ?> </td>
                 <td><?php echo $row->Photo_Shoot_Description; ?> </td>
                 <td><?php echo $row->Photo_Shoot_DateTime; ?> </td>
-                <td><?php echo $row->Photo_Shoot_Quote; ?> </td>
+                <td>$<?php echo $row->Photo_Shoot_Quote; ?> </td>
                 <td><?php echo $row->Photo_Shoot_Other_Information; ?> </td>
                 <td style="width:20%">
                     <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"

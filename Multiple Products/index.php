@@ -51,7 +51,7 @@
             <tr>
                 <td><?php echo $row->Product_ID; ?> </td>
                 <td><?php echo $row->Product_Name; ?> </td>
-                <td><?php echo $row->Product_Price; ?> </td>
+                <td>$<?php echo $row->Product_Price; ?> </td>
                 <?php endwhile; ?>
             </tr>
             </tbody>

@@ -59,7 +59,7 @@
                 <td><?php echo $row->Product_ID; ?> </td>
                 <td><?php echo $row->Product_Name; ?> </td>
                 <td><?php echo $row->Product_UPC; ?> </td>
-                <td><?php echo $row->Product_Price; ?> </td>
+                <td>$<?php echo $row->Product_Price; ?> </td>
                 <td><?php echo $row->Product_Category; ?> </td>
                 <td style="width:20%">
                     <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
