@@ -84,11 +84,12 @@ global $dbh;
         $count_client = $count1->fetchColumn();
         echo $count_client;
         ?>
-        <?php
-        global $dbh;
-        $stmt = $dbh->prepare("SELECT * FROM `Client`");
-        $stmt->execute();
-        ?></p>
+    </p>
+    <?php
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM `Client`");
+    $stmt->execute();
+    ?>
     <div class=" table-responsive">
         <table class="table table-bordered responsive table-condensed">
             <thead>
@@ -127,12 +128,12 @@ global $dbh;
     $count2 = $dbh->query("SELECT COUNT(*) FROM Product");
     $count_product = $count2->fetchColumn();
     echo $count_product; ?>
-    <?php
-    global $dbh;
-    $stmt = $dbh->prepare("SELECT * FROM `Product`");
-    $stmt->execute();
-    ?>
 </p>
+<?php
+global $dbh;
+$stmt = $dbh->prepare("SELECT * FROM `Product`");
+$stmt->execute();
+?>
 <div class="table-responsive">
     <table class="table table-bordered responsive">
         <thead>
@@ -165,11 +166,12 @@ global $dbh;
         $count_photoshoot = $count3->fetchColumn();
         echo $count_photoshoot;
         ?>
-        <?php
-        global $dbh;
-        $stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
-        $stmt->execute();
-        ?></p>
+    </p>
+<?php
+global $dbh;
+$stmt = $dbh->prepare("SELECT * FROM `Photo_Shoot`");
+$stmt->execute();
+?>
 <div class="table-responsive">
     <table class="table table-bordered responsive">
         <thead>
@@ -207,11 +209,12 @@ global $dbh;
         $count_category = $count4->fetchColumn();
         echo $count_category;
         ?>
-        <?php
-        global $dbh;
-        $stmt = $dbh->prepare("SELECT * FROM `Category`");
-        $stmt->execute();
-        ?></p>
+    </p>
+<?php
+global $dbh;
+$stmt = $dbh->prepare("SELECT * FROM `Category`");
+$stmt->execute();
+?>
 <div class="table-responsive">
     <table class="table table-bordered responsive table-condensed">
         <thead>
