@@ -883,10 +883,17 @@ input {
   color: white;
   background: #2d475c;
   border: none;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 10px;
-  margin: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.search-button:hover{
+background: #385972;
 }
 
 /*Username*/

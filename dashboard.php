@@ -29,6 +29,9 @@ $PAGE_ALLOWGUEST = true; // Homepage should allow guest to visit
     <br>
     <p>Please select one of the features from sidebar to manage the business.</p>
 
+<br/>
+    <br/>
+
     <div class="row">
         <div class="col-sm">
 

@@ -19,16 +19,27 @@ global $dbh;
 ?>
 
 <div class="container">
-
+    <h1>Search</h1>
+    <div class="row">
+        <div class="col-sm">
+            <button class="back-full-button" onclick="window.location='/Products'"><i
+                        class="bi bi-arrow-left-circle-fill"></i>Back to Full List
+            </button>
+        </div>
+    </div>
+        <div class="col-sm">
 <form action="" method="get">
     <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
     <button class="search-button" type="submit" name="submit"><i class="bi bi-search"></i></button>
-</form>
+</form></div>
 
 <?php
 $search=$_GET['search'];
 $stmt="Select * from Product where Product_UPC like '%$search%'";
-$res=$dbh->query($stmt);?>
+$res=$dbh->query($stmt);
+
+?>
+
 
     <div class=" table-responsive">
     <table class="table table-bordered responsive">
@@ -38,10 +49,13 @@ $res=$dbh->query($stmt);?>
             <th scope="col">Product Name</th>
             <th scope="col">Product UPC</th>
             <th scope="col">Product Price</th>
+
         </tr>
         </thead>
 
-    <?php while($row=$res->fetch()) {?>
+    <?php while($row=$res->fetch()) {
+
+        ?>
         <tbody>
         <tr>
             <?php
@@ -53,6 +67,7 @@ $res=$dbh->query($stmt);?>
 
     }
 ?>
+
 
         </tr></tbody></table></div>
 
