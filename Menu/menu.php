@@ -119,7 +119,7 @@ include("connection.php");
                     <?php endif; ?>
                 </div>
             </div>
-
+º
         </div>
 
     </nav>
