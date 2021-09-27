@@ -277,7 +277,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"/>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script>
     $(document).ready(function () {
         bsCustomFileInput.init()

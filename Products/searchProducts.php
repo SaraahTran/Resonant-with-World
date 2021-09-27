@@ -11,12 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
 </head>
 
-<?php include('../Menu/menu.php'); ?>
-<?php
-
+<?php include('../Menu/menu.php');
 global $dbh;
-
 ?>
+
+<?php
+if (empty($_GET['search'])) {
+    $search = "";
+} else {
+    $search = $_GET['search'];
+}
+$stmt="Select * from Product where Product_UPC like '%$search%'";
+$res=$dbh->query($stmt);
+?>
+
 
 <div class="container">
     <h1>Search</h1>
@@ -26,24 +34,22 @@ global $dbh;
                         class="bi bi-arrow-left-circle-fill"></i>Back to Full List
             </button>
         </div>
-    </div>
         <div class="col-sm">
-            <?php
-            if (empty($_GET['search'])) {
-                $search = "";
-            } else {
-                $search = $_GET['search'];
-            }
-            $stmt="Select * from Product where Product_UPC like '%$search%'";
-            $res=$dbh->query($stmt);
-            ?>
-<form action="" method="get">
-    <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
-    <button class="search-button" type="submit" name="submit"><i class="bi bi-search"></i></button>
+            <button class="back-full-button"  onclick="window.location='./searchProducts.php'"><i class="bi bi-x-circle-fill"></i>Reset Search
+            </button>
+        </div>
+
+    </div><div class="row">
+
+        <div class="col-sm"><form id="searchForm" action="" method="get">
+                <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
+                <button class="search-button" type="submit" name="submit"><i class="bi bi-search"></i></button>
+
+    </div>
 
 
-
-</form></div>
+</form>
+    </div>
 
 
     <div class=" table-responsive">
@@ -79,3 +85,10 @@ global $dbh;
         </tr></tbody></table></div>
 
 </div>
+
+<script>
+    $("#clear").click(function (event) {
+        $("#result").html(" <p>Search Results</p>"."No results found");
+
+    });
+</script>

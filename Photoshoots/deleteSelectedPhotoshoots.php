@@ -55,7 +55,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         <table class="table table-bordered responsive">
             <thead>
             <tr>
-                <th>Delete</th>
+                <th>Delete?</th>
                 <th>ID</th>
                 <th>Client ID</th>
                 <th>Photoshoot Name</th>
