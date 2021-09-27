@@ -63,7 +63,7 @@ $PAGE_HEADER = "Add new product";
                 <th scope="col">Address</th>
                 <th style="width:5%" scope="col">Phone</th>
                 <th style="width:10%"scope="col">Email</th>
-                <th style="width:5%" scope="col">Subscribe</th>
+                <th style="width:5%" scope="col">Sub</th>
                 <th style="width:5%" scope="col">Other Information</th>
                 <th style="width:25%" scope="col">Actions</th>
             </tr>
