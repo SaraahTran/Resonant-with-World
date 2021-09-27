@@ -29,7 +29,11 @@ global $dbh;
     </div>
         <div class="col-sm">
             <?php
-            $search=$_GET['search'];
+            if (empty($_GET['search'])) {
+                $search = "";
+            } else {
+                $search = $_GET['search'];
+            }
             $stmt="Select * from Product where Product_UPC like '%$search%'";
             $res=$dbh->query($stmt);
             ?>
