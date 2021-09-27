@@ -256,5 +256,10 @@ VALUES (NULLIF('$_POST[product_name]', ''),
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        bsCustomFileInput.init()
+    })
+</script>
 
 <!-- /.container-fluid -->
