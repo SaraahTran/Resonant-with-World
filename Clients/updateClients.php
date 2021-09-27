@@ -17,7 +17,15 @@
 
 </table>
 
-<?php include('../Menu/menu.php'); ?>
+<?php include('../Menu/menu.php');
+
+
+function yesNo($n)
+{
+    return $n == 1 ? 'Yes' : 'No';
+}
+
+?>
 
 <h1>Update Client Details</h1>
 <div class="container">
@@ -74,42 +82,47 @@
                                             <div class="row">
                                                 <label for="firstname">First Name</label>
                                                 <input type="text" id="firstname" name="firstname"
-                                                       value="<?= $record->Client_FirstName ?>"/>
+                                                       value="<?= $record->Client_FirstName ?>" maxlength="64" required value="<?= empty($_POST['client_firstname']) ? "" : $_POST['client_firstname'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="surname">Surname</label>
                                                 <input type="text" id="surname" name="surname"
-                                                       value="<?= $record->Client_Surname ?>"/>
+                                                       value="<?= $record->Client_Surname ?>" maxlength="64" required value="<?= empty($_POST['client_surname']) ? "" : $_POST['client_surname'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="address">Address</label>
                                                 <input type="text" id="address" name="address"
-                                                       value="<?= $record->Client_Address ?>"/>
+                                                       value="<?= $record->Client_Address ?>" name="client_address" maxlength="64" required value="<?= empty($_POST['name']) ? "" : $_POST['name'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="phone">Phone</label>
-                                                <input type="number" id="phone" name="phone"
-                                                       value="<?= $record->Client_Phone ?>"/>
+                                                <input type="tel" id="phone" name="phone"
+                                                       value="<?= $record->Client_Phone ?>" pattern="^[0]\d{9}$" id="client_phone" name="client_phone" oninput="client_phone_check(event)" required value="<?= empty($_POST['client_phone']) ? "" : $_POST['client_phone'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="email">Email</label>
                                                 <input type="text" id="email" name="email"
-                                                       value="<?= $record->Client_Email ?>"/>
+                                                       value="<?= $record->Client_Email ?>" maxlength="256" oninput="client_email_check(event)"  required value="<?= empty($_POST['client_email']) ? "" : $_POST['client_email'] ?>"/>
                                             </div>
                                             <div class="row">
-                                                <label for="subscribe">Subscribe</label>
-                                                <input type="text" id="subscribe" name="subscribe"
-                                                       value="<?= $record->Client_Subscribed ?>"/>
+                                                <label for="client_subscribed">Subscribed?</label>
+
+                                                <select name="subscribe" id="subscribe" value="<?php echo $record->Client_Subscribed; ?>"  required value="<?= empty($_POST['client_subscribed']) ? "" : $_POST['client_subscribed'] ?>">
+                                                    <option value="<?php echo $record->Client_Subscribed; ?>" selected="true" disabled="disabled" ><?php echo yesNo($record->Client_Subscribed); ?></option>
+                                                    <option value="1"<?php echo(isset($_POST['subscribe'])&&($_POST['subscribe']=='1')?' selected="selected"':'');?>>Yes</option>
+                                                    <option value="0"<?php echo(isset($_POST['subscribe'])&&($_POST['subscribe']=='0')?' selected="selected"':'');?>>No</option>
+                                                </select>
+
                                             </div>
                                             <div class="row">
                                                 <label for="otherInformation">Other Information</label>
                                                 <input type="text" id="otherInformation" name="otherInformation"
-                                                       value="<?= $record->Client_Other_Information ?>"/>
+                                                       value="<?= $record->Client_Other_Information ?>" maxlength="256"/>
                                             </div>
                                         </div>
                                         <br/>
                                         <div class="modal-footer">
-                                            <input class="submit-button" type="submit" value="Update"/>
+                                            <input class="submit-button" type="submit" value="Update" onclick="submiBtnClick()"/>
                                             <button class="cancel-button" type="button"
                                                     onclick="window.location='/Clients';return false;">Cancel
                                             </button>
@@ -123,6 +136,17 @@
                             }
                         } ?>
                     </div>
+
+                    <script>
+
+                        function submiBtnClick(){
+                            var formValid = document.forms["post-form"].checkValidity();
+                            return formValid;
+                        }
+
+
+
+                    </script>
 
 
 </body>
