@@ -50,6 +50,7 @@ global $dbh;
             <th scope="col">Product Name</th>
             <th scope="col">Product UPC</th>
             <th scope="col">Product Price</th>
+            <th scope="col">Product Category</th>
 
         </tr>
         </thead>
@@ -65,6 +66,7 @@ global $dbh;
         echo '<td>' . $row["Product_Name"] . '</td>';
         echo '<td>' . $row["Product_UPC"] . '</td>';
         echo '<td>' . $row["Product_Price"] . '</td>';
+            echo '<td>' . $row["Product_Category"] . '</td>';
 
     }
 ?>

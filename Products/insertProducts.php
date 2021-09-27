@@ -135,6 +135,8 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                             </select>
                                         <?php } ?>
                                     </div>
+
+
                                 </div>
 
 
