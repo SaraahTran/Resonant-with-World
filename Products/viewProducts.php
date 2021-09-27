@@ -95,7 +95,7 @@
                                             <br/>
                                             <div class="modal-footer">
                                                 <button type="button" class="submit-button"
-                                                        onclick="window.location='/Products/updateProducts.php?id=<?= $record->Product_ID ?>';return false;">Update
+                                                        onclick="window.location='/Products/updateProducts.php?id=<?= $record->Product_ID ?>';return false;">Edit
                                                 </button>
                                                 <button class="cancel-button" type="button"
                                                         onclick="window.location='/Products';return false;">Back

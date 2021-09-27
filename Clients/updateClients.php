@@ -34,11 +34,7 @@
                         $dbh = new PDO('mysql:host=localhost;dbname=fit2104_assignment2', 'fit2104', 'fit2104');
                         if (!empty($_POST)) {
                             foreach ($_POST as $fieldName => $fieldValue) {
-                                if (empty($fieldValue)) {
-                                    echo errorMessage("'$fieldName The field is empty. Please fill in the requirements. '");
-                                    echo "<div class=\"center row\"><button onclick=\"window.history.back()\">Return to previous page</button></div>";
-                                    die();
-                                }
+
                             }
                             // Process the update record request (if a POST form is submitted)
                             $query = "UPDATE `Client` SET `Client_FirstName`=:firstname,`Client_Surname`=:surname,`Client_Address`=:address,`Client_Phone`=:phone,`Client_Email`=:email, `Client_Subscribed`=:subscribe, `Client_Other_Information`=:otherInformation WHERE `Client_ID`=:id";
