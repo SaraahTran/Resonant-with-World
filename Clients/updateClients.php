@@ -108,9 +108,9 @@ function yesNo($n)
                                                 <label for="client_subscribed">Subscribed?</label>
 
                                                 <select name="subscribe" id="subscribe" value="<?php echo $record->Client_Subscribed; ?>"  required value="<?= empty($_POST['client_subscribed']) ? "" : $_POST['client_subscribed'] ?>">
-                                                    <option value="<?php echo $record->Client_Subscribed; ?>" selected="true" disabled="disabled" ><?php echo yesNo($record->Client_Subscribed); ?></option>
-                                                    <option value="1"<?php echo(isset($_POST['subscribe'])&&($_POST['subscribe']=='1')?' selected="selected"':'');?>>Yes</option>
-                                                    <option value="0"<?php echo(isset($_POST['subscribe'])&&($_POST['subscribe']=='0')?' selected="selected"':'');?>>No</option>
+                                                    <option value="<?php echo $record->Client_Subscribed; ?>" selected><?php echo yesNo($record->Client_Subscribed); ?></option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
                                                 </select>
 
                                             </div>

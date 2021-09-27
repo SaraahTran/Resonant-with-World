@@ -148,7 +148,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                     <label for="client_subscribed">Subscribed?</label>
                                     <br/>
                                     <select name="client_subscribed" id="client_subscribed" required value="<?= empty($_POST['client_subscribed']) ? "" : $_POST['client_subscribed'] ?>">
-                                        <option value="">Select the value</option>
+                                        <option disabled selected value="">Select the value</option>
                                             <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
