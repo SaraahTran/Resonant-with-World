@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;4000;800&display=swap" rel="stylesheet">
 </head>
-<?php include('../Menu/menu.php'); ?>
 
 <?php
+include('../Menu/menu.php');
 $PAGE_ID = "email";
 $PAGE_HEADER = "Sending email to users";
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Getting emails of selected users
     $query_placeholders = trim(str_repeat("?,", count($_POST['client_id'])), ",");
-    $query = "SELECT * FROM `Clients` WHERE `Client_ID` in (" . $query_placeholders . ")";
+    $query = "SELECT * FROM `Client` WHERE `Client_ID` in (" . $query_placeholders . ")";
     $stmt = $dbh->prepare($query);
     if ($stmt->execute($_POST['client_id'])) {
         if ($stmt->rowCount() != count($_POST['client_id'])) {

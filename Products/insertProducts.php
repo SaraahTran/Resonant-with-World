@@ -236,7 +236,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
-                                    <input type="number" id="product_price" name="product_price" oninput="product_price_checker(event)" maxlength="6"  required value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>"/>
+                                    <input type="number" id="product_price" name="product_price" oninput="product_price_checker(event)" pattern="[0-9]+(\\.[0-9][0-9]?)?" required value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>"/>
                                 </div>
 
                                 <div>
