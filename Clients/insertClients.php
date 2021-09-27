@@ -138,7 +138,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_phone">Client Phone</label>
-                                    <input type="number" id="client_phone" name="client_phone" maxlength="10"  required value="<?= empty($_POST['client_phone']) ? "" : $_POST['client_phone'] ?>"/>
+                                    <input type="number" id="client_phone" name="client_phone" oninput="client_phone_check(event)" required value="<?= empty($_POST['client_phone']) ? "" : $_POST['client_phone'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_email">Client Email</label>
@@ -175,11 +175,29 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
 </div>
 
 <script>
-
-
     function submiBtnClick(){
         var formValid = document.forms["post-form"].checkValidity();
         return formValid;
+    }
+    // Validate with JS at the time of submission
+    $('#productForm').on('submit', function () {
+        let client_phone = $('#client_phone').val();
+        if (isNaN(client_phone) || client_phone.length !== 10) {
+            alert("The phone number must be a number that is 10 digits long");
+            return false; // prevent the form to be submitted
+        }
+    });
+
+    // A callback function as event listener in input attribute (so we can do some validation)
+    function client_phone_check(event) {
+        if (isNaN(event.target.value) || event.target.value.length !== 10) {
+            //Set the validation of the field as invalid with error message manually
+            event.target.setCustomValidity("The phone number must be a number that is 10 digits long");
+        } else {
+            //Set the field as valid once met the criterion manually
+            event.target.setCustomValidity("");
+        }
+
     }
 </script>
 
