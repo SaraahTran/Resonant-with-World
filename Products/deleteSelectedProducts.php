@@ -43,8 +43,8 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             </button>
         </div>
         <div class="col-sm">
-            <form method="post">
-                <button class="delete-selected-button2" type="submit" value="Delete selected products"/>
+            <form id="delete-selected-form" method="post">
+                <button class="delete-selected-button2 delete-selected" type="submit" value="Delete selected products"/>
                 <i class="bi bi-trash-fill"></i>Delete selected products
 
         </div>
@@ -68,7 +68,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             <tbody>
             <tr>
                 <td class="col-checkbox">
-                    <input type="checkbox" name="Product_ID[]" value="<?php echo $row->Product_ID; ?>"/>
+                    <input type="checkbox" class="to-be-deleted" name="Product_ID[]" value="<?php echo $row->Product_ID; ?>"/>
                 </td>
                 <td><?= $row->Product_ID ?></td>
                 <td><?= $row->Product_Name ?></td>
@@ -83,7 +83,24 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         </table>
     </div>
 </div>
+
+
 <?php include('../Menu/footer.php'); ?>
+<script>
+    $('button.delete-selected').click(function (e) {
+        e.preventDefault();
+
+        if ($('input.to-be-deleted:checked:enabled').length > 0) {
+            if (confirm('Do you really want to delete selected product?')) {
+                $('form#delete-selected-form').submit();
+            }
+        } else {
+            alert("Please select at least one product to be deleted. ");
+        }
+    });
+</script>
+
+
 </body>
 
 </html>

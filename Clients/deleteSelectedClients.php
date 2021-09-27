@@ -42,8 +42,8 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             </button>
         </div>
         <div class="col-sm">
-            <form method="post">
-                <button class="delete-selected-button2" type="submit" value="Delete selected clients"/>
+            <form id="delete-selected-form" method="post">
+                <button class="delete-selected-button2 delete-selected" type="submit" value="Delete selected clients"/>
                 <i class="bi bi-trash-fill"></i>Delete selected clients
 
         </div>
@@ -69,7 +69,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             <tbody>
             <tr>
                 <td class="col-checkbox">
-                    <input type="checkbox" name="Client_ID[]" value="<?php echo $row->Client_ID; ?>"/>
+                    <input type="checkbox" class="to-be-deleted" name="Client_ID[]" value="<?php echo $row->Client_ID; ?>"/>
                 </td>
                 <td><?= $row->Client_ID ?></td>
                 <td><?= $row->Client_FirstName ?></td>
@@ -88,6 +88,20 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
     </div>
 </div>
 <?php include('../Menu/footer.php'); ?>
+
+<script>
+    $('button.delete-selected').click(function (e) {
+        e.preventDefault();
+
+        if ($('input.to-be-deleted:checked:enabled').length > 0) {
+            if (confirm('Do you really want to delete selected clients?')) {
+                $('form#delete-selected-form').submit();
+            }
+        } else {
+            alert("Please select at least one client to be deleted. ");
+        }
+    });
+</script>
 </body>
 
 

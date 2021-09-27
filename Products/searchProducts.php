@@ -23,6 +23,7 @@ if (empty($_GET['search'])) {
 }
 $stmt = "Select * from Product where Product_UPC like '%$search%'";
 $res = $dbh->query($stmt);
+
 ?>
 
 
@@ -87,6 +88,8 @@ $res = $dbh->query($stmt);
                 echo '<td>' . $row["Product_Category"] . '</td>';
 
                 }
+
+
                 ?>
 
 

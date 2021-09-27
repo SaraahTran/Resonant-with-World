@@ -43,8 +43,8 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             </button>
         </div>
         <div class="col-sm">
-            <form method="post">
-                <button class="delete-selected-button2" type="submit"/>
+            <form id="delete-selected-form" method="post">
+                <button class="delete-selected-button2 delete-selected" type="submit"/>
                 <i class="bi bi-trash-fill"></i>Delete selected photoshoots
 
         </div>
@@ -69,7 +69,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
             <tbody>
             <tr>
                 <td class="col-checkbox">
-                    <input type="checkbox" name="Photo_Shoot_ID[]" value="<?php echo $row->Photo_Shoot_ID; ?>"/>
+                    <input type="checkbox" class="to-be-deleted" name="Photo_Shoot_ID[]" value="<?php echo $row->Photo_Shoot_ID; ?>"/>
                 </td>
                 <td><?= $row->Photo_Shoot_ID; ?> </td>
                 <td><?= $row->Client_ID; ?> </td>
@@ -87,6 +87,22 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
     </div>
 </div>
 <?php include('../Menu/footer.php'); ?>
+
+<script>
+    $('button.delete-selected').click(function (e) {
+        e.preventDefault();
+
+        if ($('input.to-be-deleted:checked:enabled').length > 0) {
+            if (confirm('Do you really want to delete selected photoshoots?')) {
+                $('form#delete-selected-form').submit();
+            }
+        } else {
+            alert("Please select at least one photoshoot to be deleted. ");
+        }
+    });
+</script>
 </body>
+
+
 
 </html>

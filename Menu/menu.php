@@ -111,13 +111,13 @@ include("connection.php");
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle topbar-text" data-toggle="dropdown"><i
                             class="bi bi-person-circle"></i>
-                    <?php echo $PAGE_USERNAME?></a>
+                    <?php echo $PAGE_USERNAME ?></a>
 
                 <div class="dropdown-menu">
                     <?php if (empty($PAGE_USERNAME)): ?>
-                    <a href="../login" class="dropdown-item">Log In</a>
+                        <a href="../login" class="dropdown-item">Log In</a>
                     <?php else: ?>
-                    <a href="../login/logout.php" class="dropdown-item">Log Out</a>
+                        <a href="../login/logout.php" class="dropdown-item">Log Out</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -134,6 +134,8 @@ include("connection.php");
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
+        <!--JavaScript-->
+        <script src="../Scripts/scripts.js"></script>
 </body>
 </html>
 
