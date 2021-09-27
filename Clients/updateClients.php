@@ -27,7 +27,6 @@ function yesNo($n)
 
 ?>
 
-<h1>Update Client Details</h1>
 <div class="container">
 
     <div class="row justify-content-center">
@@ -107,10 +106,9 @@ function yesNo($n)
                                             <div class="row">
                                                 <label for="client_subscribed">Subscribed?</label>
 
-                                                <select name="subscribe" id="subscribe" value="<?php echo $record->Client_Subscribed; ?>"  required value="<?= empty($_POST['client_subscribed']) ? "" : $_POST['client_subscribed'] ?>">
-                                                    <option value="<?php echo $record->Client_Subscribed; ?>" selected><?php echo yesNo($record->Client_Subscribed); ?></option>
-                                                    <option value="1">Yes</option>
-                                                    <option value="0">No</option>
+                                                <select name="subscribe" id="subscribe" required value="<?= empty($_POST['client_subscribed']) ? "" : $_POST['client_subscribed'] ?>">
+                                                    <option value="1" <?php echo ($record->Client_Subscribed == 1)?"selected":"";?>>Yes</option>
+                                                    <option value="0" <?php echo ($record->Client_Subscribed == 0)?"selected":"";?>>No</option>
                                                 </select>
 
                                             </div>
