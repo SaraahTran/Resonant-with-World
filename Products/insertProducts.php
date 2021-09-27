@@ -103,7 +103,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
                         ?>
-                        <form method="post">
+                        <form name="productForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                             <div class="aligned-form">
                                 <div class="row">
                                     <label for="product_id">ID</label>
@@ -111,15 +111,15 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="product_name">Product Name</label>
-                                    <input type="text" id="product_name" name="product_name"/>
+                                    <input type="text" id="product_name" name="product_name" maxlength="64" required value="<?= empty($_POST['product_name']) ? "" : $_POST['product_name'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="product_upc">Product UPC</label>
-                                    <input type="number" id="product_upc" name="product_upc"/>
+                                    <input type="number" id="product_upc" name="product_upc" maxlength="11"  required value="<?= empty($_POST['product_upc']) ? "" : $_POST['product_upc'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
-                                    <input type="number" id="product_price" name="product_price"/>
+                                    <input type="number" id="product_price" name="product_price" oninput="product_price_checker(event)" maxlength="6"  required value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>"/>
                                 </div>
 
                                 <div>
@@ -127,7 +127,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                     <label for="product_category">Product Category</label>
                                         <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_ID`");
                                         if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
-                                            <select name="product_category" id="product_category">
+                                            <select name="product_category" id="product_category" required value="<?= empty($_POST['product_category']) ? "" : $_POST['product_category'] ?>">
                                                 <option value="">Select the category</option>
                                                 <?php while($row =$category_stmt->fetchObject()): ?>
                                                     <option value="<?= $row->Category_Name?>"  ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
@@ -141,7 +141,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                             <br/>
                             <div class="modal-footer">
                                 <input type="submit" class="submit-button" value="Add"
-                                       onclick="window.location='/Products'"/>
+                                       onclick="submiBtnClick()";/>
                                 <button type="button" class="cancel-button"
                                         onclick="window.location='/Products';return false;">Cancel
                                 </button>
@@ -152,6 +152,35 @@ VALUES (NULLIF('$_POST[product_name]', ''),
         </div>
     </div>
 </div>
+
+<script>
+    function submiBtnClick(){
+        var formValid = document.forms["post-form"].checkValidity();
+        return formValid;
+    }
+
+    // Validate with JS at the time of submission
+    $('#productForm').on('submit', function () {
+        let product_price = $('#product_price').val();
+        if (isNaN(product_price) || product_price.length !== 4) {
+            alert("The product price must be a price that is less than 4 digits long");
+            return false; // prevent the form to be submitted
+        }
+    });
+
+    // A callback function as event listener in input attribute (so we can do some validation)
+        function product_price_checker(event) {
+        if (isNaN(event.target.value) || event.target.value.length !== 4) {
+        //Set the validation of the field as invalid with error message manually
+        event.target.setCustomValidity("The product price must be a price that is 4 digits long");
+    } else {
+        //Set the field as valid once met the criterion manually
+        event.target.setCustomValidity("");
+    }
+
+    }
+</script>
+
 
 
 </body>
