@@ -100,11 +100,16 @@ global $dbh;
                 <th scope="col">Address</th>
                 <th style="width:5%" scope="col">Phone</th>
                 <th style="width:10%"scope="col">Email</th>
-                <th style="width:5%" scope="col">Sub</th>
-                <th style="width:5%" scope="col">Other</th>
+                <th style="width:5%" scope="col">Subscribe</th>
+                <th style="width:5%" scope="col">Other Information</th>
             </tr>
             </thead>
-            <?php while ($row = $stmt->fetchObject()): ?>
+            <?php
+            function yesNo($n)
+            {
+                return $n == 1 ? 'Yes' : 'No';
+            }
+            while ($row = $stmt->fetchObject()): ?>
             <tbody>
             <tr>
                 <td style="width:5%" > <?php echo $row->Client_ID; ?> </td>
@@ -113,9 +118,10 @@ global $dbh;
                 <td><?php echo $row->Client_Address; ?> </td>
                 <td style="width:5%" ><?php echo $row->Client_Phone; ?> </td>
                 <td style="width:10%"><?php echo $row->Client_Email; ?> </td>
-                <td style="width:5%"><?php echo $row->Client_Subscribed; ?> </td>
+                <td style="width:5%"><?php echo yesNo($row->Client_Subscribed); ?> </td>
                 <td style="width:5%"><?php echo $row->Client_Other_Information; ?> </td>
-                <?php endwhile; ?>
+                <?php endwhile;
+                ?>
             </tr>
             </tbody>
         </table>
