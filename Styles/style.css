@@ -720,7 +720,7 @@ input[id="category_id"] {
 }
 
 input {
-  background: #e3e5ee;
+  background: #f3f4fa;
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -960,7 +960,7 @@ select {
   position: relative;
   font-size: 16px;
   padding: 15px;
-  background: #e3e5ee;
+  background: #f3f4fa;
   width: 100%;
   border: none;
   -webkit-appearance: none;
@@ -979,7 +979,7 @@ select {
 }
 
 .form-control{
-  background: #e3e5ee!important;
+  background: #f3f4fa!important;
   padding: 10px!important;
   border: none!important;
   height: auto!important;

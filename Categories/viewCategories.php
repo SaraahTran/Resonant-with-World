@@ -51,6 +51,9 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
+                                                <button type="button" class="submit-button"
+                                                        onclick="window.location='/Categories/updateCategories.php?id=<?= $record->Category_ID ?>';return false;">Update
+                                                </button>
                                                 <button type="button" class="cancel-button"
                                                         onclick="window.location='/Categories';return false;">Back
                                                 </button>

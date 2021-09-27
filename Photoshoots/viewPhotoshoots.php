@@ -79,6 +79,9 @@
                                         </div>
                                         <br/>
                                         <div class="modal-footer">
+                                            <button type="button" class="submit-button"
+                                                    onclick="window.location='/Photoshoots/updatePhotoshoots.php?id=<?= $record->Photo_Shoot_ID ?>';return false;">Update
+                                            </button>
                                             <button class="cancel-button" type="button"
                                                     onclick="window.location='/Photoshoots';return false;">Back
                                             </button>

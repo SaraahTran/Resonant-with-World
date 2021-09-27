@@ -85,7 +85,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <input class="submit-button" type="submit" name="action" id="delete-button"
+                                            <input class="submit-button button-delete" type="submit" name="action" id="delete-button"
                                                    value="Delete"/>
                                             <button class="cancel-button" type="button"
                                                     onclick="window.location='/Categories';return false;">Cancel
@@ -104,7 +104,11 @@
             </div>
         </div>
     </div>
-</div>
-
+</div><script>
+    $('input.button-delete').click(function () {
+        if (!confirm('Do you really want to delete this client?')) {
+            return false;
+        }
+    });</script>
 </body>
 </html>

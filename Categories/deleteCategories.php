@@ -53,7 +53,7 @@
                         </div>
                         <br/>
                         <div class="modal-footer">
-                                <input class="submit-button" type="submit" name="action" id="delete-button" value="Delete"/>
+                                <input class="submit-button button-delete" type="submit" name="action" id="delete-button" value="Delete"/>
                             <button type="button" class="cancel-button"
                                     onclick="window.location='/Categories';return false;">Cancel
                             </button>
@@ -67,5 +67,12 @@
             die(friendlyError($stmt->errorInfo()[2]));
         }
     } ?></div></div></div></div></div></div>
+
+<script>
+    $('input.button-delete').click(function () {
+        if (!confirm('Do you really want to delete this category?')) {
+            return false;
+        }
+    });</script>
 
 </html>

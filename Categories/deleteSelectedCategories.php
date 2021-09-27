@@ -83,7 +83,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         e.preventDefault();
 
         if ($('input.to-be-deleted:checked:enabled').length > 0) {
-            if (confirm('Do you really want to delete selected category?')) {
+            if (confirm('Do you really want to delete selected categories?')) {
                 $('form#delete-selected-form').submit();
             }
         } else {

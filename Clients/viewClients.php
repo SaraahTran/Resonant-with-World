@@ -76,6 +76,9 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
+                                            <button type="button" class="submit-button"
+                                                    onclick="window.location='/Clients/updateClients.php?id=<?= $record->Client_ID ?>';return false;">Update
+                                            </button>
                                             <button class="cancel-button" type="button"
                                                     onclick="window.location='/Clients';return false;">Back
                                             </button>

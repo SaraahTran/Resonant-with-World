@@ -75,7 +75,7 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <input class="submit-button" type="submit" name="action"
+                                                <input class="submit-button button-delete" type="submit" name="action"
                                                        id="delete-button" value="Delete"/>
                                                 <button type="button" class="cancel-button"
                                                         onclick="window.location='/Products';return false;">Cancel
@@ -95,6 +95,11 @@
         </div>
     </div>
 </div>
-
+<script>
+    $('input.button-delete').click(function () {
+        if (!confirm('Do you really want to delete this product?')) {
+            return false;
+        }
+    });</script>
 </body>
 </html>
