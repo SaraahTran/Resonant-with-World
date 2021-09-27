@@ -66,7 +66,8 @@
                                             <div class="row">
                                                 <label for="category_name">Category Name</label>
                                                 <input type="text" id="category_name" name="category_name"
-                                                       value="<?= $record->Category_Name ?>"/>
+                                                       value="<?= $record->Category_Name ?>"
+                                                       maxlength="64" required value="<?= empty($_POST['category_name']) ? "" : $_POST['category_name'] ?>"/>
                                             </div>
                                             <br/>
                                             <div class="modal-footer">

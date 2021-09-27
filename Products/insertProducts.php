@@ -115,7 +115,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="product_upc">Product UPC</label>
-                                    <input type="number" id="product_upc" name="product_upc" maxlength="11"  required value="<?= empty($_POST['product_upc']) ? "" : $_POST['product_upc'] ?>"/>
+                                    <input type="number" id="product_upc" name="product_upc" oninput="product_upc_checker(event)" maxlength="11"  required value="<?= empty($_POST['product_upc']) ? "" : $_POST['product_upc'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
@@ -179,6 +179,27 @@ VALUES (NULLIF('$_POST[product_name]', ''),
         //Set the field as valid once met the criterion manually
         event.target.setCustomValidity("");
     }
+
+    }
+
+    // Validate with JS at the time of submission
+    $('#productForm').on('submit', function () {
+        let product_upc = $('#product_upc').val();
+        if (isNaN(product_upc) || product_upc.length !== 10) {
+            alert("The product upc must be a number that is less than 10 digits long");
+            return false; // prevent the form to be submitted
+        }
+    });
+
+    // A callback function as event listener in input attribute (so we can do some validation)
+    function product_upc_checker(event) {
+        if (isNaN(event.target.value) || event.target.value.length !== 10) {
+            //Set the validation of the field as invalid with error message manually
+            event.target.setCustomValidity("The product upc must be a number that is 10 digits long");
+        } else {
+            //Set the field as valid once met the criterion manually
+            event.target.setCustomValidity("");
+        }
 
     }
 </script>
