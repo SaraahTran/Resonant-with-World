@@ -138,11 +138,11 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="client_phone">Client Phone</label>
-                                    <input type="number" id="client_phone" name="client_phone" oninput="client_phone_check(event)" required value="<?= empty($_POST['client_phone']) ? "" : $_POST['client_phone'] ?>"/>
+                                    <input type="tel" pattern="^[0]\d{9}$" id="client_phone" name="client_phone" oninput="client_phone_check(event)" required value="<?= empty($_POST['client_phone']) ? "" : $_POST['client_phone'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_email">Client Email</label>
-                                    <input type="text" id="client_email" name="client_email" maxlength="256" required value="<?= empty($_POST['client_email']) ? "" : $_POST['client_email'] ?>"/>
+                                    <input type="text" id="client_email" name="client_email" maxlength="256" oninput="client_email_check(event)"  required value="<?= empty($_POST['client_email']) ? "" : $_POST['client_email'] ?>"/>
                                 </div>
                                 <div class="row">
                                     <label for="client_subscribed">Subscribed?</label>
@@ -189,7 +189,10 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
     });
 
     // A callback function as event listener in input attribute (so we can do some validation)
+
+    //phone number validation
     function client_phone_check(event) {
+
         if (isNaN(event.target.value) || event.target.value.length !== 10) {
             //Set the validation of the field as invalid with error message manually
             event.target.setCustomValidity("The phone number must be a number that is 10 digits long");
@@ -197,6 +200,9 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
             //Set the field as valid once met the criterion manually
             event.target.setCustomValidity("");
         }
+    }
+
+
 
     }
 </script>

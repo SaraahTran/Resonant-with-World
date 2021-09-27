@@ -880,25 +880,19 @@ input {
   border-radius: 5px;
   padding: 10px;
   margin-right: 0!important;
-margin-top: 5px;
+margin-top: 0!important;
 }
 
 .search-button{
-  color: white;
-  background: #2d475c;
+  color: white!important;
+  background: #7986b4 !important;
   border: none;
-  height: 50px;
-  width: 50px;
-  border-radius: 10px;
-  margin-left: 0!important;
-  margin-top: 15px;
-  font-size: 15px;
   text-align: center;
   transition: all 0.5s;
 }
 
 .search-button:hover{
-background: #385972;
+background: #53608c !important;
 }
 
 /*Username*/
@@ -977,5 +971,30 @@ select {
   background-position-y: 15px;
   border-radius: 5px;
 
+}
+
+/*Input*/
+.input-group{
+  border: none!important;
+}
+
+.form-control{
+  background: #e3e5ee!important;
+  padding: 10px!important;
+  border: none!important;
+  height: auto!important;
+}
+
+.input-group-text{
+  background: white!important;
+}
+
+.btn{
+  height: auto!important;
+}
+
+.search-input{
+  background: white!important;
+  border: 1px solid lightgrey!important;
 }
 

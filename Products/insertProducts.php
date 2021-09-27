@@ -234,10 +234,18 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                     <label for="product_upc">Product UPC</label>
                                     <input type="number" id="product_upc" name="product_upc" oninput="product_upc_checker(event)" maxlength="11"  required value="<?= empty($_POST['product_upc']) ? "" : $_POST['product_upc'] ?>"/>
                                 </div>
+
+
                                 <div class="row">
                                     <label for="product_price">Product Price</label>
-                                    <input type="number" id="product_price" name="product_price" oninput="product_price_checker(event)" pattern="[0-9]+(\\.[0-9][0-9]?)?" required value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>"/>
-                                </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input type="number" id="product_price" name="product_price" class="form-control" aria-label="Amount (to the nearest dollar)"  oninput="product_price_checker(event)" pattern="[0-9]+(\\.[0-9][0-9]?)?" required value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>">
+                                    </div>
+
+                                 </div>
 
                                 <div>
                                     <div class="row">
@@ -294,7 +302,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
     // Validate with JS at the time of submission
     $('#productForm').on('submit', function () {
         let product_price = $('#product_price').val();
-        if (isNaN(product_price) || product_price.length !== 4) {
+        if (isNaN(product_price) || product_price.length > 4) {
             alert("The product price must be a price that is less than 4 digits long");
             return false; // prevent the form to be submitted
         }
@@ -302,9 +310,9 @@ VALUES (NULLIF('$_POST[product_name]', ''),
 
     // A callback function as event listener in input attribute (so we can do some validation)
         function product_price_checker(event) {
-        if (isNaN(event.target.value) || event.target.value.length !== 4) {
+        if (isNaN(event.target.value) || event.target.value.length > 4) {
         //Set the validation of the field as invalid with error message manually
-        event.target.setCustomValidity("The product price must be a price that is 4 digits long");
+        event.target.setCustomValidity("The product price must be a price that is less than 4 digits long");
     } else {
         //Set the field as valid once met the criterion manually
         event.target.setCustomValidity("");
@@ -316,7 +324,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
     $('#productForm').on('submit', function () {
         let product_upc = $('#product_upc').val();
         if (isNaN(product_upc) || product_upc.length !== 10) {
-            alert("The product upc must be a number that is less than 10 digits long");
+            alert("The product upc must be a number that is than 10 digits long");
             return false; // prevent the form to be submitted
         }
     });

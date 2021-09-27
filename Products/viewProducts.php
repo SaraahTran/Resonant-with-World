@@ -72,7 +72,9 @@
                                                        value="<?= $record->Product_Category ?>" disabled/>
                                             </div>
                                             <br/>
-                                            <?php // Fetch product images
+                                            <?php
+
+                                            // Fetch product images
                                             $product_images = [];
                                             $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `Product_Image_ID` = ?");
                                             $stmt->execute([$_GET['id']]);
@@ -86,7 +88,7 @@
                                                     <p>This product has no images</p>
                                                 <?php else:
                                                     foreach ($product_images as $image): ?>
-                                                        <a href="product_images/<?= $image->filename ?>" target="_blank"><img src="product_images/<?= $image->filename ?>" width="200" height="200" class="rounded mb-1 product-image-thumbnail" alt="Product Image"></a>
+                                                        <a href="product_images/<?= $image->Product_Image_File_name ?>" target="_blank"><img src="product_images/<?= $image->Product_Image_File_name ?>" width="200" height="200" class="rounded mb-1 product-image-thumbnail" alt="Product Image"></a>
                                                     <?php endforeach;
                                                 endif; ?>
 

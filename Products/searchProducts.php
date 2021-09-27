@@ -21,8 +21,8 @@ if (empty($_GET['search'])) {
 } else {
     $search = $_GET['search'];
 }
-$stmt="Select * from Product where Product_UPC like '%$search%'";
-$res=$dbh->query($stmt);
+$stmt = "Select * from Product where Product_UPC like '%$search%'";
+$res = $dbh->query($stmt);
 ?>
 
 
@@ -34,61 +34,75 @@ $res=$dbh->query($stmt);
                         class="bi bi-arrow-left-circle-fill"></i>Back to Full List
             </button>
         </div>
+
         <div class="col-sm">
-            <button class="back-full-button"  onclick="window.location='./searchProducts.php'"><i class="bi bi-x-circle-fill"></i>Reset Search
+            <button class="delete-selected-button2" onclick="window.location='./searchProducts.php'"><i
+                        class="bi bi-x-circle-fill"></i>Reset Search
             </button>
         </div>
 
-    </div><div class="row">
+    </div>
 
-        <div class="col-sm"><form id="searchForm" action="" method="get">
-                <input class="search" type="text" name="search" id="search" placeholder="Search by Product UPC">
-                <button class="search-button" type="submit" name="submit"><i class="bi bi-search"></i></button>
+       <br/>
+            <form>
 
+    <div class="input-group mb-3">
+        <form id="searchForm" action="" method="get">
+            <input type="text" class="search form-control search-input " name="search" id="search" placeholder="Search by Product UPC"
+                   aria-label="Search by Product UPC" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary search-button" type="submit" name="submit"><i class="bi bi-search"></i>
+                </button>
+            </div>
     </div>
 
 
-</form>
-    </div>
+    </form>
 
 
     <div class=" table-responsive">
-    <table class="table table-bordered responsive">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Product UPC</th>
-            <th scope="col">Product Price</th>
-            <th scope="col">Product Category</th>
+        <table class="table table-bordered responsive">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product UPC</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Category</th>
 
-        </tr>
-        </thead>
+            </tr>
+            </thead>
 
-    <?php while($row=$res->fetch()) {
+            <?php while ($row = $res->fetch()) {
 
-        ?>
-        <tbody>
-        <tr>
-            <?php
+            ?>
+            <tbody>
+            <tr>
+                <?php
 
-        echo ' <td>  ' . $row["Product_ID"] . ' </td>';
-        echo '<td>' . $row["Product_Name"] . '</td>';
-        echo '<td>' . $row["Product_UPC"] . '</td>';
-        echo '<td>' . $row["Product_Price"] . '</td>';
-            echo '<td>' . $row["Product_Category"] . '</td>';
+                echo ' <td>  ' . $row["Product_ID"] . ' </td>';
+                echo '<td>' . $row["Product_Name"] . '</td>';
+                echo '<td>' . $row["Product_UPC"] . '</td>';
+                echo '<td>' . $row["Product_Price"] . '</td>';
+                echo '<td>' . $row["Product_Category"] . '</td>';
 
-    }
-?>
+                }
+                ?>
 
 
-        </tr></tbody></table></div>
+            </tr>
+            </tbody>
+        </table>
+    </div></div>
 
 </div>
 
 <script>
     $("#clear").click(function (event) {
-        $("#result").html(" <p>Search Results</p>"."No results found");
+        $("#result").html(" <p>Search Results</p>".
+        "No results found"
+    )
+        ;
 
     });
-</script>
+</script></html>
