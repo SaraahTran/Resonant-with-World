@@ -56,7 +56,7 @@
                             if ($stmt->execute([$_GET['id']])) {
                                 if ($stmt->rowCount() > 0) {
                                     $record = $stmt->fetchObject(); ?>
-                                    <form method="post">
+                                    <form name="categoryForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                                         <div class="aligned-form">
                                             <div class="row">
                                                 <label for="category_id">ID</label>
@@ -71,7 +71,8 @@
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <input class="submit-button" type="submit" value="Update"/>
+                                                <input type="submit" class="submit-button" value="Update"
+                                                       onclick="submiBtnClick()";/>
                                                 <button class="cancel-button" type="button"
                                                         onclick="window.location='/Categories';return false;">Cancel
                                                 </button>
@@ -91,4 +92,13 @@
     </div>
 </div>
 </body>
+
+<script>
+
+    function submiBtnClick(){
+        var formValid = document.forms["post-form"].checkValidity();
+        return formValid;
+    }
+</script>
+
 </html>
