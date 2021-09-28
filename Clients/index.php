@@ -63,9 +63,8 @@ $PAGE_HEADER = "Add new product";
                 <th scope="col">Address</th>
                 <th style="width:5%" scope="col">Phone</th>
                 <th style="width:10%"scope="col">Email</th>
-                <th style="width:5%" scope="col">Sub</th>
-                <th style="width:5%" scope="col">Other Information</th>
-                <th style="width:25%" scope="col">Actions</th>
+                <th style="width:5%" scope="col">Subscribe?</th>
+                <th style="width:20%" scope="col">Actions</th>
             </tr>
             </thead>
             <?php
@@ -83,8 +82,7 @@ $PAGE_HEADER = "Add new product";
                 <td style="width:5%" ><?php echo $row->Client_Phone; ?> </td>
                 <td style="width:10%"><?php echo $row->Client_Email; ?> </td>
                 <td style="width:5%"><?php echo yesNo($row->Client_Subscribed); ?> </td>
-                <td style="width:5%"><?php echo $row->Client_Other_Information; ?> </td>
-                <td style="width:25%">
+                <td style="width:20%">
                     <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
                             onclick="window.location='./Clients/viewClients.php?id=<?= $row->Client_ID ?>'"><i
                                 class="center bi bi-eye-fill"></i></button>

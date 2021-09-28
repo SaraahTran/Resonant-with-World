@@ -36,11 +36,10 @@
                                 }
                             }
                             // Process the update record request (if a POST form is submitted)
-                            $query = "UPDATE `Product` SET `Product_Name`=:productname, `Product_UPC`=:productupc, `Product_Price`=:productprice,`Product_Category`=:productcategory WHERE `Product_ID`=:id";
+                            $query = "UPDATE `Product` SET `Product_Name`=:productname, `Product_Price`=:productprice,`Product_Category`=:productcategory WHERE `Product_ID`=:id";
                             $stmt = $dbh->prepare($query);
                             $parameters = [
                                 'productname' => $_POST['productname'],
-                                'productupc' => $_POST['productupc'],
                                 'productprice' => $_POST['productprice'],
                                 'productcategory' => $_POST['productcategory'],
                                     'id' => $_GET['id']
@@ -83,12 +82,18 @@
                                             </div>
                                             <div class="row">
                                                 <label for="productupc">Product UPC</label>
-                                                <input type="number" id="productupc" name="productupc"
-                                                       value="<?= $record->Product_UPC ?>"/>
+                                                <input type="number"
+                                                       value="<?= $record->Product_UPC ?>" disabled/>
                                             </div>
+
                                             <div class="row">
-                                                <label for="productprice">Product Price</label>
-                                                <input type="number" id="productprice" name="productprice" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['Product_Price']) ? $record->Product_Price : $_POST['Product_Price'] ?>">
+                                                <label for="product_price">Product Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">$</span>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="productprice" name="productprice" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['Product_Price']) ? $record->Product_Price : $_POST['Product_Price'] ?>"">
+                                                </div>
                                             </div>
 
                                             <div class="row">

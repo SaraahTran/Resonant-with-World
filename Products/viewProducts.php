@@ -61,11 +61,19 @@
                                                 <input type="text" id="product_upc" value="<?= $record->Product_UPC ?>"
                                                        disabled/>
                                             </div>
+
                                             <div class="row">
                                                 <label for="product_price">Product Price</label>
-                                                <input type="text" id="product_price"
-                                                       value="<?= $record->Product_Price ?>" disabled/>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">$</span>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="product_price"
+                                                           value="<?= $record->Product_Price ?>" disabled/>
+                                                </div>
                                             </div>
+
+
                                             <div class="row">
                                                 <label for="product_category">Product Category</label>
                                                 <input type="text" id="product_category"

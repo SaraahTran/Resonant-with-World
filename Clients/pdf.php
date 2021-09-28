@@ -13,6 +13,10 @@ $select = "SELECT * FROM `Client`";
 $result = $dbh->query($select);
 $data = array();
 
+$mpdf->SetDisplayMode('fullpage');
+
+//PDF Content
+
 function yesNo($n)
 {
     return $n == 1 ? 'Yes' : 'No';
@@ -26,26 +30,76 @@ while($row = $result->fetchObject()){
         .'<td>'.$row->Client_Address.'</td>'
         .'<td>'.$row->Client_Phone.'</td>'
         .'<td>'.$row->Client_Email.'</td>'
-        .'<td>'.yesNo($row->Client_Subscribed).'</td>'
-        .'<td>'.$row->Client_Other_Information.'</td></tr>';
+        .'<td>'.yesNo($row->Client_Subscribed).'</td>';
+
 }
 // Take PDF contents in a variable
 
-$pdfcontent = '<h1>Resonant With World</h1>
+$pdfcontent = '<div class="logo"><img style="display: inline;" src="../Images/Logo.png"><h1 style="display: inline;">Resonant With World</h1></div>
 		<h2>Client Details</h2>
 		 <table class="table table-bordered responsive table-condensed">
+		<thead>
 		<tr>
-		<td style="width: 33%"><strong>ID</strong></td>
-		<td style="width: 36%"><strong>First Name</strong></td>
-		<td style="width: 30%"><strong>Surname</strong></td>
-		<td style="width: 30%"><strong>Address</strong></td>
-		<td style="width: 30%"><strong>Phone</strong></td>
-		<td style="width: 30%"><strong>Email</strong></td>
-		<td style="width: 30%"><strong>Subscribe</strong></td>
-		<td style="width: 30%"><strong>Other Information</strong></td>
-		</tr>
+		<th ><strong>ID</strong></th>
+		<th ><strong>First Name</strong></th>
+		<th ><strong>Surname</strong></th>
+		<th ><strong>Address</strong></th>
+		<th ><strong>Phone</strong></th>
+		<th ><strong>Email</strong></th>
+		<th><strong>Subscribe?</strong></th>
+		</tr></thead><tbody>
 		'.$data.'
-		</table>';
+		</tbody>
+		</table>
+		
+		<style>
+		body{
+		font-family: "Montserrat", sans-serif;
+		}
+		
+		h1, h2{
+		color: #2d475c;
+		}
+		
+		
+		td, th{
+		border: 1px solid lightgrey;
+		padding: 15px!important;
+		font-size: 15px;
+	color: #535353;
+		}
+		
+		th{
+		 font-size: 18px !important;
+  font-weight: 600;
+  padding: 15px;
+  letter-spacing: 1px;
+  color: #385972;
+  background: #e3e5ee;
+  text-align: center;
+		}
+		
+	img{
+    float: left;
+    display: inline-block;
+	}
+	
+	h1{
+font-size: 30px; 
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    padding: 20px 40px 0 0;
+    display: inline-block;
+	
+	}
+
+		
+		
+</style>
+		
+		
+		';
 
 $mpdf->WriteHTML($pdfcontent);
 
