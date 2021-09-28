@@ -45,24 +45,27 @@ $res = $dbh->query($stmt);
 
     </div>
 
-       <br/>
-            <form>
+    <br/>
+    <form>
 
-    <div class="input-group mb-3">
-        <form id="searchForm" action="" method="get">
-            <input type="text" class="search form-control search-input " name="search" id="search" placeholder="Search by Product UPC"
-                   aria-label="Search by Product UPC" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary search-button" type="submit" name="submit"><i class="bi bi-search"></i>
-                </button>
-            </div>
-    </div>
+        <div class="input-group mb-3">
+            <form id="searchForm" action="" method="get">
+                <input type="text" class="search form-control search-input " name="search" id="search"
+                       placeholder="Search by Product UPC"
+                       aria-label="Search by Product UPC" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary search-button" type="submit" name="submit"><i
+                                class="bi bi-search"></i>
+                    </button>
+                </div>
+        </div>
 
 
     </form>
 
 
     <div class=" table-responsive">
+
         <table class="table table-bordered responsive">
             <thead>
             <tr>
@@ -75,34 +78,37 @@ $res = $dbh->query($stmt);
             </tr>
             </thead>
 
-            <?php while ($row = $res->fetch()) {
-
-            ?>
             <tbody>
-            <tr>
-                <?php
 
-                echo ' <td>  ' . $row["Product_ID"] . ' </td>';
-                echo '<td>' . $row["Product_Name"] . '</td>';
-                echo '<td>' . $row["Product_UPC"] . '</td>';
-                echo '<td>' . $row["Product_Price"] . '</td>';
-                echo '<td>' . $row["Product_Category"] . '</td>';
+            <?php if ($res->rowCount() > 0) {
+                while ($row = $res->fetch()) {
 
-                if(!$row['Product_UPC']) {
-                    echo "No results found";
-                }
-                }
+                    ?>
+                    <tr>
+                        <?php
 
+                        echo ' <td>  ' . $row["Product_ID"] . ' </td>';
+                        echo '<td>' . $row["Product_Name"] . '</td>';
+                        echo '<td>' . $row["Product_UPC"] . '</td>';
+                        echo '<td>' . $row["Product_Price"] . '</td>';
+                        echo '<td>' . $row["Product_Category"] . '</td>';
 
+                        ?>
 
-
+                    </tr>
+                <?php }
+            } else {
                 ?>
 
 
-            </tr>
+                <tr>
+                    <td colspan="5">No records found</td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
-    </div></div>
+    </div>
+</div>
 
 </div>
 
