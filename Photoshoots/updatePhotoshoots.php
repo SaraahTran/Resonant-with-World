@@ -32,7 +32,7 @@
                             foreach ($_POST as $fieldName => $fieldValue) {
                                 if (empty($fieldValue)) {
                                     echo("'$fieldName' field is empty. Please fix the issue try again. ");
-                                    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Categories'\">Back to the category list</button></div>";
+                                    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the photoshoot list</button></div>";
                                     die();
                                 }
                             }
@@ -48,7 +48,7 @@
                                 'id' => $_GET['id']
                             ];
                             echo("Photoshoot information has been updated.");
-                            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the category list</button></div>";
+                            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Photoshoots'\">Back to the photoshoot list</button></div>";
                             if ($stmt->execute($parameters)) {
                             } else {
                                 echo friendlyError($stmt->errorInfo()[2]);
@@ -62,7 +62,7 @@
                             if ($stmt->execute([$_GET['id']])) {
                                 if ($stmt->rowCount() > 0) {
                                     $record = $stmt->fetchObject(); ?>
-                                    <form method="post">
+                                    <form name="photoshootForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                                         <div class="aligned-form">
                                             <div class="row">
                                                 <label for="photo_shoot_id">ID</label>
@@ -72,17 +72,17 @@
                                             <div class="row">
                                                 <label for="client_id">Client ID</label>
                                                 <input type="text" id="client_id" name="client_id"
-                                                       value="<?= $record->Client_ID ?>"/>
+                                                       value="<?= $record->Client_ID ?>" disabled/>
                                             </div>
                                             <div class="row">
                                                 <label for="name">Photoshoot Name</label>
                                                 <input type="text" id="name" name="name"
-                                                       value="<?= $record->Photo_Shoot_Name ?>"/>
+                                                       value="<?= $record->Photo_Shoot_Name ?>" maxlength="64" required value="<?= empty($_POST['name']) ? "" : $_POST['name'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="description">Photoshoot Description</label>
                                                 <input type="text" id="description" name="description"
-                                                       value="<?= $record->Photo_Shoot_Description ?>"/>
+                                                       value="<?= $record->Photo_Shoot_Description ?>" maxlength="256" required value="<?= empty($_POST['description']) ? "" : $_POST['description'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="date">Photoshoot Date and Time</label>
@@ -91,17 +91,17 @@
                                             </div>
                                             <div class="row">
                                                 <label for="quote">Photoshoot Quote</label>
-                                                <input type="number" id="quote" name="quote"
-                                                       value="<?= $record->Photo_Shoot_Quote ?>"/>
+                                                <input type="number" id="quote" name="quote" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['quote']) ? $record->Photo_Shoot_Quote : $_POST['quote'] ?>">
                                             </div>
                                             <div class="row">
                                                 <label for="otherInformation">Photoshoot Other Information</label>
                                                 <input type="text" id="otherInformation" name="otherInformation"
-                                                       value="<?= $record->Photo_Shoot_Other_Information ?>"/>
+                                                       value="<?= $record->Photo_Shoot_Other_Information ?>" maxlength="256" required value="<?= empty($_POST['otherInformation']) ? "" : $_POST['otherInformation'] ?>"/>
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
-                                                <input class="submit-button" type="submit" value="Update"/>
+                                                <input class="submit-button" type="submit" value="Update"
+                                                       onclick="submiBtnClick()";/>
                                                 <button class="cancel-button" type="button"
                                                         onclick="window.location='/Photoshoots';return false;">Cancel
                                                 </button>
@@ -120,6 +120,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    function submiBtnClick(){
+        var formValid = document.forms["post-form"].checkValidity();
+        return formValid;
+    }
+</script>
 
 </body>
 </html>

@@ -33,8 +33,8 @@ global $dbh;
                             <thead class="email-head">
                             <tr>
                                 <th>Send?</th>
-                                <th>Username</th>
-                                <th>Full Name</th>
+                                <th>First Name</th>
+                                <th>Surname</th>
                                 <th>Email Address</th>
                             </tr>
                             </thead>

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sendmail_error = true;
         $sendmail_error_message = 'Message body cannot be empty';
     }
-    if (empty($_POST['user_ids'])) {
+    if (empty($_POST['client_id'])) {
         $sendmail_error = true;
         $sendmail_error_message = 'You must select at least one user as recipient';
     }
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sendmail_error_message = 'One of the selected user does not exist';
         } else {
             $email_recipients = [];
-            while ($row = $stmt->fetchObject()) $email_recipients[] = $row->fullname . " <" . $row->email . ">";
+            while ($row = $stmt->fetchObject()) $email_recipients[] = $row->Client_FirstName . " <" . $row->Client_Email . ">";
             $email_recipients = implode(",", $email_recipients);
             $email_subject = $_POST['subject'];
             // Process email body when necessary (i.e. on Windows server)
