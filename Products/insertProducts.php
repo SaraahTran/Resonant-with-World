@@ -188,7 +188,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                             </div>
                             <div class="row">
                                 <label for="product_upc">Product UPC</label>
-                                <input type="number" id="product_upc" name="product_upc"/>
+                                <input type="number" id="product_upc" name="product_upc" value="<?= $nextUPC ?>"/>
                             </div>
                             <div class="row">
                                 <label for="product_price">Product Price</label>
