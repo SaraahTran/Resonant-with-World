@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/pdf_mpdf/vendor/autoload.php';
 
 use Mpdf\Mpdf;
 
