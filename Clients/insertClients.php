@@ -29,91 +29,42 @@ ob_start();
                 <h5 class="card-header">Add New Client</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
+
                         <?php
 
-                        global $dbh;
-                        if (!empty($_POST)) {
-                        // Check if any of the POST fields are empty (which shouldn't be!)
-                        foreach ($_POST as $fieldName => $fieldValue) {
-                            if (empty($fieldValue)) {
-                                echo("'$fieldName' field is empty. Please fix the issue try again. ");
-                                echo "<div class=\"center row\"><button class='justify-content-center back-button' onclick=\"window.history.back()\">Back to previous page</button></div>";
-                                die();
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                            if (!empty($_POST['client_firstname']) &&
+                                !empty($_POST['client_surname']) &&
+                                !empty($_POST['client_address']) &&
+                                !empty($_POST['client_phone']) &&
+                                !empty($_POST['client_email']) &&
+                                !empty($_POST['client_subscribed']) &&
+                                !empty($_POST['client_other_information'])
+                            ) {
+                                $query = "INSERT INTO `Client`(`client_firstname`, `client_surname`, `client_address`, `client_phone`, `client_email`, `client_subscribed`, `client_other_information`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                                $stmt = $dbh->prepare($query);
+                                $parameters = [
+                                    $_POST['client_firstname'],
+                                    $_POST['client_surname'],
+                                    $_POST['client_address'],
+                                    $_POST['client_phone'],
+                                    $_POST['client_email'],
+                                    $_POST['client_subscribed'],
+                                    $_POST['client_other_information'],
+                                ];
+                                if ($stmt->execute($parameters)) {
+                                    echo "New client has been added.";
+                                    echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Clients'\">Back to the product list</button></div>";
+
+                                    exit();
+                                } else {
+                                    $ERROR = $stmt->errorInfo()[2];
+                                }
                             }
                         }
-                        // Process the update record request (if a POST form is submitted)
-                        $query = "INSERT INTO `Client`(`Client_FirstName`, `Client_Surname`, `Client_Address`, `Client_Phone`, `Client_Email`, `Client_Subscribed`, `Client_Other_Information` ) 
-VALUES (NULLIF('$_POST[client_firstname]', ''), 
-        NULLIF('$_POST[client_surname]', ''), 
-        NULLIF('$_POST[client_address]', ''), 
-        NULLIF('$_POST[client_phone]', ''), 
-        NULLIF('$_POST[client_email]', ''), 
-        NULLIF('$_POST[client_subscribed]', ''), 
-        NULLIF('$_POST[client_other_information]', ''))";
+                        ?>
 
-                        $stmt = $dbh->prepare($query);
-                        if ($stmt->execute())
-                        {
-                        $newRecordId = $dbh->lastInsertId();
-                        // When no POST form is submitted, get the record from database
-                        $query = "SELECT * FROM `Client` WHERE `Client_FirstName`=?";
-                        $stmt = $dbh->prepare($query);
-                        if ($stmt->execute([$newRecordId])) {
-                        if ($stmt->rowCount() > 0) {
-                        $record = $stmt->fetchObject(); ?>
-                    <div class="center row">New Client has been added.</div>
-                    <form method="post">
-                        <div class="aligned-form">
-                            <div class="row">
-                                <label for="client_id">ID</label>
-                                <input type="text" id="client_id" value="<?= $nextId ?>" disabled/>
-                            </div>
-                            <div class="row">
-                                <label for="client_firstname">Client First Name</label>
-                                <input type="text" id="client_firstname" name="client_firstname"/>
-                            </div>
-                            <div class="row">
-                                <label for="client_surname">Client Surname</label>
-                                <input type="text" id="client_surname" name="client_surname"/>
-                            </div>
-                            <div class="row">
-                                <label for="client_address">Client Address</label>
-                                <input type="text" id="client_address" name="client_address"/>
-                            </div>
-                            <div class="row">
-                                <label for="client_phone">Client Phone</label>
-                                <input type="text" id="client_phone" name="client_phone"/>
-                            </div>
-                            <div class="row">
-                                <label for="client_email">Client Email</label>
-                                <input type="text" id="client_email" name="client_email"/>
-                            </div>
-                            <div class="row">
-                                <label for="client_subscribed">Subscribed?</label>
-                                <input type="text" id="client_subscribed" name="client_subscribed"/>
-                            </div>
-                            <div class="row">
-                                <label for="client_other_information">Other Information</label>
-                                <input type="text" id="client_other_information" name="client_other_information"/>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="center row">New client has been added.
-                        <button class='justify-content-center back-button' onclick="window.location='/Clients'">Back to
-                            the client list
-                        </button>
-                    </div>
-                    <?php } else {
-                        echo "New client has been added.";
-                        echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Clients'\">Back to the client list</button></div>";
-                    }
-                    } else {
-                        header("Location: error.html");
-                    }
-                    } else {
-                        header("Location: error.html");
-                    }
-                    } else {
+                   <?php
                         $query = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'fit2104_assignment2' AND TABLE_NAME='client'";
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
@@ -168,7 +119,7 @@ VALUES (NULLIF('$_POST[client_firstname]', ''),
                                 </button>
                             </div>
                         </form>
-                    <?php } ?></div>
+                    </div>
             </div>
         </div>
     </div>
