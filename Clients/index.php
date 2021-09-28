@@ -41,7 +41,7 @@ $PAGE_HEADER = "Add new product";
             <button class="delete-selected-button" onclick="window.location='./Clients/email.php'"><i
                         class="bi bi-envelope-fill"></i>Email Clients
             </button>
-            <button class="add-button" onclick="window.location='./Clients/pdf.php'"><i class="bi bi-file-earmark-pdf-fill"></i>Generate PDF
+            <button class="add-button" onclick="window.location='./Clients/pdf.php'"><i class="bi bi-file-earmark-pdf-fill"></i>Export as PDF
             </button>
 
         </div>
