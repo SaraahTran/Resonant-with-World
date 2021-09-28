@@ -70,7 +70,7 @@
 
                                     $product_fetched = true;
                                     ?>
-                                    <form method="post">
+                                    <form name="productForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                                         <div class="aligned-form">
                                             <div class="row">
                                                 <label for="id">ID</label>
@@ -79,8 +79,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="productname">Product Name</label>
-                                                <input type="text" id="productname" name="productname"
-                                                       value="<?= $record->Product_Name ?>"/>
+                                                <input type="text" id="productname" name="productname" maxlength="64" required value="<?= empty($_POST['productname']) ? $record->Product_Name: $_POST['productname'] ?>">
                                             </div>
                                             <div class="row">
                                                 <label for="productupc">Product UPC</label>
@@ -89,17 +88,19 @@
                                             </div>
                                             <div class="row">
                                                 <label for="productprice">Product Price</label>
-                                                <input type="number" id="productprice" name="productprice"
-                                                       value="<?= $record->Product_Price ?>"/>
+                                                <input type="number" id="productprice" name="productprice" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['Product_Price']) ? $record->Product_Price : $_POST['Product_Price'] ?>">
                                             </div>
+
                                             <div class="row">
                                                 <label for="product_category">Product Category</label>
                                                 <input type="text" id="productcategory" name="productcategory"
                                                        value="<?= $record->Product_Category ?>"/>
                                             </div>
+
                                             <br/>
                                             <div cldass="modal-footer">
-                                                <input class="submit-button" type="submit" value="Update"/>
+                                                <input class="submit-button" type="submit" value="Update"
+                                                       onclick="submiBtnClick()";/>
                                                 <button class="cancel-button" type="button"
                                                         onclick="window.location='/Products';return false;">Cancel
                                                 </button>
