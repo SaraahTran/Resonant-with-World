@@ -219,6 +219,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                         $query = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'fit2104_assignment2' AND TABLE_NAME='product'";
                         $stmt = $dbh->prepare($query);
                         $nextId = ($stmt->execute() || $stmt->rowCount() > 0) ? $stmt->fetchObject()->AUTO_INCREMENT : "Not available";
+                        $nextUPC = rand(1000000000, 1999999999);
                         ?>
                         <form name="productForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                             <div class="aligned-form">
@@ -232,7 +233,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 </div>
                                 <div class="row">
                                     <label for="product_upc">Product UPC</label>
-                                    <input type="number" id="product_upc" name="product_upc" oninput="product_upc_checker(event)" maxlength="11"  required value="<?= empty($_POST['product_upc']) ? "" : $_POST['product_upc'] ?>"/>
+                                    <input type="number" id="product_upc" name="product_upc" value="<?= $nextUPC ?>"/>
                                 </div>
 
 

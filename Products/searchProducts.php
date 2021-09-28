@@ -24,6 +24,7 @@ if (empty($_GET['search'])) {
 $stmt = "Select * from Product where Product_UPC like '%$search%'";
 $res = $dbh->query($stmt);
 
+
 ?>
 
 
@@ -87,7 +88,12 @@ $res = $dbh->query($stmt);
                 echo '<td>' . $row["Product_Price"] . '</td>';
                 echo '<td>' . $row["Product_Category"] . '</td>';
 
+                if(!$row['Product_UPC']) {
+                    echo "No results found";
                 }
+                }
+
+
 
 
                 ?>
@@ -100,12 +106,4 @@ $res = $dbh->query($stmt);
 
 </div>
 
-<script>
-    $("#clear").click(function (event) {
-        $("#result").html(" <p>Search Results</p>".
-        "No results found"
-    )
-        ;
-
-    });
-</script></html>
+</html>
