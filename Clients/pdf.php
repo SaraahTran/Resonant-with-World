@@ -1,45 +1,57 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
 
-use Mpdf\Mpdf;
+// Include mpdf library file
+require_once __DIR__ . '/pdf_mpdf/vendor/autoload.php';
+$mpdf = new \Mpdf\Mpdf();
 
-// Modified from https://github.com/mpdf/mpdf-examples/blob/master/example34_invoice_example.php
+// Database Connection
+include ("../connection.php");
+global $dbh;
 
-try {
-    // Setup mPDF parameters
-    $mpdf = new Mpdf([
-        'margin_left' => 20,
-        'margin_right' => 15,
-        'margin_top' => 48,
-        'margin_bottom' => 25,
-        'margin_header' => 10,
-        'margin_footer' => 10
-    ]);
-    // SetProtection – Encrypts and sets the PDF document permissions https://mpdf.github.io/reference/mpdf-functions/setprotection.html
-    $mpdf->SetProtection(['print']);
+// Select data from MySQL database
+$select = "SELECT * FROM `Client`";
+$result = $dbh->query($select);
+$data = array();
 
-    // Set some basic document metadata https://mpdf.github.io/reference/mpdf-functions/settitle.html
-    $mpdf->SetTitle("Acme Trading Co. - Invoice");
-    $mpdf->SetAuthor("Acme Trading Co.");
-
-    // Set a watermark https://mpdf.github.io/reference/mpdf-functions/setwatermarktext.html
-    $mpdf->SetWatermarkText("Paid");
-    $mpdf->showWatermarkText = true;
-    $mpdf->watermarkTextAlpha = 0.1;
-
-    // SetDisplayMode – Specify the initial Display Mode when the PDF file is opened in Adobe Reader https://mpdf.github.io/reference/mpdf-functions/setdisplaymode.html
-    $mpdf->SetDisplayMode('fullpage');
-
-    // Set up headers and footers - https://mpdf.github.io/headers-footers/method-4.html
-    // Note: For this demo, the headers and footers are set up in the HTML file instead, from line 53
-
-    // Get the actual contents from a file - in this case, it's an HTML file https://mpdf.github.io/reference/mpdf-functions/writehtml.html
-    // In reality, you'll likely need to somehow modify the template so the data is properly inserted
-    $mpdf->WriteHTML(file_get_contents('invoice_template.html'));
-
-    // Output – Finalise the document and send it to specified destination https://mpdf.github.io/reference/mpdf-functions/output.html
-    $mpdf->Output();
-} catch (\Mpdf\MpdfException $e) {
-    var_dump($e);
+function yesNo($n)
+{
+    return $n == 1 ? 'Yes' : 'No';
 }
 
+while($row = $result->fetchObject()){
+    $data .= '<tr>'
+        .'<td>'.$row->Client_ID.'</td>'
+        .'<td>'.$row->Client_FirstName.'</td>'
+        .'<td>'.$row->Client_Surname.'</td>'
+        .'<td>'.$row->Client_Address.'</td>'
+        .'<td>'.$row->Client_Phone.'</td>'
+        .'<td>'.$row->Client_Email.'</td>'
+        .'<td>'.yesNo($row->Client_Subscribed).'</td>'
+        .'<td>'.$row->Client_Other_Information.'</td></tr>';
+}
+// Take PDF contents in a variable
+
+$pdfcontent = '<h1>Resonant With World</h1>
+		<h2>Client Details</h2>
+		 <table class="table table-bordered responsive table-condensed">
+		<tr>
+		<td style="width: 33%"><strong>ID</strong></td>
+		<td style="width: 36%"><strong>First Name</strong></td>
+		<td style="width: 30%"><strong>Surname</strong></td>
+		<td style="width: 30%"><strong>Address</strong></td>
+		<td style="width: 30%"><strong>Phone</strong></td>
+		<td style="width: 30%"><strong>Email</strong></td>
+		<td style="width: 30%"><strong>Subscribe</strong></td>
+		<td style="width: 30%"><strong>Other Information</strong></td>
+		</tr>
+		'.$data.'
+		</table>';
+
+$mpdf->WriteHTML($pdfcontent);
+
+$mpdf->SetDisplayMode('fullpage');
+$mpdf->list_indent_first_level = 0;
+
+//output in browser
+$mpdf->Output();
+?>
