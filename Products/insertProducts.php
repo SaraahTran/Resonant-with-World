@@ -1,13 +1,7 @@
 <?php
-ob_start();
-
-/** @var $dbh PDO */
-/** @var $db_name string */
-?>
-
-<?php
-
-
+$PAGE_ID = "products_add";
+$PAGE_HEADER = "Add new product";
+include('../Menu/menu.php');
 /** @var PDO $dbh Database connection */
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -32,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $insertedProductId = 0;
 
-    if (!empty($_POST['Product_Name']) &&
-        !empty($_POST['Product_UPC']) &&
-        !empty($_POST['Product_Price']) &&
-        !empty($_POST['Product_Category'])) {
+    if  (!empty($_POST['product_name']) &&
+        !empty($_POST['product_upc']) &&
+        !empty($_POST['product_price']) &&
+        !empty($_POST['product_category'])) {
 
         $serverSideErrors = [];
         $filenames = [];
@@ -45,13 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbh->beginTransaction();
 
         // Insert product
-        $query = "INSERT INTO `Products`(`Product_Name`, `Product_UPC`, `Product_Price`,`Product_Category`) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO `Product`(`Product_Name`, `Product_UPC`, `Product_Price`,`Product_Category`) VALUES (?, ?, ?, ?)";
         $stmt = $dbh->prepare($query);
         $parameters = [
-            $_POST['Product_Name'],
-            $_POST['Product_UPC'],
-            $_POST['Product_Price'],
-            $_POST['Product_Category']
+            $_POST['product_name'],
+            $_POST['product_upc'],
+            $_POST['product_price'],
+            $_POST['product_category']
         ];
         if ($stmt->execute($parameters)) {
             $insertedProductId = $dbh->lastInsertId();
@@ -104,21 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $serverSideErrors[] = $stmt->errorInfo()[2];
         }
-
-        if (empty($serverSideErrors)) {
-            $dbh->commit();
-            header("Location: products_detail.php?id=" . $insertedProductId);
-            exit();
-        } else {
-            $dbh->rollBack();
-            $ERROR = implode("</li><li>", $serverSideErrors);
-        }
-
-    } else {
-        $ERROR = "The request is invalid. This may be due to the uploaded files are too large to process.";
-    }
-
-}
 ?>
 
 <!doctype html>
@@ -136,9 +115,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-<?php include('../Menu/menu.php'); ?>
 
 <div class="container">
+
+    <?php if (isset($ERROR)): ?>
+        <div class="card mb-4 border-left-danger">
+            <div class="card-body">Cannot add new product due to the following error:<br><code>
+                    <ul>
+                        <li><?= $ERROR ?></li>
+                    </ul>
+                </code></div>
+        </div>
+    <?php endif; ?>
 
     <div class="row justify-content-center">
         <div class="col-8">
@@ -146,7 +134,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h5 class="card-header">Add New Products</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
-                        <?php
+
+
+
+        <?php
+        if (empty($serverSideErrors)) {
+            $dbh->commit();
+            echo "New product has been added.";
+            echo "<div class=\"center row\"><button class='justify-content-center back-button'  onclick=\"window.location='/Products'\">Back to the product list</button></div>";
+            exit();
+        } else {
+            $dbh->rollBack();
+            $ERROR = implode("</li><li>", $serverSideErrors);
+        }
+
+    } else {
+        $ERROR = "The request is invalid. This may be due to the uploaded files are too large to process.";
+    }
+
+}
+?>
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="card client-action-card">
+                                <h5 class="card-header">Add New Products</h5>
+                                <div class="card-body action-body">
+                                    <p class="card-text">
+        <?php
 
                         global $dbh;
                         if (!empty($_POST)) {
@@ -176,6 +191,12 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                         if ($stmt->rowCount() > 0) {
                         $record = $stmt->fetchObject(); ?>
                     <div class="center row">New Product has been added.</div>
+
+
+
+
+
+
                     <form method="post">
                         <div class="aligned-form">
                             <div class="row">
@@ -238,13 +259,13 @@ VALUES (NULLIF('$_POST[product_name]', ''),
 
 
                                 <div class="row">
-                                    <label for="product_price">Product Price</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
+                                        <label for="product_price">Product Price</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" class="form-control" id="productSalePrice" name="product_price" oninput="product_price_checker(event)" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>">
                                         </div>
-                                        <input type="number" class="form-control" id="productSalePrice" name="product_price" oninput="product_price_checker(event)" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>">
-                                    </div>
 
                                  </div>
 
