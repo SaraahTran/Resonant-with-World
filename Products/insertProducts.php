@@ -272,14 +272,17 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                 <div>
                                     <div class="row">
                                     <label for="product_category">Product Category</label>
+                                    </div>
+                                    <div class="row">
                                         <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_ID`");
                                         if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
-                                            <select name="product_category" id="product_category" required value="<?= empty($_POST['product_category']) ? "" : $_POST['product_category'] ?>">
-                                                <option disabled selected value="">Select the category</option>
+
+                                            <ul>
                                                 <?php while($row =$category_stmt->fetchObject()): ?>
-                                                    <option value="<?= $row->Category_Name?>"  ? "Selected " : "" ?> <?= $row->Category_Name ?></option>
+                                                   <li> <input type="checkbox" name="product_category" id="product_category"  value="<?= $row->Category_Name?>"  ? "Selected " : "" ?> <?= $row->Category_Name ?></option></li>
                                                 <?php endwhile; ?>
-                                            </select>
+                                            </ul>
+
                                         <?php } ?>
                                     </div>
 
