@@ -36,6 +36,7 @@ global $dbh;
                                 <th>First Name</th>
                                 <th>Surname</th>
                                 <th>Email Address</th>
+
                             </tr>
                             </thead>
                             <tbody>
