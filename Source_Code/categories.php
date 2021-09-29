@@ -1,7 +1,7 @@
 <?php
 echo "<h1>CATEGORIES</h1>";
 echo "<br/> ";
-show_source("../Categories/editMultipleProductIndex.php");
+show_source("../Categories/multipleProducts.php");
 echo "<h1>UPDATE CATEGORIES</h1>";
 echo "<br/> ";
 show_source("../Categories/updateCategories.php");

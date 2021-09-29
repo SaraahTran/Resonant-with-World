@@ -39,14 +39,14 @@ include("connection.php");
     <ul class="sidebar-navigation">
 
         <li>
-            <a href="/dashboard.php">
-                <i class="bi bi-speedometer"></i> Dashboard
+            <a href="/index.php">
+                <i class="bi bi-house-door-fill" aria-hidden="true"></i> Home
             </a>
         </li>
 
         <li>
-            <a href="/index.php">
-                <i class="bi bi-house-door-fill" aria-hidden="true"></i> Home
+            <a href="/dashboard.php">
+                <i class="bi bi-speedometer"></i> Dashboard
             </a>
         </li>
 

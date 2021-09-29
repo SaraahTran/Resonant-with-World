@@ -20,16 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $row->User_ID;
             //Successfully logged in, redirect user to referer, or index page
             if (empty($_SESSION['referer'])) {
+                echo "<script type='text/javascript'>alert('Successfully logged in');</script>";
                 header("Location: ../dashboard.php");
+                exit();
             }
         } else {
             echo "<script type='text/javascript'>alert('Your username or password is incorrect. Please try again');</script>";
-            header("Refresh:0.5; url=editMultipleProductIndex.php");
+            header("Refresh:0.5; url=index.php");
             exit();
         }
     } else {
         echo "<script type='text/javascript'>alert('Please enter both username and password to login');</script>";
-        header("Refresh:0.5; url=editMultipleProductIndex.php");
+        header("Refresh:0.5; url=index.php");
         exit();
     }
 }

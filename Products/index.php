@@ -29,8 +29,8 @@
             </button>
             <button class="delete-selected-button" onclick="window.location='./Products/searchProducts.php'"><i class="bi bi-search"></i>Search by Product UPC
             </button>
-            <button class="add-button" onclick="window.location='./Products/editMultipleProductIndex.php'"><i
-                        class="bi bi-pencil-fill"></i>Multiple Product
+            <button class="add-button" onclick="window.location='/Products/multipleProducts.php'"><i
+                        class="bi bi-pencil-fill"></i>Multiple Products
             </button>
 
 

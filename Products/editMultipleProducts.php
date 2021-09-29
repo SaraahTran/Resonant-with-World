@@ -41,13 +41,13 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         <div class="row">
 
             <div class="col-sm">
-            <button class="back-full-button" onclick="window.location='./editMultipleProductIndex.php'"><i
+            <button class="back-full-button" onclick="window.location='multipleProducts.php'"><i
                         class="bi bi-arrow-left-circle-fill"></i>Back to Full List
             </button>
             </div>
             <div class="col-sm">
-                <form method="post">
-                    <button class="delete-selected-button2" type="submit" value="Update the prices of selected products"/>
+                <form method="post" id="update-selected-form">
+                    <button class="delete-selected-button2 update-selected" type="submit" value="Update the prices of selected products"/>
                     <i class="center bi bi-pencil-fill"></i>Update prices of selected products
 
             </div>
@@ -67,7 +67,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
                         <?php while ($row = $title_stmt->fetchObject()) { ?>
                             <tr>
                                 <td class="col-checkbox">
-                                    <input type="checkbox" name="Product_ID[]" value="<?php echo $row->Product_ID; ?>"/>
+                                    <input class="to-be-updated" type="checkbox" name="Product_ID[]" value="<?php echo $row->Product_ID; ?>"/>
                                 </td>
                                 <td><?= $row->Product_ID ?></td>
                                 <td><?= $row->Product_Name ?></td>
@@ -79,6 +79,20 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
     </div>
 
 <?php } ?>
+
+        <script>
+            $('button.update-selected').click(function (e) {
+                e.preventDefault();
+
+                if ($('input.to-be-updated:checked:enabled').length > 0) {
+                    if (confirm('Do you really want to update selected products?')) {
+                        $('form#update-selected-form').submit();
+                    }
+                } else {
+                    alert("Please select at least one product to be updated. ");
+                }
+            });
+        </script>
 
 </body>
 </html>

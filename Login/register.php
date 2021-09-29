@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_stmt = $dbh->prepare("SELECT * FROM `user` WHERE `id` = ?");
         if ($user_stmt->execute([$_SESSION['user_id']]) && $user_stmt->rowCount() == 1) {
             //User already logged in, redirect user to dashboard
-            header("Location: ../editMultipleProductIndex.php");
+            header("Location: ../multipleProducts.php");
         } else {
             session_destroy();
             header("Location: login.php");

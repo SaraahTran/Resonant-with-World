@@ -22,11 +22,12 @@
         </div>
 
         <div class="col-sm">
+
+            <button class="add-button" onclick="window.location='/Products'"><i
+                        class="bi bi-arrow-left-circle-fill"></i>Back to Product List
+            </button>
             <button class="delete-selected-button" onclick="window.location='editMultipleProducts.php'"><i
                         class="bi bi-pencil-fill"></i>Edit Multiple Products
-            </button>
-            <button class="back-full-button" onclick="window.location='/Products'"><i
-                        class="bi bi-arrow-left-circle-fill"></i>Back to Product List
             </button>
 
         </div>

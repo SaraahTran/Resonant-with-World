@@ -61,7 +61,9 @@
                             $stmt = $dbh->prepare($query);
                             if ($stmt->execute([$_GET['id']])) {
                                 if ($stmt->rowCount() > 0) {
-                                    $record = $stmt->fetchObject(); ?>
+                                    $record = $stmt->fetchObject();
+
+                                    ?>
                                     <form name="photoshootForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
                                         <div class="aligned-form">
                                             <div class="row">
@@ -87,7 +89,7 @@
                                             <div class="row">
                                                 <label for="date">Photoshoot Date and Time</label>
                                                 <input type="datetime-local" id="date" name="date"
-                                                       value="<?= $record->Photo_Shoot_DateTime ?>" required value="<?= empty($_POST['date']) ? "" : $_POST['date'] ?>/>
+                                                       value="<?= $record->Photo_Shoot_DateTime ?>" required value="<?= empty($_POST['date']) ? "" : $_POST['date'] ?>"/>
                                             </div>
                                             <div class="row">
                                                 <label for="quote">Photoshoot Quote</label>
