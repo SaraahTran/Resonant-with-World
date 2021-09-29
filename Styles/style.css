@@ -751,20 +751,20 @@ input {
 .product-action-card{
   margin-top: 50px!important;
   min-height: 300px!important;
-  max-height: 850px!important;
+  max-height: 900px!important;
   margin-bottom: 40px;
 }
 
 .client-action-card{
   margin-top: 50px!important;
   min-height: 300px!important;
-  max-height: 950px!important;
+  max-height: 1200px!important;
   margin-bottom: 40px;
 }
 
 .photoshoot-action-card{
   margin-top: 50px!important;
-  max-height: 950px!important;
+  max-height: 1000px!important;
   min-height: 300px!important;
   margin-bottom: 40px;
 }

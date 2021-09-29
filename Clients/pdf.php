@@ -2,7 +2,14 @@
 
 // Include mpdf library file
 require_once __DIR__ . '/pdf_mpdf/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf();
+$mpdf = new \Mpdf\Mpdf([
+    'margin_left' => 20,
+    'margin_right' => 15,
+    'margin_top' => 10,
+    'margin_bottom' => 25,
+    'margin_header' => 10,
+    'margin_footer' => 10
+]);
 
 // Database Connection
 include ("../connection.php");
@@ -61,6 +68,10 @@ $pdfcontent = '<div class="logo"><img style="display: inline;" src="../Images/Lo
 		color: #2d475c;
 		}
 		
+		table{
+		width: 100%;
+		}
+		
 		
 		td, th{
 		border: 1px solid lightgrey;
@@ -100,6 +111,10 @@ font-size: 30px;
 		
 		
 		';
+
+$mpdf->SetTitle("Resonant with World - Clients");
+$mpdf->SetProtection(['print']);
+
 
 $mpdf->WriteHTML($pdfcontent);
 

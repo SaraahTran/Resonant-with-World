@@ -92,6 +92,7 @@
 
                                             $product_fetched = true;?>
                                                 <label for="product_image">Product Image</label>
+                                        <br/>
                                                 <?php if (empty($product_images)): ?>
                                                     <p>This product has no images</p>
                                                 <?php else:
@@ -100,6 +101,7 @@
                                                     <?php endforeach;
                                                 endif; ?>
 
+                                            <br/>
                                             <br/>
                                             <div class="modal-footer">
                                                 <button type="button" class="submit-button"

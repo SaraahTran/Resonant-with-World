@@ -73,6 +73,37 @@
                                                 <input type="text" id="product_category"
                                                        value="<?= $record->Product_Category ?>" disabled/>
                                             </div>
+
+                                            <?php
+
+                                            if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['product_ids'])) {
+                                                $query_placeholders = trim(str_repeat("?,", count($_POST['product_ids'])), ",");
+
+                                                // Delete image files first
+                                                $query = "SELECT * FROM `Product_Image` WHERE `Product_ID` in (" . $query_placeholders . ")";
+                                                $stmt = $dbh->prepare($query);
+                                                $stmt->execute($_POST['product_ids']);
+                                                while ($image = $stmt->fetchObject()) {
+                                                    $fileFullPath = "product_images" . DIRECTORY_SEPARATOR . $image->Product_Image_File_name;
+                                                    unlink($fileFullPath);
+                                                }
+
+                                                // Then delete product images
+                                                $query = "DELETE FROM `Product_Image` WHERE `Product_ID` in (" . $query_placeholders . ")";
+                                                $stmt = $dbh->prepare($query);
+                                                $stmt->execute($_POST['product_ids']);
+
+                                                // Finally delete products
+                                                $query = "DELETE FROM `Product` WHERE `Product_ID` in (" . $query_placeholders . ")";
+                                                $stmt = $dbh->prepare($query);
+                                                $stmt->execute($_POST['product_ids']);
+                                            }
+
+
+                                            ?>
+
+                                            <br/>
+
                                             <br/>
                                             <div class="modal-footer">
                                                 <input class="submit-button button-delete" type="submit" name="action"
