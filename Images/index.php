@@ -48,6 +48,7 @@ $stmt->execute();
                 <th style="width:5%" scope="col">Product ID</th>
                 <th style="width:5%" scope="col">Image File Name</th>
 
+
             </tr>
             </thead>
             <?php while ($row = $stmt->fetchObject()): ?>
