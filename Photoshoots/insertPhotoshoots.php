@@ -27,8 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['photo_shoot_name']) &&
         !empty($_POST['photo_shoot_description']) &&
         !empty($_POST['photo_shoot_datetime']) &&
-        !empty($_POST['photo_shoot_quote']) &&
-        !empty($_POST['photo_shoot_other_information'])
+        !empty($_POST['photo_shoot_quote'])
     ) {
         $query = "INSERT INTO `Photo_Shoot`(`photo_shoot_name`, `photo_shoot_description`, `photo_shoot_datetime`, `photo_shoot_quote`, `photo_shoot_other_information`) VALUES (?, ?, ?, ?, ?)";
         $stmt = $dbh->prepare($query);
@@ -37,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['photo_shoot_description'],
             $_POST['photo_shoot_datetime'],
             $_POST['photo_shoot_quote'],
-            $_POST['photo_shoot_other_information'],
+            empty($_POST['photo_shoot_other_information']) ? null : $_POST['photo_shoot_other_information'],
         ];
         ?>
 
@@ -97,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_datetime">Photoshoot Date Time</label>
-                                    <input type="text" id="photo_shoot_datetime" name="photo_shoot_datetime"/>
+                                    <input type="datetime-local" id="photo_shoot_datetime" name="photo_shoot_datetime" <?= empty($_POST['photo_shoot_datetime']) ? "" : $_POST['photo_shoot_datetime'] ?>/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_quote">Photoshoot Quote</label>
@@ -105,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_other_information">Photoshoot Other Information</label>
-                                    <input type="text" id="photo_shoot_other_information" name="photo_shoot_other_information" maxlength="256" required value="<?= empty($_POST['photo_shoot_other_information']) ? "" : $_POST['photo_shoot_other_information'] ?>"/>
+                                    <input type="text" id="photo_shoot_other_information" name="photo_shoot_other_information" maxlength="256" "/>
                                 </div>
                                 <br/>
                                 <div class="modal-footer">

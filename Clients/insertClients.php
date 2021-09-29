@@ -37,9 +37,7 @@ ob_start();
                                 !empty($_POST['client_surname']) &&
                                 !empty($_POST['client_address']) &&
                                 !empty($_POST['client_phone']) &&
-                                !empty($_POST['client_email']) &&
-                                !empty($_POST['client_subscribed']) &&
-                                !empty($_POST['client_other_information'])
+                                !empty($_POST['client_email'])
                             ) {
                                 $query = "INSERT INTO `Client`(`client_firstname`, `client_surname`, `client_address`, `client_phone`, `client_email`, `client_subscribed`, `client_other_information`) VALUES (?, ?, ?, ?, ?, ?, ?)";
                                 $stmt = $dbh->prepare($query);
@@ -49,8 +47,8 @@ ob_start();
                                     $_POST['client_address'],
                                     $_POST['client_phone'],
                                     $_POST['client_email'],
-                                    $_POST['client_subscribed'],
-                                    $_POST['client_other_information'],
+                                    empty($_POST['client_subscribed']) ? null : $_POST['client_subscribed'],
+                                    empty($_POST['client_other_information']) ? null : $_POST['client_other_information'],
                                 ];
                                 if ($stmt->execute($parameters)) {
                                     echo "New client has been added.";
