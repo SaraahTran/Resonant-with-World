@@ -253,7 +253,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">$</span>
                                                     </div>
-                                                    <input type="number" class="form-control" id="productprice" name="productprice" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['Product_Price']) ? $record->Product_Price : $_POST['Product_Price'] ?>"">
+                                                    <input type="number" class="form-control" id="productprice" name="productprice" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['Product_Price']) ? $record->Product_Price : $_POST['Product_Price'] ?>"">
                                                 </div>
                                             </div>
 

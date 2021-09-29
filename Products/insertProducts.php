@@ -264,7 +264,7 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input type="number" class="form-control" id="productSalePrice" name="product_price" oninput="product_price_checker(event)" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>">
+                                            <input type="number" class="form-control" id="productSalePrice" name="product_price" oninput="product_price_checker(event)" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['product_price']) ? "" : $_POST['product_price'] ?>">
                                         </div>
 
                                  </div>

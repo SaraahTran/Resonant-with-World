@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="quote">Photoshoot Quote</label>
-                                                <input type="number" id="quote" name="quote" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['quote']) ? $record->Photo_Shoot_Quote : $_POST['quote'] ?>">
+                                                <input type="number" id="quote" name="quote" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['quote']) ? $record->Photo_Shoot_Quote : $_POST['quote'] ?>">
                                             </div>
                                             <div class="row">
                                                 <label for="otherInformation">Photoshoot Other Information</label>
