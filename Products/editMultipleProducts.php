@@ -41,7 +41,7 @@ if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
         <div class="row">
 
             <div class="col-sm">
-            <button class="back-full-button" onclick="window.location='/Multiple%20Products'"><i
+            <button class="back-full-button" onclick="window.location='./editMultipleProductIndex.php'"><i
                         class="bi bi-arrow-left-circle-fill"></i>Back to Full List
             </button>
             </div>

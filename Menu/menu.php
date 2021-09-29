@@ -63,13 +63,6 @@ include("connection.php");
         </li>
 
         <li>
-            <a href="/Multiple%20Products/index.php">
-                <i class="bi bi-basket3-fill" aria-hidden="true"></i> Multiple Products
-            </a>
-        </li>
-
-
-        <li>
             <a href="/Photoshoots">
                 <i class="bi bi-camera-fill" aria-hidden="true"></i> Photoshoots
             </a>

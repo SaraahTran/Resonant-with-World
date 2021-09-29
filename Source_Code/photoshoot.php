@@ -1,7 +1,7 @@
 <?php
 echo "<h1>PHOTOSHOOTS</h1>";
 echo "<br/> ";
-show_source("../Photoshoots/index.php");
+show_source("../Photoshoots/editMultipleProductIndex.php");
 echo "<h1>UPDATE PHOTOSHOOTS</h1>";
 echo "<br/> ";
 show_source("../Photoshoots/updatePhotoshoots.php");

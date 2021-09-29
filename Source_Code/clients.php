@@ -1,7 +1,7 @@
 <?php
 echo "<h1>CLIENTS</h1>";
 echo "<br/> ";
-show_source("../Clients/index.php");
+show_source("../Clients/editMultipleProductIndex.php");
 echo "<h1>UPDATE CLIENTS</h1>";
 echo "<br/> ";
 show_source("../Clients/updateClients.php");

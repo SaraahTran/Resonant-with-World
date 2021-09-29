@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             echo "<script type='text/javascript'>alert('Your username or password is incorrect. Please try again');</script>";
-            header("Refresh:0.5; url=index.php");
+            header("Refresh:0.5; url=editMultipleProductIndex.php");
             exit();
         }
     } else {
         echo "<script type='text/javascript'>alert('Please enter both username and password to login');</script>";
-        header("Refresh:0.5; url=index.php");
+        header("Refresh:0.5; url=editMultipleProductIndex.php");
         exit();
     }
 }
