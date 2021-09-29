@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="client_id">Client ID</label>
-                                    <input type="text" id="client_id" value="<?= $nextId ?>" />
+                                    <input type="text" id="client_id" value="<?= $nextId ?>" disabled/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_name">Photoshoot Name</label>
@@ -101,12 +101,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_quote">Photoshoot Quote</label>
-                                    <input type="number" id="photo_shoot_quote" name="photo_shoot_quote"/>
+                                    <input type="number" id="photo_shoot_quote" name="photo_shoot_quote" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['photo_shoot_quote']) ? "" : $_POST['photo_shoot_quote'] ?>">
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_other_information">Photoshoot Other Information</label>
-                                    <input type="text" id="photo_shoot_other_information"
-                                           name="photo_shoot_other_information"/>
+                                    <input type="text" id="photo_shoot_other_information" name="photo_shoot_other_information" maxlength="256" required value="<?= empty($_POST['photo_shoot_other_information']) ? "" : $_POST['photo_shoot_other_information'] ?>"/>
                                 </div>
                                 <br/>
                                 <div class="modal-footer">
