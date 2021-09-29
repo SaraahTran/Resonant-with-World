@@ -222,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     $record = $stmt->fetchObject();
                                     // Fetch product images
                                     $product_images = [];
-                                    $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `Product_Image_ID` = ?");
+                                    $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `Product_ID` = ?");
                                     $stmt->execute([$_GET['id']]);
                                     while ($image = $stmt->fetchObject()) {
                                         $product_images[] = $image;
@@ -263,8 +263,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                        value="<?= $record->Product_Category ?>"/>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="productSalePrice">Product images</label>
+                                            <div class="row">
+                                                <label for="productSalePrice">Product Images</label>
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
                                                     <label class="custom-file-label" for="customFile">Add more images to this product</label>
@@ -286,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                             <br/>
-                                            <div cldass="modal-footer">
+                                            <div class="modal-footer">
                                                 <input class="submit-button" type="submit" value="Update"
                                                        onclick="submiBtnClick()";/>
                                                 <button class="cancel-button" type="button"

@@ -73,6 +73,7 @@
                                                 <input type="text" id="product_category"
                                                        value="<?= $record->Product_Category ?>" disabled/>
                                             </div>
+                                            <br/>
 
                                             <?php
 
@@ -100,7 +101,28 @@
                                             }
 
 
-                                            ?>
+                                            // Fetch product images
+                                            $product_images = [];
+                                            $stmt = $dbh->prepare("SELECT * FROM `Product_Image` WHERE `Product_ID` = ?");
+                                            $stmt->execute([$_GET['id']]);
+                                            while ($image = $stmt->fetchObject()) {
+                                                $product_images[] = $image;
+                                            }
+
+                                            $product_fetched = true;?>
+                                            <label for="product_image">Product Image</label>
+
+                                                <div class="row">
+                                            <?php if (empty($product_images)): ?>
+                                                <p>This product has no images</p>
+                                            <?php else:
+                                                foreach ($product_images as $image): ?>
+                                                    <a href="product_images/<?= $image->Product_Image_File_name ?>" target="_blank"><img src="product_images/<?= $image->Product_Image_File_name ?>" width="200" height="200" class="rounded mb-1 product-image-thumbnail" alt="Product Image"></a>
+                                                <?php endforeach;
+                                            endif; ?>
+
+                                                </div>
+                                            </div>
 
                                             <br/>
 
