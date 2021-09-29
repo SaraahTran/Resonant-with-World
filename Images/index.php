@@ -56,7 +56,7 @@ $stmt->execute();
             <tr>
                 <td style="width:5%"><?php echo $row->Product_Image_ID; ?> </td>
                 <td style="width:5%"><?php echo $row->Product_ID; ?> </td>
-                <td style="width:5%"><?php echo $row->Product_Image_File_name; ?> </td>
+                <td style="width:5%"><?php echo "<img src=".'../Products/product_images'.$row->Product_Image_File_name."/>"; ?> </td>
 
                 <?php endwhile; ?>
             </tr>

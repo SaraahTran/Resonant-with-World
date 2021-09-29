@@ -27,17 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sendmail_error = true;
         $sendmail_error_message = 'Message body cannot be empty';
     }
-    if (empty($_POST['client_id'])) {
+    if (empty($_POST['client_ids'])) {
         $sendmail_error = true;
         $sendmail_error_message = 'You must select at least one user as recipient';
     }
 
     // Getting emails of selected users
-    $query_placeholders = trim(str_repeat("?,", count($_POST['client_id'])), ",");
+    $query_placeholders = trim(str_repeat("?,", count($_POST['client_ids'])), ",");
     $query = "SELECT * FROM `Client` WHERE `Client_ID` in (" . $query_placeholders . ")";
     $stmt = $dbh->prepare($query);
-    if ($stmt->execute($_POST['client_id'])) {
-        if ($stmt->rowCount() != count($_POST['client_id'])) {
+    if ($stmt->execute($_POST['client_ids'])) {
+        if ($stmt->rowCount() != count($_POST['client_ids'])) {
             $sendmail_error = true;
             $sendmail_error_message = 'One of the selected user does not exist';
         } else {

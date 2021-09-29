@@ -96,7 +96,7 @@
                                             <div class="row">
                                                 <label for="otherInformation">Photoshoot Other Information</label>
                                                 <input type="text" id="otherInformation" name="otherInformation"
-                                                       value="<?= $record->Photo_Shoot_Other_Information ?>" maxlength="256" required value="<?= empty($_POST['otherInformation']) ? "" : $_POST['otherInformation'] ?>"/>
+                                                       value="<?= $record->Photo_Shoot_Other_Information ?>" maxlength="256"/>
                                             </div>
                                             <br/>
                                             <div class="modal-footer">
