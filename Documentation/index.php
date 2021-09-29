@@ -241,7 +241,41 @@ $stmt->execute();
 
 </div>
     <br/>
+    <h4>Images</h4>
+    <p><b>Total Number of Images: </b>
+        <?php
+        $count5 = $dbh->query("SELECT COUNT(*) FROM Product_Image");
+        $count_image = $count5->fetchColumn();
+        echo $count_image;
+        ?>
+        <?php
+        global $dbh;
+        $stmt = $dbh->prepare("SELECT * FROM `Product_Image`");
+        $stmt->execute();
+        ?>
+    <div class="table-responsive">
+        <table class="table table-bordered responsive table-condensed">
+            <thead>
+            <tr>
+                <th style="width:5%" scope="col">ID</th>
+                <th style="width:5%" scope="col">Product ID</th>
+                <th style="width:5%" scope="col">Image File Name</th>
 
+            </tr>
+            </thead>
+            <?php while ($row = $stmt->fetchObject()): ?>
+            <tbody>
+            <tr>
+                <td style="width:5%"><?php echo $row->Product_Image_ID; ?> </td>
+                <td style="width:5%"><?php echo $row->Product_ID; ?> </td>
+                <td style="width:5%"><?php echo $row->Product_Image_File_name; ?> </td>
+
+                <?php endwhile; ?>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 
     <h4>MySQL</h4>
     <?php
