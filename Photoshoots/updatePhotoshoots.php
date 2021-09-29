@@ -86,8 +86,8 @@
                                             </div>
                                             <div class="row">
                                                 <label for="date">Photoshoot Date and Time</label>
-                                                <input type="text" id="date" name="date"
-                                                       value="<?= $record->Photo_Shoot_DateTime ?>"/>
+                                                <input type="datetime-local" id="date" name="date"
+                                                       value="<?= $record->Photo_Shoot_DateTime ?>" required value="<?= empty($_POST['date']) ? "" : $_POST['date'] ?>/>
                                             </div>
                                             <div class="row">
                                                 <label for="quote">Photoshoot Quote</label>
