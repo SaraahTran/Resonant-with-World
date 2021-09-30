@@ -44,7 +44,7 @@ global $dbh;
                                 <tr>
                                     <td class="table-cell-center">
                                         <input type="checkbox" name="client_ids[]" class="emails-to-send"
-                                               value="<?php echo $client->client_id; ?>"/>
+                                               value="<?php echo $client->Client_ID; ?>"/>
                                     </td>
                                     <td><?= $client->Client_FirstName ?></td>
                                     <td><?= $client->Client_Surname ?></td>

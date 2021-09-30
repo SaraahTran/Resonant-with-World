@@ -10,6 +10,7 @@ require('../Menu/connection.php');
 // Process login request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
+
         //Run some SQL query here to find that user
         $stmt = $dbh->prepare("SELECT * FROM `User` WHERE `username` = ? AND `password` = ?");
         if ($stmt->execute([
@@ -18,11 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]) && $stmt->rowCount() == 1) {
             $row = $stmt->fetchObject();
             $_SESSION['user_id'] = $row->User_ID;
-            //Successfully logged in, redirect user to referer, or index page
+            //Successfully logged in, redirect user to referer, or index pa
+
             if (empty($_SESSION['referer'])) {
                 echo "<script type='text/javascript'>alert('Successfully logged in');</script>";
                 header("Location: ../dashboard.php");
-                exit();
+            }else{
+                $sitePath = "Location: " . $_SESSION['referer'];
+                header($sitePath);
             }
         } else {
             echo "<script type='text/javascript'>alert('Your username or password is incorrect. Please try again');</script>";
