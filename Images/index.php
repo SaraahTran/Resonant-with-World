@@ -48,6 +48,7 @@ $stmt->execute();
                 <th style="width:5%" scope="col">Product ID</th>
                 <th style="width:5%" scope="col">Image File Name</th>
                 <th style="width:5%" scope="col">Image</th>
+                <th style="width:1%" scope="col">Action</th>
 
 
             </tr>
@@ -59,6 +60,11 @@ $stmt->execute();
                 <td style="width:5%"><?php echo $row->Product_ID; ?> </td>
                 <td style="width:5%"><?php echo $row->Product_Image_File_name; ?> </td>
                 <td style="width:5%"><?php echo "<img class='image' src='../Products/product_images/$row->Product_Image_File_name' /> ";?> </td>
+                <td style="width:5%">
+                    <button type="button" class="action-button" data-toggle="tooltip" data-placement="top" title="View"
+                            onclick="window.location='./Products/viewProducts.php?id=<?= $row->Product_ID ?>'"><i
+                                class="center bi bi-eye-fill"></i></button>
+                </td>
                 <?php endwhile; ?>
             </tr>
             </tbody>
