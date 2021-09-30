@@ -26,7 +26,7 @@ global $dbh;
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <?php $client_stmt = $dbh->prepare("SELECT * FROM `client`");
+                    <?php $client_stmt = $dbh->prepare("SELECT * FROM `client` WHERE `Client_Subscribed` = 1");
 
                     if ($client_stmt->execute() && $client_stmt->rowCount() > 0): ?>
                         <table class="email-table table" width="100%" cellspacing="0">
