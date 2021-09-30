@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
 
 // Something goes wrong, send user back to product list page
 if (!(isset($product_fetched) && $product_fetched)) {
-    header("Location: products.php");
+    header("Location: Products");
     exit;
 }
 
@@ -83,14 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbh->beginTransaction();
 
         // Update product details
-        $query = "UPDATE `Product` SET `Product_Name` = ?, `Product_UPC` = ?, `Product_Price` = ?, `Product_Category` = ? WHERE `Product_ID` = ?";
+        $query = "UPDATE `Product` SET `Product_Name`=:product_name, `Product_Price`=:product_price,`Product_Category`=:product_category WHERE `Product_ID`=:id";
         $stmt = $dbh->prepare($query);
         $parameters = [
             $_POST['product_name'],
-            $_POST['product_upc'],
             $_POST['product_price'],
             $_POST['product_category'],
-            $modifiedProductId
+            'id' => $_GET['id']
         ];
 
         if ($stmt->execute($parameters)) {
@@ -168,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($serverSideErrors)) {
             $dbh->commit();
-            header("Location: products_detail.php?id=" . $modifiedProductId);
+            header("Location: viewProducts.php?id=" . $modifiedProductId);
             exit();
         } else {
             $dbh->rollBack();
@@ -213,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="productname">Product Name</label>
-                                    <input type="text" id="productname" name="productname" maxlength="64" required value="<?= empty($_POST['product_name']) ? $product->Product_Name: $_POST['product_name'] ?>">
+                                    <input type="text" id="product_name" name="product_name" maxlength="64" required value="<?= empty($_POST['product_name']) ? $product->Product_Name: $_POST['product_name'] ?>">
                                 </div>
                                 <div class="row">
                                     <label for="productupc">Product UPC</label>
@@ -227,13 +226,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input type="number" class="form-control" id="productprice" name="productprice" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['product_Price']) ? $product->Product_Price : $_POST['product_Price'] ?>"">
+                                        <input type="number" class="form-control" id="product_price" name="product_price" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['product_price']) ? $product->Product_Price : $_POST['product_price'] ?>"">
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <label for="product_category">Product Category</label>
-                                    <input type="text" id="productcategory" name="productcategory"
+                                    <input type="text" id="product_category" name="product_category"
                                            value="<?= $product->Product_Category ?>"/>
                                 </div>
 
