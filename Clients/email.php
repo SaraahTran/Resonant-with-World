@@ -70,12 +70,12 @@ global $dbh;
                 <div class="form-group">
                     <label for="sendmailSubject">Subject</label>
                     <input type="text" class="form-control" id="sendmailSubject" name="subject"
-                           placeholder="Latest Newsletter!" required>
+                           placeholder="Resonant With World Newsletter" required>
                 </div>
                 <div class="form-group">
                     <label for="sendmailMessage">Message</label>
                     <textarea class="form-control" id="sendmailMessage" name="body" rows="5"
-                              placeholder="Dear Resonant With World Clients, &#10;&#10;...&#10;&#10;Kind Regards, Anna Sola"
+                              placeholder="Dear Resonant With World Subscribers, &#10;&#10;...&#10;&#10;Kind Regards, Anna Sola"
                               required></textarea>
                 </div>
                 <button type="submit" class="send-button">Send Email</button>
