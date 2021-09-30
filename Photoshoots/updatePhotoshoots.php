@@ -97,7 +97,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">$</span>
                                                     </div>
-                                                <input type="number" id="quote" name="quote" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['quote']) ? $record->Photo_Shoot_Quote : $_POST['quote'] ?>">
+                                                <input type="number" class="form-control" id="quote" name="quote" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['quote']) ? $record->Photo_Shoot_Quote : $_POST['quote'] ?>">
                                                 </div>
                                             </div>
                                             <div class="row">
