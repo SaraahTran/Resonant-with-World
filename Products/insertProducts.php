@@ -274,12 +274,12 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                     <label for="product_category">Product Category</label>
                                     </div>
                                     <div class="row">
-                                        <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_ID`");
+                                        <?php $category_stmt = $dbh->prepare("SELECT * FROM `Category` AS PC INNER JOIN `Product_Category` AS C ON `PC.Category_ID` = `C.Category_ID` INNER JOIN `Product` AS P ON `PC.Product_ID` = `P.Product_ID`");
                                         if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
 
                                             <ul>
                                                 <?php while($row =$category_stmt->fetchObject()): ?>
-                                                   <li> <input type="checkbox" name="product_category" id="product_category"  value="<?= $row->Category_Name?>"  ? "Selected " : "" ?> <?= $row->Category_Name ?></option></li>
+                                                   <li> <input type="checkbox" name="product_category" id="product_category"  value="<?= $row->Category_ID?>"  ? "Selected " : "" ?> <?= $row->Category_ID ?></option></li>
                                                 <?php endwhile; ?>
                                             </ul>
 
