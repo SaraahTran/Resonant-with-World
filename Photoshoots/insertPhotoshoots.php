@@ -100,7 +100,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_quote">Photoshoot Quote</label>
-                                    <input type="number" id="photo_shoot_quote" name="photo_shoot_quote" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['photo_shoot_quote']) ? "" : $_POST['photo_shoot_quote'] ?>">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input type="number" id="photo_shoot_quote" name="photo_shoot_quote" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['photo_shoot_quote']) ? "" : $_POST['photo_shoot_quote'] ?>">
+                                </div>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_other_information">Photoshoot Other Information</label>
