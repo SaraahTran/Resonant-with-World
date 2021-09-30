@@ -22,7 +22,7 @@ global $dbh;
     <form method="post" action="sendEmail.php" id="send-emails">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                Select clients you would like to send emails to
+                List of Subscribed Clients
             </div>
             <div class="card-body">
                 <div class="table-responsive">
