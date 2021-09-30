@@ -183,11 +183,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card product-action-card">
+                <h5 class="card-header">Update Product</h5>
+                <div class="card-body action-body">
+                    <p class="card-text">
+
+                    <div class="justify-content-center center">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 pb-2">Edit product #<?= $product->Product_ID ?></h1>
-    <p class="mb-4">This page allows you to add a new product to the system</p>
     <?php if (isset($ERROR)): ?>
         <div class="card mb-4 border-left-danger">
             <div class="card-body">Cannot modify the product due to the following error:<br><code>
@@ -197,57 +204,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </code></div>
         </div>
     <?php endif; ?>
-    <form method="post" id="add-products" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="productName">Product Name</label>
-            <input type="text" class="form-control" id="product_name" name="product_name" maxlength="64" required value="<?= empty($_POST['product_name']) ? $product->Product_Name : $_POST['product_name'] ?>">
-        </div>
-        <div class="form-group">
-            <label for="product_upc">Product UPC </label>
-            <input type ="number" class="form-control" id="product_upc" name="product_upc" value="<?= $product->Product_UPC ?>" disabled/>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="productPurchasePrice">Purchase price</label>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="productPurchasePriceDollar">$</span>
+                        <form name="productForm" method="post" enctype="multipart/form-data" onSubmit="return validate()">
+                            <div class="aligned-form">
+                                <div class="row">
+                                    <label for="id">ID</label>
+                                    <input type="number" id="id" value="<?= $product->Product_ID ?>"
+                                           disabled/>
+                                </div>
+                                <div class="row">
+                                    <label for="productname">Product Name</label>
+                                    <input type="text" id="productname" name="productname" maxlength="64" required value="<?= empty($_POST['product_name']) ? $product->Product_Name: $_POST['product_name'] ?>">
+                                </div>
+                                <div class="row">
+                                    <label for="productupc">Product UPC</label>
+                                    <input type="number"
+                                           value="<?= $product->Product_UPC ?>" disabled/>
+                                </div>
+
+                                <div class="row">
+                                    <label for="product_price">Product Price</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input type="number" class="form-control" id="productprice" name="productprice" required step=".01" max="9999.99" min="0" value="<?= empty($_POST['product_Price']) ? $product->Product_Price : $_POST['product_Price'] ?>"">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label for="product_category">Product Category</label>
+                                    <input type="text" id="productcategory" name="productcategory"
+                                           value="<?= $product->Product_Category ?>"/>
+                                </div>
+
+                                <div class="row">
+                                    <label for="productSalePrice">Product Images</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
+                                        <label class="custom-file-label" for="customFile">Add more images to this product</label>
+                                        <div id="productProductImagesFeedback" class="invalid-feedback" id="productProductImagesFeedback">File error</div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <?php if (empty($product_images)): ?>
+                                            <p>This product has no images</p>
+                                        <?php else: ?>
+                                            <p>Tick the box in front of each image to delete that image</p>
+                                            <?php foreach ($product_images as $image): ?>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="productProductImageDelete-<?= $image->Product_Image_ID ?>" name="delete_images[]" value="<?= $image->Product_Image_ID ?>" <?= (isset($_POST['delete_images']) && in_array($image->Product_Image_ID, $_POST['delete_images'])?"checked":"") ?>>
+                                                    <label class="form-check-label" for="productProductImageDelete-<?= $image->Product_Image_ID ?>"><img src="product_images/<?= $image->Product_Image_File_name ?>" width="200" height="200" class="rounded mb-1 product-image-thumbnail" alt="Product Image"></label>
+                                                </div>
+                                            <?php endforeach;
+                                        endif; ?>
+                                    </div>
+                                </div>
+
+                                <br/>
+                                <div class="modal-footer">
+                                    <input class="submit-button" type="submit" value="Update"
+                                           onclick="submiBtnClick()";/>
+                                    <button class="cancel-button" type="button"
+                                            onclick="window.location='/Products';return false;">Cancel
+                                    </button>
+                                </div>
+                        </form>
+
                     </div>
-                    <input type="number" class="form-control" aria-describedby="productPurchasePriceDollar" id="productPurchasePrice" name="purchase_price" required step=".01" max="9999999.99" min="0" value="<?= empty($_POST['Product_Price']) ? $product->Product_Price : $_POST['Product_Price'] ?>">
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="productSalePrice">Product images</label>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="productProductImages" aria-describedby="productProductImagesFeedback" name="images[]" multiple>
-                <label class="custom-file-label" for="customFile">Add more images to this product</label>
-                <div id="productProductImagesFeedback" class="invalid-feedback" id="productProductImagesFeedback">File error</div>
-            </div>
-            <div class="form-group mt-2">
-                <?php if (empty($product_images)): ?>
-                    <p>This product has no images</p>
-                <?php else: ?>
-                    <p>Tick the box in front of each image to delete that image</p>
-                    <?php foreach ($product_images as $image): ?>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="productProductImageDelete-<?= $image->Product_Image_ID ?>" name="delete_images[]" value="<?= $image->Product_Image_ID ?>" <?= (isset($_POST['delete_images']) && in_array($image->Product_Image_ID, $_POST['delete_images'])?"checked":"") ?>>
-                            <label class="form-check-label" for="productProductImageDelete-<?= $image->Product_Image_ID ?>"><img src="product_images/<?= $image->Product_Image_File_name ?>" width="200" height="200" class="rounded mb-1 product-image-thumbnail" alt="Product Image"></label>
-                        </div>
-                    <?php endforeach;
-                endif; ?>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <input class="submit-button" type="submit" value="Update"
-                   onclick="submiBtnClick()";/>
-            <button class="cancel-button" type="button"
-                    onclick="window.location='/Products';return false;">Cancel
-            </button>
-        </div>
-    </form>
-
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
