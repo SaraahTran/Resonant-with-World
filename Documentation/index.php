@@ -260,6 +260,8 @@ $stmt->execute();
                 <th style="width:5%" scope="col">ID</th>
                 <th style="width:5%" scope="col">Product ID</th>
                 <th style="width:5%" scope="col">Image File Name</th>
+                <th style="width:5%" scope="col">Image</th>
+
 
             </tr>
             </thead>
@@ -269,7 +271,7 @@ $stmt->execute();
                 <td style="width:5%"><?php echo $row->Product_Image_ID; ?> </td>
                 <td style="width:5%"><?php echo $row->Product_ID; ?> </td>
                 <td style="width:5%"><?php echo $row->Product_Image_File_name; ?> </td>
-
+                <td style="width:5%"><?php echo "<img class='image' src='../Products/product_images/$row->Product_Image_File_name' /> ";?> </td>
                 <?php endwhile; ?>
             </tr>
             </tbody>
