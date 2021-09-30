@@ -118,6 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="container">
 
+
+
     <?php if (isset($ERROR)): ?>
         <div class="card mb-4 border-left-danger">
             <div class="card-body">Cannot add new product due to the following error:<br><code>
@@ -274,8 +276,8 @@ VALUES (NULLIF('$_POST[product_name]', ''),
                                     <label for="product_category">Product Category</label>
                                     </div>
                                     <div class="row">
-<!--                                        --><?php
-                                        //$category_stmt = $dbh->prepare("SELECT * FROM `Product_Category` AS `PC` INNER JOIN `Product` AS `P` ON `PC.Product_ID` = `P.Product_ID` INNER JOIN `Category` AS `C` ON `PC.Category_ID` = `C.Category_ID`");
+                                     <?php
+                                       // $category_stmt = $dbh->prepare("SELECT * FROM `Product_Category` AS `PC` INNER JOIN `Product` AS `P` ON `PC.Product_ID` = `P.Product_ID` INNER JOIN `Category` AS `C` ON `PC.Category_ID` = `C.Category_ID`");
                                         $category_stmt = $dbh->prepare("SELECT * FROM `Category` ORDER BY `Category_ID`");
                                         if ($category_stmt->execute() && $category_stmt-> rowCount() > 0) { ?>
 

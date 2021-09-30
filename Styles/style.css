@@ -639,6 +639,27 @@ td {
   color: #535353;
 }
 
+/*Send email Button*/
+.send-email-button {
+  border: none;
+  background: #7986b4;
+  color: white;
+  width: 100px;
+  font-size: 17px;
+  text-decoration: none!important;
+  padding: 15px!important;
+  margin-bottom: 15px!important;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+  border-radius: 0;
+  margin: 2px;
+}
+
+.send-email-button:hover {
+  background: #f2f7fb;
+  color: #535353;
+}
+
 /*Submit Button*/
 .submit-button {
   border: none;

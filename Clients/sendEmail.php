@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1 class="h3 mb-2 text-gray-800 pb-2">Sending email to users</h1>
 
         <?php if (isset($sendmail_invalid) && $sendmail_invalid): ?>
+        <div class="container">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-warning">Invalid request! </h6>
@@ -85,10 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <span class="text">Back to send email page</span>
                     </a>
                 </div>
-            </div>
+            </div></div>
 
         <?php elseif (isset($sendmail_error) && $sendmail_error): ?>
-            <div class="card shadow mb-4">
+        <div class="container">
+            <div class="col-8">
+            <div class="card card-bigger">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-danger">Emails did not sent correctly! </h6>
                 </div>
@@ -103,22 +106,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <span class="icon text-white-50"><i class="fas fa-arrow-alt-circle-left"></i></span>
                         <span class="text">Back to send email page</span>
                     </a>
-                </div>
-            </div>
+                </div></div>
+            </div></div>
 
         <?php else: ?>
+        <div class="container">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Emails sent successfully! </h6>
+                    <h6 class="m-0 font-weight-bold">Emails sent successfully! </h6>
                 </div>
                 <div class="card-body">
                     <p>Your message has been sent successfully. Click the button below to go back to the previous page. </p>
-                    <a href="email.php" class="btn btn-primary btn-icon-split">
-                        <span class="icon text-white-50"><i class="fas fa-arrow-alt-circle-left"></i></span>
-                        <span class="text">Back to send email page</span>
+                <br/><br/>
+                    <a href="email.php" class="send-email-button">
+                        Back to send email page
                     </a>
                 </div>
-            </div>
+            </div></div>
 
         <?php endif; ?>
     </div>
