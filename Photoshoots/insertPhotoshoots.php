@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !empty($_POST['photo_shoot_datetime']) &&
         !empty($_POST['photo_shoot_quote'])
     ) {
-        $query = "INSERT INTO `Photo_Shoot`(`photo_shoot_name`, `photo_shoot_description`, `photo_shoot_datetime`, `photo_shoot_quote`, `photo_shoot_other_information`) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO `Photo_Shoot`(`photo_shoot_name`, `photo_shoot_description`, `photo_shoot_datetime`, `photo_shoot_quote`, `photo_shoot_other_information`, `Client_ID`) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $dbh->prepare($query);
         $parameters = [
             $_POST['photo_shoot_name'],
@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['photo_shoot_datetime'],
             $_POST['photo_shoot_quote'],
             empty($_POST['photo_shoot_other_information']) ? null : $_POST['photo_shoot_other_information'],
+            $_POST['client_id'],
         ];
         ?>
 
@@ -84,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <div class="row">
                                     <label for="client_id">Client ID</label>
-                                    <input type="text" id="client_id" value="<?= $nextId ?>" disabled/>
+                                    <input type="text" id="client_id" name="client_id" value="<?= $nextId ?>" disabled/>
                                 </div>
                                 <div class="row">
                                     <label for="photo_shoot_name">Photoshoot Name</label>

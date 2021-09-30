@@ -23,6 +23,11 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="../../Source_Code/multipleProducts.php">
+                    Multiple Products
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="../../Source_Code/photoshoot.php">
                     Photoshoot
             </li>
