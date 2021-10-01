@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $modifiedProductId = $product->Product_ID;
 
     if  (!empty($_POST['product_name']) &&
-        !empty($_POST['product_upc']) &&
         !empty($_POST['product_price']) &&
         !empty($_POST['product_category'])) {
 
@@ -87,10 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $query = "UPDATE `Product` SET `Product_Name`=:product_name, `Product_Price`=:product_price,`Product_Category`=:product_category WHERE `Product_ID`=:id";
         $stmt = $dbh->prepare($query);
         $parameters = [
-            $_POST['product_name'],
-            $_POST['product_price'],
-            $_POST['product_category'],
-            'id' => $_GET['id']
+            "product_name" => $_POST['product_name'],
+            "product_price" => $_POST['product_price'],
+            "product_category" => $_POST['product_category'],
+            "id" => $modifiedProductId
         ];
 
         if ($stmt->execute($parameters)) {
