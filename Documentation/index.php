@@ -32,33 +32,38 @@ global $dbh;
             </tr>
             <tr>
                 <td>Clients</td>
-                <td></td>
-                <td></td>
+                <td>35</td>
+                <td>65</td>
             </tr>
             <tr>
                 <td>Products</td>
-                <td></td>
-                <td></td>
+                <td>35</td>
+                <td>65</td>
             </tr>
             <tr>
                 <td>Multiple Products</td>
-                <td></td>
-                <td></td>
+                <td>60</td>
+                <td>40</td>
             </tr>
             <tr>
                 <td>Photoshoots</td>
-                <td></td>
-                <td></td>
+                <td>50</td>
+                <td>50</td>
             </tr>
             <tr>
                 <td>Categories</td>
-                <td></td>
-                <td></td>
+                <td>35</td>
+                <td>65</td>
             </tr>
             <tr>
                 <td>Images</td>
-                <td></td>
-                <td></td>
+                <td>65</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Documentation</td>
+                <td>50</td>
+                <td>50</td>
             </tr>
             </thead>
         </table>
@@ -70,11 +75,13 @@ global $dbh;
                 Repository</a></p>
     <br/>
     <h4>Credentials</h4>
-    <p>Username: annas</p>
-    <p>Password: annas</p>
+    <p>Username: Anna</p>
+    <p>Password: $ol@nn@</p>
     <br/>
 
     <h4>Database Scheme and Demo Data SQL</h4>
+    <a href="../Schema%20and%20Data/schema.sql">Schema</a>
+    <br/>
     <br/>
 
     <h4>Clients</h4>
