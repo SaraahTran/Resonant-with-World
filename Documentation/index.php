@@ -32,38 +32,38 @@ global $dbh;
             </tr>
             <tr>
                 <td>Clients</td>
-                <td>35</td>
-                <td>65</td>
+                <td>35%</td>
+                <td>65%</td>
             </tr>
             <tr>
                 <td>Products</td>
-                <td>35</td>
-                <td>65</td>
+                <td>35%</td>
+                <td>65%</td>
             </tr>
             <tr>
                 <td>Multiple Products</td>
-                <td>60</td>
-                <td>40</td>
+                <td>60%</td>
+                <td>40%</td>
             </tr>
             <tr>
                 <td>Photoshoots</td>
-                <td>50</td>
-                <td>50</td>
+                <td>50%</td>
+                <td>50%</td>
             </tr>
             <tr>
                 <td>Categories</td>
-                <td>35</td>
-                <td>65</td>
+                <td>35%</td>
+                <td>65%</td>
             </tr>
             <tr>
                 <td>Images</td>
-                <td>65</td>
-                <td>35</td>
+                <td>65%</td>
+                <td>35%</td>
             </tr>
             <tr>
                 <td>Documentation</td>
-                <td>50</td>
-                <td>50</td>
+                <td>50%</td>
+                <td>50%</td>
             </tr>
             </thead>
         </table>
