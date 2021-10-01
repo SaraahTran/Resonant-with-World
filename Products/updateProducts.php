@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($serverSideErrors)) {
             $dbh->commit();
-            header("Location: viewProducts.php?id=" . $modifiedProductId);
+            header("Location: updateProductsConfirm.php?id=" . $modifiedProductId);
             exit();
         } else {
             $dbh->rollBack();

@@ -89,7 +89,7 @@
                                             <input class="submit-button button-delete" type="submit" name="action" id="delete-button"
                                                    value="Delete"/>
                                             <button class="cancel-button" type="button"
-                                                    onclick="window.location='/Categories';return false;">Cancel
+                                                    onclick="window.location='/Clients';return false;">Cancel
                                             </button>
                                         </div>
                                     </form>

@@ -36,7 +36,9 @@ CREATE TABLE `Photo_Shoot` (
                                PRIMARY KEY (`Photo_Shoot_ID`)
 );
 
-ALTER TABLE `Photo_Shoot` ADD CONSTRAINT `fk_Client_ID` FOREIGN KEY (`Client_ID`) REFERENCES `Client` (`Client_ID`);
+ALTER TABLE `Photo_Shoot` ADD CONSTRAINT `fk_Client_ID` FOREIGN KEY (`Client_ID`) REFERENCES `Client` (`Client_ID`)
+    ON DELETE CASCADE;
+
 
 CREATE TABLE `Product_Image` (
                                  `Product_Image_ID` int(11) auto_increment NOT NULL,
@@ -53,7 +55,9 @@ CREATE TABLE `User` (
                         PRIMARY KEY (`User_ID`)
 );
 
-ALTER TABLE `Product_Image` ADD CONSTRAINT `fk_Product_Image` FOREIGN KEY (`Product_ID`) REFERENCES `Product` (`Product_ID`);
+ALTER TABLE `Product_Image` ADD CONSTRAINT `fk_Product_Image` FOREIGN KEY (`Product_ID`) REFERENCES `Product` (`Product_ID`)
+    ON DELETE CASCADE;
+
 
 INSERT INTO `User` (`User_ID`, `Username`,  `Email`, `Password`) VALUES
     (1, 'Anna', 'anna.sola@example.com', SHA2('$ol@nn@', 256));
@@ -328,4 +332,6 @@ INSERT INTO `Product_Image` (`Product_Image_ID`, `Product_ID`, `Product_Image_Fi
 INSERT INTO `Product_Image` (`Product_Image_ID`, `Product_ID`, `Product_Image_File_name`) VALUES ('47', '24', 'camerabag.jpeg');
 
 INSERT INTO `Product_Image` (`Product_Image_ID`, `Product_ID`, `Product_Image_File_name`) VALUES ('48', '24', 'camerabag2.jpeg');
+
+
 

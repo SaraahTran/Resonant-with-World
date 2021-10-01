@@ -45,11 +45,11 @@
         </table>
     </div>
 
-Git Repository:
+<h3>Git Repository:</h3>
 https://git.infotech.monash.edu/fit2104-cl/fit2104-2021-s2/pair_lab01_manzur_02/fit2104_assignment_2
 <br>
 
-Credentials:
+<h3>Credentials:</h3>
 <br>
 Username: Anna
 <br>

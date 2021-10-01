@@ -78,13 +78,13 @@
 
                                             <?php
 
-                                            if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['product_ids'])) {
-                                                $query_placeholders = trim(str_repeat("?,", count($_POST['product_ids'])), ",");
+                                            if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['product_id'])) {
+                                                $query_placeholders = trim(str_repeat("?,", count($_POST['product_id'])), ",");
 
                                                 // Delete image files first
                                                 $query = "SELECT * FROM `Product_Image` WHERE `Product_ID` in (" . $query_placeholders . ")";
                                                 $stmt = $dbh->prepare($query);
-                                                $stmt->execute($_POST['product_ids']);
+                                                $stmt->execute($_POST['product_id']);
                                                 while ($image = $stmt->fetchObject()) {
                                                     $fileFullPath = "product_images" . DIRECTORY_SEPARATOR . $image->Product_Image_File_name;
                                                     unlink($fileFullPath);
@@ -93,12 +93,12 @@
                                                 // Then delete product images
                                                 $query = "DELETE FROM `Product_Image` WHERE `Product_ID` in (" . $query_placeholders . ")";
                                                 $stmt = $dbh->prepare($query);
-                                                $stmt->execute($_POST['product_ids']);
+                                                $stmt->execute($_POST['product_id']);
 
                                                 // Finally delete products
                                                 $query = "DELETE FROM `Product` WHERE `Product_ID` in (" . $query_placeholders . ")";
                                                 $stmt = $dbh->prepare($query);
-                                                $stmt->execute($_POST['product_ids']);
+                                                $stmt->execute($_POST['product_id']);
                                             }
 
 
