@@ -1,7 +1,10 @@
 <?php
 echo "<h1>PRODUCTS</h1>";
 echo "<br/> ";
-show_source("../Products/multipleProducts.php");
+show_source("../Products/index.php");
+echo "<h1>VIEW PRODUCTS</h1>";
+echo "<br/> ";
+show_source("../Products/viewProducts.php");
 echo "<h1>UPDATE PRODUCTS</h1>";
 echo "<br/> ";
 show_source("../Products/updateProducts.php");
@@ -17,4 +20,10 @@ show_source("../Products/multipleProducts.php");
 echo "<h1>EDIT MULTIPLE PRODUCTS</h1>";
 echo "<br/> ";
 show_source("../Products/editMultipleProducts.php");
+echo "<h1>DELETE SELECTED PRODUCTS</h1>";
+echo "<br/> ";
+show_source("../Products/deleteSelectedProduct.php");
+echo "<h1>SEARCH PRODUCTS</h1>";
+echo "<br/> ";
+show_source("../Products/searchProducts.php");
 ?>
