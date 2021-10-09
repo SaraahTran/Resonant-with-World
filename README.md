@@ -1,4 +1,6 @@
- <div class=" table-responsive">
+ <h1>FIT2104 Assignment 2</h1>
+
+<div class=" table-responsive">
         <table class="table table-bordered responsive">
             <thead>
             <tr>
@@ -50,13 +52,14 @@ https://git.infotech.monash.edu/fit2104-cl/fit2104-2021-s2/pair_lab01_manzur_02/
 <br>
 
 <h3>Credentials:</h3>
-Username: Anna
+<b>Username:</b> Anna
 <br>
-Password: $ol@nn@
+<b>Password:</b> $ol@nn@
 <br>
 
 
 <h3>Database Schema and Demo Data SQL </h3>
 <p>Schema and Data Folder</p>
-<p>--> schema.sql</p>
+<p>-->  <a href="Schema%20and%20Data/schema.sql">schema.sql</a></p>
+
 
