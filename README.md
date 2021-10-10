@@ -61,10 +61,12 @@ https://git.infotech.monash.edu/fit2104-cl/fit2104-2021-s2/pair_lab01_manzur_02/
 <h3>Database Schema and Demo Data SQL </h3>
 <p>Schema and Data -->  <a href="Schema%20and%20Data/schema.sql">schema.sql</a></p>
 
-<h3>PDF Installation</h3>
+<h1>Installation</h1>
+<h3>PDF</h3>
+After cloning the repository, you will need to install mPDF using Composer in the Clients/pdf_mpdf folder
 
 ```
-cd Clients/pdf-mpdf
+cd Clients/pdf_mpdf
 composer require mpdf/mpdf
 ```
 
