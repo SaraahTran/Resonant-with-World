@@ -34,6 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Getting emails of selected users
+    //we need an equivalent amount of questions to fill in each value one by one
+    //creating a bunch of question marks
+    //to match number of selected items in POST request
+    //question mark in prepare statement creates a dynamically adjusted statements to sent at the same time
+    //doesn't require a pre-determined number ina field (as many as you want in there)
     $query_placeholders = trim(str_repeat("?,", count($_POST['client_ids'])), ",");
     $query = "SELECT * FROM `Client` WHERE `Client_ID` in (" . $query_placeholders . ")";
     $stmt = $dbh->prepare($query);

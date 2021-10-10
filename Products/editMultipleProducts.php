@@ -16,6 +16,7 @@
 include('../Menu/menu.php');
 /** @var PDO $dbh */
 //Now we'll process the POST request
+//Execution section where this is the part where it updates the product price
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Product_ID'])) {
     foreach ($_POST['Product_ID'] as $Product_ID) {
         if (isset($_POST['Product_Price'][$Product_ID])) {
@@ -32,9 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['Product_ID'])) {
         }
     }
 }
+//Table part to allow users to select different a bunch of different records
 echo "<p class='message'>Please select at least one product to update.</p>";
 
-
+//running a query to select the products
+//generating form using html table with checkboxes as inputs along with button to execute request
+//line 75 name="Product_ID[]" is a container that contains multiple value and uses a unique identifier as it gives a specific value for each box
 $title_stmt = $dbh->prepare("SELECT * FROM `Product`");
 if ($title_stmt->execute() && $title_stmt->rowCount() > 0) { ?>
     <div class="container">

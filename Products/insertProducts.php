@@ -53,6 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // NOTE: file size validation in this demo code is only implemented in Javascript - see /js/scripts.js file for details
 
             // If no file is uploaded, then no need to process uploaded files
+            //check if the file exists (isset)
+            //checking the error code of file from 0 to 4  which is above ^ at the start of the code to define which error
             if (!(isset($_FILES['images']['error'][0]) && $_FILES['images']['error'][0] == 4)) {
                 // Check if any of the files has error during upload
                 foreach ($_FILES['images']['error'] as $index => $error) {
@@ -63,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 // Check if any of the files is in wrong MIME type
+                //$allowedMIME is in an array defined earlier so it determines which file type we accept
+                //MIME is a different way to describe the file type
                 foreach ($_FILES['images']['type'] as $index => $type) {
                     if (!empty($type) && !in_array($type, $allowedMIME)) {
                         $serverSideErrors[] = "The type of file '" . $_FILES['images']['name'][$index] . "' (" . $type . ") is not allowed";
@@ -86,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 // Finally, move images to its final place
+                //storing our files into product_images folder
                 if (empty($serverSideErrors)) {
                     foreach ($_FILES['images']['tmp_name'] as $index => $tmp_name) {
                         if (!move_uploaded_file($tmp_name, "product_images" . DIRECTORY_SEPARATOR . $filenames[$index])) {
