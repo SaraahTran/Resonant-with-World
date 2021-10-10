@@ -20,6 +20,7 @@ ob_start();
 </head>
 
 <body>
+
 <?php include('../Menu/menu.php'); ?>
 
 <div class="container">
@@ -30,7 +31,8 @@ ob_start();
                 <h5 class="card-header">Add New Client</h5>
                 <div class="card-body action-body">
                     <p class="card-text">
-
+<!--checking to see if user has entered any data and if NOT, display the form-->
+<!--if we find out it has no value it will output that form instead of anything else so users can fill in the data-->
                         <?php
 
                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -42,8 +42,11 @@
                             }
                         } else {
                             // When no POST form is submitted, get the record from database
+                            //show the user what kind of option are there is in the database
+                            //which allows them to delete a specific record
                             $query = "SELECT * FROM `Client` WHERE `Client_ID`=?";
                             $stmt = $dbh->prepare($query);
+                            //when listing records in the Database
                             if ($stmt->execute([$_GET['id']])) {
                                 if ($stmt->rowCount() > 0) {
                                     $record = $stmt->fetchObject(); ?>

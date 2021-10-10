@@ -45,6 +45,7 @@ function yesNo($n)
 
                             }
                             // Process the update record request (if a POST form is submitted)
+                            // using associative arrays in this as we can use named keys that we assigned
                             $query = "UPDATE `Client` SET `Client_FirstName`=:firstname,`Client_Surname`=:surname,`Client_Address`=:address,`Client_Phone`=:phone,`Client_Email`=:email, `Client_Subscribed`=:subscribe, `Client_Other_Information`=:otherInformation WHERE `Client_ID`=:id";
                             $stmt = $dbh->prepare($query);
                             $parameters = [
@@ -67,6 +68,7 @@ function yesNo($n)
                             }
                         } else {
                             // When no POST form is submitted, get the record from database
+                           //selecting the specific client from the ID and fetches it which allows the users to see the values before they edit it
                             $query = "SELECT * FROM `Client` WHERE `Client_ID`=?";
                             $stmt = $dbh->prepare($query);
                             if ($stmt->execute([$_GET['id']])) {
