@@ -47,11 +47,11 @@
         </table>
     </div>
 
-<h3>Git Repository:</h3>
+<h3>Git Repository</h3>
 https://git.infotech.monash.edu/fit2104-cl/fit2104-2021-s2/pair_lab01_manzur_02/fit2104_assignment_2
 <br>
 
-<h3>Credentials:</h3>
+<h3>Credentials</h3>
 <b>Username:</b> Anna
 <br>
 <b>Password:</b> $ol@nn@
@@ -59,7 +59,12 @@ https://git.infotech.monash.edu/fit2104-cl/fit2104-2021-s2/pair_lab01_manzur_02/
 
 
 <h3>Database Schema and Demo Data SQL </h3>
-<p>Schema and Data Folder</p>
-<p>-->  <a href="Schema%20and%20Data/schema.sql">schema.sql</a></p>
+<p>Schema and Data -->  <a href="Schema%20and%20Data/schema.sql">schema.sql</a></p>
 
+<h3>PDF Installation</h3>
+
+```
+cd Clients/pdf-mpdf
+composer require mpdf/mpdf
+```
 
